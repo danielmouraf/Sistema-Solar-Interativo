@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://danielmouraf.github.io/Sistema-Solar-Interativo/sitemap.xml
