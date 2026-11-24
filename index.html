@@ -1412,7 +1412,7 @@ const Narr = {
     if (this.voice) { try { u.voice = this.voice; } catch (e) { this.voice = null; } }
     /* Estilo "história" (contação): voz um pouco mais aguda e mais calma */
     const story = this.style === 'historia';
-    u.rate = clamp(this.rate - (story ? 0.05 : 0), 0.5, 1.5); u.pitch = this.pitch + (story ? 0.1 : 0); u.volume = this.volume;
+    u.rate = clamp(this.rate, 0.5, 1.5); u.pitch = this.pitch + (story ? 0.1 : 0); u.volume = this.volume;
     let settled = false, wd = null, sd = null;
     const next = () => { if (settled) return; settled = true; clearTimeout(wd); clearTimeout(sd); if (sid === this.session) this.play(i + 1, sid); };
     /* Se o navegador nunca iniciar a fala, avança pelo tempo estimado para a narração não travar */
@@ -1942,6 +1942,7 @@ function firstTouch() {
   $('hand').hidden = true;
 }
 function updateHand() {
+  { $('hand').hidden = true; return; }
   const h = $('hand');
   if (save.onboarded || !$('intro').hidden || tour.on) { h.hidden = true; return; }
   BODY.terra.focusObj.getWorldPosition(_w);
@@ -3576,6 +3577,7 @@ setInterval(() => {
 })();
 function updateHand2() {
   const h = $('hand2'); if (!h) return;
+  { h.hidden = true; return; }
   const show = b612Close() && !save.seals.handRose && !B612.handOff && $('intro').hidden && !tour.on;
   if (!show) { h.hidden = true; return; }
   const rose = B612.els.find(e => e.id === 'rosa'); rose.obj.getWorldPosition(_w);
