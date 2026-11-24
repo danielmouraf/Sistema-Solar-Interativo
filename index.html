@@ -236,6 +236,39 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 .sizeRef .rf i.rice{border-radius:50%/50%;transform:scaleX(1.9)}
 
 @media (prefers-reduced-motion:reduce){.hand{animation:none}.narrText .s,.bar>i,.btn,.bubble{transition:none}}
+
+/* ===== Avatares astronautas ===== */
+.avatar{position:fixed;left:12px;top:54px;z-index:38;width:clamp(68px,8.5vw,96px);pointer-events:none;filter:drop-shadow(0 6px 14px rgba(0,0,0,.45))}
+.avatar svg{width:100%;height:auto;display:block;overflow:visible}
+.avFloat{animation:avFloat 3.6s ease-in-out infinite}
+@keyframes avFloat{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-7px) rotate(2deg)}}
+.avatar.jump{animation:avJump .9s ease-out}
+@keyframes avJump{0%{transform:translateY(0)}35%{transform:translateY(-34px) scale(1.06)}70%{transform:translateY(0)}85%{transform:translateY(-8px)}100%{transform:translateY(0)}}
+.av-mt{display:none;transform-box:fill-box;transform-origin:center}
+.avatar .av-eyes{transform-box:fill-box;transform-origin:center;animation:avBlink 4.6s infinite}
+@keyframes avBlink{0%,93%,100%{transform:scaleY(1)}96%{transform:scaleY(.08)}}
+.avatar .av-armL{transform-origin:31px 97px;animation:avSwayL 3.2s ease-in-out infinite}
+.avatar .av-armR{transform-origin:89px 97px;animation:avSwayR 3.2s ease-in-out infinite}
+@keyframes avSwayL{0%,100%{transform:rotate(4deg)}50%{transform:rotate(-4deg)}}
+@keyframes avSwayR{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+.avatar.jump .av-armR{animation:avWave .45s ease-in-out 2}
+@keyframes avWave{0%,100%{transform:rotate(-150deg)}50%{transform:rotate(-125deg)}}
+.avatar.talk .av-ms{display:none}
+.avatar.talk .av-mt{display:block;animation:avTalk .32s ease-in-out infinite}
+@keyframes avTalk{0%,100%{transform:scaleY(.35)}50%{transform:scaleY(1.5)}}
+.avWrap{margin:0 0 18px}
+.avTitle{font-weight:800;font-size:16px;color:var(--mut);margin-bottom:6px}
+.avPick{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.panel .avPick{justify-content:flex-start}
+.avOpt{width:76px;height:96px;padding:6px 4px;border-radius:18px;background:rgba(255,255,255,.08);border:3px solid transparent;display:flex;align-items:center;justify-content:center;transition:transform .12s,background .2s,border-color .2s}
+.avOpt svg{width:100%;height:100%;display:block}
+.avOpt:hover{background:rgba(255,255,255,.18)}
+.avOpt:active{transform:scale(.94)}
+.avOpt.on{border-color:var(--acc);background:rgba(255,200,87,.18);box-shadow:0 0 22px rgba(255,200,87,.35)}
+.backBtn{left:clamp(88px,10.5vw,124px)}
+.bubble{left:clamp(88px,10.5vw,124px);top:116px;border-radius:4px 18px 18px 18px;max-width:min(280px,calc(100vw - 150px))}
+@media (max-width:760px){.avatar{width:62px;left:6px}.backBtn{left:74px}.bubble{top:114px;left:74px;font-size:15px;max-width:calc(100vw - 88px)}}
+@media (prefers-reduced-motion:reduce){.avFloat,.avatar .av-eyes,.avatar .av-armL,.avatar .av-armR{animation:none!important}}
 </style>
 </head>
 <body>
@@ -282,6 +315,7 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
   </nav>
 </div>
 
+<div id="avatar" class="avatar" aria-hidden="true"></div>
 <div id="bubble" class="bubble"></div>
 
 <section id="sizeHud" hidden></section>
@@ -301,6 +335,7 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
     <h1>Planetário Interativo</h1>
     <p class="sub">Sistema Solar em 3D para crianças</p>
     <div class="who"><label for="introName">Quem vai explorar hoje?</label><input id="introName" class="txt" maxlength="16" autocomplete="off" value="Maya"></div>
+    <div class="avWrap"><div class="avTitle">Escolha seu astronauta</div><div id="introAv"></div></div>
     <button id="startBtn" class="btn pri" data-act="start"><span class="mi" data-ic="go"></span> COMEÇAR A VIAGEM!</button>
     <details class="about"><summary>Sobre o planetário e perguntas frequentes</summary>
       <h2>O que é o Planetário Interativo</h2>
@@ -345,7 +380,7 @@ const mkCanvas = (w, h) => { const c = document.createElement('canvas'); c.width
    Migra automaticamente o progresso da versão anterior (estrelas, missões, nome e velocidade da voz). */
 const SAVE_KEY = 'sistemaSolar.v2', SAVE_KEY_V1 = 'planetario-sistema-solar-v1';
 const SAVE_DEFAULT = () => ({
-  v: 2, name: 'Maya', idade: 5, rate: 1.1,
+  v: 2, name: 'Maya', avatar: 'maya', idade: 5, rate: 1.1,
   voiceOn: true, narrLevel: 'completo', preview: true, dino: true, breakMin: 20,
   orbits: true, labels: true, speed: 'normal', mode: 'edu',
   stars: 0, done: {}, visited: {}, seals: {}, words: {}, wrong: {}, drawings: [], curiSeen: {}, onboarded: false
@@ -360,6 +395,7 @@ function loadSave() {
     save.stars = Number(s1.stars) || 0;
     save.done = (s1.done && typeof s1.done === 'object') ? s1.done : {};
     save.name = String(s1.name || 'Maya').slice(0, 16);
+    if (s1.avatar) save.avatar = String(s1.avatar);
     save.rate = s1.rv === 2 && s1.rate ? Number(s1.rate) : 1.1;
   }
 }
@@ -1676,6 +1712,8 @@ function renderPapai() {
   showPanel(`<h2>⚙️ Modo Papai</h2>
     <p style="font-size:15px">Ajustes para quem acompanha a criança.</p>
     <div class="pset">
+    <div class="cat">Meu astronauta</div>
+    ${avatarPicker()}
     <div class="cat">Quem está aprendendo</div>
     <div class="row"><input id="optName" class="txt" style="width:180px" maxlength="16" value="${esc(kid())}"><button class="btn sm on" data-act="nameSave">Salvar nome</button></div>
     <div class="cat">Idade padrão</div>
@@ -2054,38 +2092,85 @@ function openSize(sunPx, quiet, measured) {
   if (!quiet) Narr.speak(TXT.size, { label: 'Tamanho de verdade' });
 }
 
-/* Astronauta e efeitos */
-const astro = new THREE.Group();
-(function buildAstro() {
-  const mW = new THREE.MeshStandardMaterial({ color: 0xf4f6fa, roughness: 0.5 });
-  const mS = new THREE.MeshStandardMaterial({ color: 0x2f6fd6, roughness: 0.4 });
-  const mV = new THREE.MeshStandardMaterial({ color: 0x14243f, roughness: 0.15, metalness: 0.6 });
-  const mR = new THREE.MeshStandardMaterial({ color: 0xff5a4e });
-  const body = new THREE.Mesh(new THREE.SphereGeometry(0.55, 24, 18), mW);
-  body.scale.set(0.9, 1.05, 0.8); body.position.y = 0.1; astro.add(body);
-  const helmet = new THREE.Mesh(new THREE.SphereGeometry(0.42, 24, 18), mW);
-  helmet.position.y = 1.0; astro.add(helmet);
-  const visor = new THREE.Mesh(new THREE.SphereGeometry(0.3, 20, 14), mV);
-  visor.position.set(0, 1.02, 0.2); visor.scale.set(1, 0.85, 0.55); astro.add(visor);
-  const pack = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.7, 0.28), mS);
-  pack.position.set(0, 0.2, -0.45); astro.add(pack);
-  const stripe = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.08, 0.05), mR);
-  stripe.position.set(0, 0.25, 0.5); astro.add(stripe);
-  astro.userData.arms = [];
-  for (const s of [-1, 1]) {
-    const arm = new THREE.Mesh(new THREE.CylinderGeometry(0.13, 0.13, 0.6, 12), mW);
-    arm.position.set(s * 0.62, 0.25, 0); arm.rotation.z = s * 0.5; astro.add(arm);
-    astro.userData.arms.push(arm);
+/* Avatares de astronautas (SVG). A escolha fica salva no navegador. */
+const _tmp = new THREE.Vector3(), _w = new THREE.Vector3(), _p = new THREE.Vector3();
+const AVATARS = [
+  { id: 'maya', label: 'Astronauta menina de maria-chiquinha', skin: '#f3c6a2', hair: '#4b2d1b', suit: '#ff6fa5', suit2: '#d83a82', hairStyle: 'pigtails' },
+  { id: 'luna', label: 'Astronauta menina de cabelo cacheado', skin: '#8d5a3b', hair: '#1d1511', suit: '#9b6bff', suit2: '#6c3fd8', hairStyle: 'puffs' },
+  { id: 'theo', label: 'Astronauta menino de cabelo loiro', skin: '#f8d6b8', hair: '#e3a93b', suit: '#3b8bff', suit2: '#1e5fd0', hairStyle: 'short' },
+  { id: 'davi', label: 'Astronauta menino de cabelo curto', skin: '#c68a55', hair: '#18110d', suit: '#2ecb82', suit2: '#169a5c', hairStyle: 'buzz' }
+];
+const HAIR_CAP = 'M38 56Q35 29 60 29Q85 29 82 56Q79 44 70 41Q60 47 50 41Q41 44 38 56Z';
+const HAIR = {
+  pigtails: {
+    back: c => `<ellipse cx="37" cy="66" rx="7.5" ry="12" fill="${c}"/><ellipse cx="83" cy="66" rx="7.5" ry="12" fill="${c}"/>`,
+    front: (c, s) => `<path d="${HAIR_CAP}" fill="${c}"/><circle cx="39" cy="53" r="3.8" fill="${s}"/><circle cx="81" cy="53" r="3.8" fill="${s}"/>`
+  },
+  puffs: {
+    back: c => `<circle cx="34" cy="40" r="13" fill="${c}"/><circle cx="86" cy="40" r="13" fill="${c}"/>`,
+    front: (c, s) => `<path d="${HAIR_CAP}" fill="${c}"/><path d="M39 44Q60 34 81 44" stroke="${s}" stroke-width="4" fill="none" stroke-linecap="round"/>`
+  },
+  short: {
+    back: () => '',
+    front: c => `<path d="M38 57Q34 28 60 28Q86 28 82 57Q80 46 72 43Q64 50 52 43Q42 47 38 57Z" fill="${c}"/>`
+  },
+  buzz: {
+    back: () => '',
+    front: c => `<path d="M39 53Q38 32 60 32Q82 32 81 53Q73 42 60 42Q47 42 39 53Z" fill="${c}"/>`
   }
-  for (const s of [-1, 1]) {
-    const leg = new THREE.Mesh(new THREE.CylinderGeometry(0.15, 0.15, 0.6, 12), mW);
-    leg.position.set(s * 0.25, -0.7, 0); astro.add(leg);
-  }
-  scene.add(astro);
-})();
-let astroJumpT = 0, astroPosInit = false;
-const _fwd = new THREE.Vector3(), _right = new THREE.Vector3(), _up = new THREE.Vector3(), _tmp = new THREE.Vector3(), _w = new THREE.Vector3(), _p = new THREE.Vector3(), _want = new THREE.Vector3();
-function astroJump() { astroJumpT = 1; }
+};
+let avUid = 0;
+function avatarSvg(a) {
+  const u = 'av' + (++avUid), h = HAIR[a.hairStyle];
+  return `<svg viewBox="0 0 120 150" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+<defs><clipPath id="${u}c"><circle cx="60" cy="52" r="31"/></clipPath>
+<linearGradient id="${u}g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c4e6ff"/><stop offset="1" stop-color="#6aa6ea"/></linearGradient></defs>
+<rect x="30" y="88" width="60" height="34" rx="10" fill="#c3cde4" stroke="#9fb0d0" stroke-width="1.5"/>
+<rect x="43" y="120" width="15" height="20" rx="7" fill="${a.suit}"/><rect x="62" y="120" width="15" height="20" rx="7" fill="${a.suit}"/>
+<rect x="41" y="134" width="19" height="12" rx="6" fill="#f4f6fa"/><rect x="41" y="139" width="19" height="3.5" fill="${a.suit2}"/>
+<rect x="60" y="134" width="19" height="12" rx="6" fill="#f4f6fa"/><rect x="60" y="139" width="19" height="3.5" fill="${a.suit2}"/>
+<rect x="36" y="86" width="48" height="38" rx="15" fill="${a.suit}"/>
+<rect x="40" y="113" width="40" height="5" rx="2.5" fill="${a.suit2}"/>
+<rect x="47" y="94" width="26" height="15" rx="5" fill="${a.suit2}"/>
+<circle cx="54" cy="101" r="2.6" fill="#ffd23f"/><circle cx="61" cy="101" r="2.6" fill="#ff5a4e"/><circle cx="68" cy="101" r="2.6" fill="#6be3ff"/>
+<rect x="52" y="105" width="16" height="2.4" rx="1.2" fill="#fff" opacity=".55"/>
+<rect x="44" y="84" width="32" height="9" rx="4.5" fill="#dfe6f3"/>
+<g class="av-armL"><rect x="24" y="92" width="14" height="30" rx="7" fill="${a.suit}"/><circle cx="31" cy="123" r="7.5" fill="#f4f6fa"/></g>
+<g class="av-armR"><rect x="82" y="92" width="14" height="30" rx="7" fill="${a.suit}"/><circle cx="89" cy="123" r="7.5" fill="#f4f6fa"/></g>
+<circle cx="24" cy="54" r="6" fill="${a.suit}"/><circle cx="96" cy="54" r="6" fill="${a.suit}"/>
+<line x1="60" y1="18" x2="60" y2="9" stroke="#dfe6f3" stroke-width="2.4" stroke-linecap="round"/><circle cx="60" cy="7" r="3.4" fill="${a.suit}"/>
+<circle cx="60" cy="52" r="36" fill="#f6f8fc" stroke="#cdd6ea" stroke-width="1.5"/>
+<circle cx="60" cy="52" r="31" fill="url(#${u}g)"/>
+<g clip-path="url(#${u}c)">
+${h.back(a.hair)}
+<ellipse cx="60" cy="57" rx="20" ry="22" fill="${a.skin}"/>
+${h.front(a.hair, a.suit)}
+<g class="av-eyes"><ellipse cx="52" cy="57" rx="2.8" ry="3.4" fill="#2a1a14"/><ellipse cx="68" cy="57" rx="2.8" ry="3.4" fill="#2a1a14"/><circle cx="53" cy="55.8" r="1" fill="#fff"/><circle cx="69" cy="55.8" r="1" fill="#fff"/></g>
+<circle cx="45.5" cy="64" r="3.6" fill="#ff8fa3" opacity=".4"/><circle cx="74.5" cy="64" r="3.6" fill="#ff8fa3" opacity=".4"/>
+<path class="av-ms" d="M54 66.5Q60 72 66 66.5" stroke="#4a1a14" stroke-width="2" stroke-linecap="round" fill="none"/>
+<ellipse class="av-mt" cx="60" cy="68" rx="4.6" ry="3.4" fill="#6a1f2a"/>
+</g>
+<path d="M40 38Q46 28 58 26" stroke="#fff" stroke-width="3.2" stroke-linecap="round" fill="none" opacity=".55"/>
+</svg>`;
+}
+const avatarEl = $('avatar');
+function avatarPicker() {
+  return '<div class="avPick" role="radiogroup" aria-label="Escolha seu astronauta">' + AVATARS.map(a => {
+    const on = a.id === save.avatar;
+    return `<button type="button" class="avOpt ${on ? 'on' : ''}" role="radio" aria-checked="${on}" aria-label="${a.label}" title="${a.label}" data-act="avatarPick" data-arg="${a.id}">${avatarSvg(a)}</button>`;
+  }).join('') + '</div>';
+}
+function refreshAvatars() {
+  if (!AVATARS.some(x => x.id === save.avatar)) save.avatar = 'maya';
+  const cur = AVATARS.find(x => x.id === save.avatar);
+  avatarEl.innerHTML = '<div class="avFloat">' + avatarSvg(cur) + '</div>';
+  const ia = $('introAv'); if (ia) ia.innerHTML = avatarPicker();
+  if (state.panel === 'papai') renderPapai();
+}
+function astroJump() {
+  avatarEl.classList.remove('jump'); void avatarEl.offsetWidth; avatarEl.classList.add('jump');
+}
+avatarEl.addEventListener('animationend', e => { if (e.animationName === 'avJump') avatarEl.classList.remove('jump'); });
 let bubbleTimer = null;
 function astroSay(t) {
   const bb = $('bubble');
@@ -2107,30 +2192,9 @@ function burst(n = 14) {
     setTimeout(() => s.remove(), 1500);
   }
 }
-function updateAstro(dt) {
-  const tanF = Math.tan(camera.fov * 0.5 * DEG), H = VH;
-  _fwd.set(0, 0, -1).applyQuaternion(camera.quaternion);
-  _right.set(1, 0, 0).applyQuaternion(camera.quaternion);
-  _up.set(0, 1, 0).applyQuaternion(camera.quaternion);
-  let dist;
-  if (focus && focus.obj) {
-    focus.obj.getWorldPosition(_w);
-    const r = focus.obj === BODY.sol.focusObj ? 6 : Math.max(0.5, (BODY[selKey] ? BODY[selKey].rad : 1) || 1);
-    _want.copy(_w).addScaledVector(_right, r * 1.6 + 0.8).addScaledVector(_up, r * 0.7 + 0.4);
-  } else {
-    const D0 = Math.max(6, ctrl.radius * 0.5);
-    _want.copy(camera.position).addScaledVector(_fwd, D0).addScaledVector(_right, -0.55 * D0 * tanF * camera.aspect).addScaledVector(_up, -0.42 * D0 * tanF);
-  }
-  if (astroJumpT > 0) { astroJumpT = Math.max(0, astroJumpT - dt * 1.4); _want.addScaledVector(_up, Math.sin(astroJumpT * Math.PI) * 1.4); }
-  if (!astroPosInit) { astro.position.copy(_want); astroPosInit = true; }
-  astro.position.lerp(_want, 0.08);
-  dist = camera.position.distanceTo(astro.position);
-  const worldH = (focus ? 96 : 74) * 2 * dist * tanF / H;
-  astro.scale.setScalar(worldH / 2.2);
-  astro.quaternion.copy(camera.quaternion);
-  const t = performance.now() / 1000;
-  astro.userData.arms[0].rotation.z = -0.5 + Math.sin(t * 3) * 0.35;
-  astro.userData.arms[1].rotation.z = 0.5 + Math.sin(t * 3 + 1.5) * 0.35;
+/* O astronauta fala (boca mexe) enquanto a narração está em andamento */
+function updateAstro() {
+  avatarEl.classList.toggle('talk', !!(Narr.active && Narr.enabled && !Narr.paused));
 }
 
 /* Etiquetas de objetos e de pontos */
@@ -2403,7 +2467,7 @@ function frame(now) {
   updateLabels();
   updateHand();
   updateBack();
-  updateAstro(dt);
+  updateAstro();
   renderer.render(scene, camera);
 }
 /* Botão Voltar: sempre no mesmo lugar, volta um nível por vez */
@@ -2431,6 +2495,7 @@ const ACT = {
   sel(d) { selectBody(d.arg); },
   poi(d) { activatePoi(d.arg, d.id); },
   back() { goBack(); },
+  avatarPick(d) { save.avatar = d.arg; persist(); refreshAvatars(); astroJump(); astroSay(pick(['Oi! Vamos explorar?', 'Que legal! Agora sou eu!', 'Pronto para a viagem!'])); },
   again() { if (lastNarr.text) Narr.speak(lastNarr.text, { label: lastNarr.label, estilo: lastNarr.estilo }); },
   curio() { if (state.infoKey) nextCuriosity(); },
   prevAns(d) { prevAnswer(+d.arg); },
@@ -2451,7 +2516,7 @@ const ACT = {
   resetAsk() { state.confirmReset = true; renderPapai(); },
   resetNo() { state.confirmReset = false; renderPapai(); },
   resetYes() {
-    const keep = ['name', 'idade', 'rate', 'voiceOn', 'narrLevel', 'preview', 'dino', 'breakMin', 'orbits', 'labels', 'speed', 'mode'];
+    const keep = ['name', 'avatar', 'idade', 'rate', 'voiceOn', 'narrLevel', 'preview', 'dino', 'breakMin', 'orbits', 'labels', 'speed', 'mode'];
     const nu = SAVE_DEFAULT(); for (const k of keep) nu[k] = save[k]; nu.onboarded = true;
     save = nu; persist(); state.confirmReset = false; state.quiz = null; cancelMission();
     updateStars(); refreshVisitedLabels(); astroSay('Tudo zerado! Vamos começar de novo?'); renderPapai();
@@ -2520,6 +2585,7 @@ function expStop() {
    --------------------------------------------------------------------- */
 buildThumbs();
 buildLabels();
+refreshAvatars();
 fillIcons();
 $('introName').value = kid();
 refreshVisitedLabels();
