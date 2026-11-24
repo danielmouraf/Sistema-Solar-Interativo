@@ -148,7 +148,6 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 .brand b{font-size:15px}.brand small{display:none}
 .brand .logo.ic svg{width:26px;height:26px}
 .chip{padding:4px 10px;font-size:14px;background:rgba(10,17,36,.45);border-color:rgba(255,255,255,.08)}
-#btnPause{min-height:34px;min-width:34px;padding:4px 10px;font-size:13px;background:rgba(10,17,36,.45);border-color:rgba(255,255,255,.08)}
 #bottom{bottom:14px;gap:6px}
 .dock{height:auto;max-height:84px;width:min(880px,calc(100vw - 16px));padding:5px 10px;gap:10px;background:rgba(8,13,30,.5);border-color:rgba(255,255,255,.07);border-radius:16px}
 .dock .narr{padding:2px 4px;max-height:68px;background:none;border:0;scrollbar-width:none}
@@ -163,7 +162,6 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 .dctl .btn{flex:0 0 auto;min-height:30px;min-width:38px;padding:2px 8px;font-size:0;border-radius:10px;background:rgba(255,255,255,.07);border-color:transparent}
 .dctl .btn.on{background:rgba(94,200,255,.35);color:#fff}
 .dctl .mi svg{width:17px;height:17px}
-#dkRate{flex:1 0 100%}
 .rate{font-size:11px;gap:4px;opacity:.85}.rate .mi svg{width:18px;height:18px}.rate input{height:20px}
 #toolbar{padding:4px;gap:4px;background:rgba(8,13,30,.5);border-color:rgba(255,255,255,.07);border-radius:16px}
 #toolbar .btn{min-height:46px;min-width:58px;padding:3px 6px;font-size:10px;font-weight:700;border-radius:12px;background:rgba(255,255,255,.05);border-color:transparent;color:#b9c6e4;gap:1px}
@@ -191,6 +189,53 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 .about h2{font-family:"Baloo 2",Nunito,sans-serif;font-size:20px;margin:14px 0 4px;color:#fff}
 .about h3{font-size:15px;margin:10px 0 2px;color:#ffc857}
 .about p,.about ul{margin:4px 0}.about ul{padding-left:20px}
+
+/* ===== v2: barra inferior com 4 portas + 2 fixos (alvos de 72 px) ===== */
+#toolbar{justify-content:center}
+#toolbar .btn{min-height:72px;min-width:92px;padding:6px 10px;font-size:13px;font-weight:800;color:#dbe6ff;background:rgba(255,255,255,.08);gap:3px;border-radius:16px}
+#toolbar .btn:hover{background:rgba(255,255,255,.18);color:#fff}
+#toolbar .ic svg{width:34px;height:34px}
+@media (max-width:760px){#toolbar .btn{min-width:72px;font-size:12px}}
+
+/* Botão Voltar (sempre no mesmo lugar) e mãozinha do primeiro toque */
+.backBtn{position:fixed;left:10px;top:54px;z-index:26;min-height:56px;min-width:56px;padding:6px 16px 6px 10px;border-radius:18px;background:var(--panel);border:2px solid rgba(255,255,255,.22);font-weight:900;font-size:17px;display:inline-flex;align-items:center;gap:6px;color:#fff;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.backBtn .mi svg{width:26px;height:26px}
+.backBtn:active{transform:scale(.95)}
+.hand{position:fixed;left:0;top:0;z-index:44;font-size:54px;pointer-events:none;animation:handTap 1.3s ease-in-out infinite;filter:drop-shadow(0 4px 8px rgba(0,0,0,.6))}
+@keyframes handTap{0%,100%{margin-top:0}50%{margin-top:-14px}}
+
+/* Modo Papai: engrenagem com anel de progresso do toque longo */
+.papai{--p:0;position:relative;min-height:38px;min-width:38px;padding:4px 8px;background:rgba(10,17,36,.45);border-color:rgba(255,255,255,.08)}
+.papai::after{content:"";position:absolute;inset:-3px;border-radius:16px;background:conic-gradient(var(--acc) calc(var(--p)*1%),transparent 0);-webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 4px),#000 calc(100% - 3px));mask:radial-gradient(farthest-side,transparent calc(100% - 4px),#000 calc(100% - 3px));pointer-events:none}
+.papai .mi svg{width:22px;height:22px}
+.papai{touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
+.pset{margin:6px 0 2px}.pset .cat{margin-top:14px}
+.confirm{background:rgba(255,138,122,.14);border:2px solid #ff8a7a;border-radius:14px;padding:10px 12px;margin:8px 0;font-weight:800}
+
+/* Selo de origem do cartão e estilo "História" (papel aquarelado) */
+.seal{display:inline-block;font-size:13px;font-weight:900;letter-spacing:.03em;padding:3px 10px;border-radius:999px;background:rgba(94,200,255,.2);border:1px solid rgba(94,200,255,.5);color:#bfeaff;margin:0 0 6px}
+.panel.story{background:linear-gradient(145deg,#fbf1d6,#f1dba3);color:#3b2a14;border-color:#c9a45c;border-radius:30px 18px 28px 20px}
+.panel.story h2,.panel.story p,.panel.story .narrText,.panel.story .fact span{color:#3b2a14}
+.panel.story .narr{background:rgba(120,80,20,.08);border-color:rgba(120,80,20,.25)}
+.panel.story .narrText .s.on{background:rgba(201,164,92,.35)}
+.panel.story .seal{background:rgba(120,80,20,.12);border-color:#c9a45c;color:#6b4a14}
+.panel.story .cat{color:#6b4a14}
+.panel.story .btn{background:rgba(120,80,20,.12);border-color:rgba(120,80,20,.35);color:#3b2a14}
+.panel.story .btn.on,.panel.story .btn.pri{background:#c9a45c;color:#2a1b08}
+.panel.story .x{background:rgba(120,80,20,.18);color:#3b2a14}
+.story-font{font-family:"Baloo 2",Nunito,"Segoe Print","Comic Sans MS",cursive,sans-serif}
+
+/* Pergunta antes de contar */
+.prevq{font-size:23px;font-weight:900;color:#fff;margin:6px 0 10px;line-height:1.3}
+.opt.pickd{border-color:var(--acc);background:rgba(255,200,87,.2)}
+
+/* Comparação com coisas do dia a dia na tela de tamanho */
+.sizeRef{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;align-items:flex-end;margin:0 auto}
+.sizeRef .rf{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:13px;font-weight:800;color:#dbe6ff}
+.sizeRef .rf i{display:block;border-radius:50%;background:var(--c)}
+.sizeRef .rf i.rice{border-radius:50%/50%;transform:scaleX(1.9)}
+
+@media (prefers-reduced-motion:reduce){.hand{animation:none}.narrText .s,.bar>i,.btn,.bubble{transition:none}}
 </style>
 </head>
 <body>
@@ -201,9 +246,11 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
   <div class="brand"><span class="logo ic" data-ic="logo"></span><div><b>Planetário Interativo</b><small>Explorando o Universo</small></div></div>
   <div class="tools">
     <div class="chip" title="Estrelas conquistadas">⭐ <b id="starsN">0</b></div>
-    <button class="btn sm" data-act="pause" id="btnPause"><span class="mi" data-ic="pause"></span> Pausar</button>
+    <button class="btn sm papai" id="papaiBtn" title="Modo Papai: segure por 2 segundos" aria-label="Modo Papai: segure por 2 segundos para abrir" type="button"><span class="mi" data-ic="opt"></span></button>
   </div>
 </header>
+<button id="backBtn" class="backBtn" data-act="back" aria-label="Voltar" title="Voltar" hidden><span class="mi" data-ic="back"></span><span>Voltar</span></button>
+<div id="hand" class="hand" aria-hidden="true" hidden>👆</div>
 
 <div id="banner" class="banner" hidden></div>
 <div id="expBar" class="expbar" hidden></div>
@@ -222,19 +269,16 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
     <div class="narr"><div class="narrLabel" id="narrLabel">Narração</div><div id="narrText" class="narrText"></div></div>
     <div class="dctl">
       <div class="r"><button class="btn sm on" data-act="again" title="Ouvir de novo" aria-label="Ouvir de novo"><span class="mi" data-ic="speaker"></span> Ouvir</button><button class="btn sm" data-act="stopNarr" title="Parar" aria-label="Parar"><span class="mi" data-ic="stop"></span> Parar</button></div>
-      <div class="r"><button class="btn sm" id="dkPR" data-act="narrPR" title="Pausar ou continuar a voz" aria-label="Pausar ou continuar a voz"></button><button class="btn sm" id="dkOnOff" data-act="narrToggle" title="Ligar ou desligar a voz" aria-label="Ligar ou desligar a voz"></button></div>
-      <div id="dkRate"></div>
+      <div class="r"><button class="btn sm" id="dkPR" data-act="narrPR" title="Pausar ou continuar a voz" aria-label="Pausar ou continuar a voz"></button></div>
     </div>
   </div>
   <nav id="toolbar">
-    <button class="btn" title="Visão geral" aria-label="Visão geral" data-act="overview"><span class="ic" data-ic="overview"></span>Visão geral</button>
-    <button class="btn" title="Experiências" aria-label="Experiências" data-act="openPanel" data-arg="exp"><span class="ic" data-ic="exp"></span>Experiências</button>
-    <button class="btn" title="Viagem" aria-label="Viagem" data-act="tourStart"><span class="ic" data-ic="tour"></span>Viagem</button>
-    <button class="btn" title="Missões" aria-label="Missões" data-act="openPanel" data-arg="mis"><span class="ic" data-ic="mis"></span>Missões</button>
-    <button class="btn" title="Perguntas" aria-label="Perguntas" data-act="openPanel" data-arg="quiz"><span class="ic" data-ic="quiz"></span>Perguntas</button>
-    <button class="btn" title="Meu aniversário" aria-label="Meu aniversário" data-act="openPanel" data-arg="age"><span class="ic" data-ic="age"></span>Meu aniversário</button>
-    <button class="btn" title="Tamanho" aria-label="Tamanho" data-act="sizeOpen"><span class="ic" data-ic="size"></span>Tamanho</button>
-    <button class="btn" title="Opções" aria-label="Opções" data-act="openPanel" data-arg="opt"><span class="ic" data-ic="opt"></span>Opções</button>
+    <button class="btn" title="Ver tudo" aria-label="Ver tudo" data-act="overview"><span class="ic" data-ic="overview"></span>Ver tudo</button>
+    <button class="btn" title="Movimentos" aria-label="Movimentos" data-act="openPanel" data-arg="mov"><span class="ic" data-ic="exp"></span>Movimentos</button>
+    <button class="btn" id="tbAst" title="Asteroides" aria-label="Asteroides" data-act="openPanel" data-arg="ast" hidden><span class="ic" data-ic="rock"></span>Asteroides</button>
+    <button class="btn" title="Brincar" aria-label="Brincar" data-act="openPanel" data-arg="play"><span class="ic" data-ic="game"></span>Brincar</button>
+    <button class="btn" title="Viagem guiada" aria-label="Viagem guiada" data-act="tourStart"><span class="ic" data-ic="tour"></span>Viagem guiada</button>
+    <button class="btn" id="tbPass" title="Passaporte" aria-label="Passaporte" data-act="openPanel" data-arg="pass" hidden><span class="ic" data-ic="pass"></span>Passaporte</button>
   </nav>
 </div>
 
@@ -297,12 +341,31 @@ const shuffle = a => { for (let i = a.length - 1; i > 0; i--) { const j = Math.f
 const pick = a => a[Math.floor(Math.random() * a.length)];
 const mkCanvas = (w, h) => { const c = document.createElement('canvas'); c.width = w; c.height = h; return c; };
 
-const SAVE_KEY = 'planetario-sistema-solar-v1';
-let save = { stars: 0, done: {}, name: 'Maya', rate: 1.1, rv: 2 };
-try { const s = JSON.parse(localStorage.getItem(SAVE_KEY) || 'null'); if (s) save = Object.assign(save, s); } catch (e) {}
+/* PERSISTENCIA: chave única v2. Se o navegador bloquear o armazenamento, tudo continua funcionando sem salvar.
+   Migra automaticamente o progresso da versão anterior (estrelas, missões, nome e velocidade da voz). */
+const SAVE_KEY = 'sistemaSolar.v2', SAVE_KEY_V1 = 'planetario-sistema-solar-v1';
+const SAVE_DEFAULT = () => ({
+  v: 2, name: 'Maya', idade: 5, rate: 1.1,
+  voiceOn: true, narrLevel: 'completo', preview: true, dino: true, breakMin: 20,
+  orbits: true, labels: true, speed: 'normal', mode: 'edu',
+  stars: 0, done: {}, visited: {}, seals: {}, words: {}, wrong: {}, drawings: [], curiSeen: {}, onboarded: false
+});
+let save = SAVE_DEFAULT();
+function loadSave() {
+  let s2 = null, s1 = null;
+  try { s2 = JSON.parse(localStorage.getItem(SAVE_KEY) || 'null'); } catch (e) {}
+  if (s2 && typeof s2 === 'object') { save = Object.assign(SAVE_DEFAULT(), s2); return; }
+  try { s1 = JSON.parse(localStorage.getItem(SAVE_KEY_V1) || 'null'); } catch (e) {}
+  if (s1 && typeof s1 === 'object') {
+    save.stars = Number(s1.stars) || 0;
+    save.done = (s1.done && typeof s1.done === 'object') ? s1.done : {};
+    save.name = String(s1.name || 'Maya').slice(0, 16);
+    save.rate = s1.rv === 2 && s1.rate ? Number(s1.rate) : 1.1;
+  }
+}
+loadSave();
 const kid = () => (save.name || 'Maya');
 function saveName(v) { save.name = String(v || '').trim().slice(0, 16) || 'Maya'; persist(); }
-if (save.rv !== 2) { save.rate = 1.1; save.rv = 2; }
 function persist() { try { localStorage.setItem(SAVE_KEY, JSON.stringify(save)); } catch (e) {} }
 
 /* Números por extenso (português) para a idade planetária */
@@ -317,6 +380,18 @@ function numWords(n) {
   if (n < 100) { const d = Math.floor(n / 10), u = n % 10; return DZ[d] + (u ? ' e ' + UN[u] : ''); }
   if (n < 1000) { const c = Math.floor(n / 100), r = n % 100; return CE[c] + (r ? ' e ' + numWords(r) : ''); }
   return String(n);
+}
+/* Troca marcadores dinâmicos dos textos: {nome}, {idade}, {idade+1} e {idade_2029} (números por extenso) */
+function idade2029() {
+  const yrs = (new Date(2029, 3, 13) - new Date()) / (365.25 * 24 * 3600 * 1000);
+  return Math.max(1, Math.round((save.idade || 5) + yrs));
+}
+function tpl(s) {
+  return String(s)
+    .replace(/\{nome\}/g, kid())
+    .replace(/\{idade\+1\}/g, numWords((save.idade || 5) + 1))
+    .replace(/\{idade_2029\}/g, numWords(idade2029()))
+    .replace(/\{idade\}/g, numWords(save.idade || 5));
 }
 
 
@@ -340,7 +415,11 @@ const IC = {
   skip: S_('<path d="M7 8l23 16L7 40z" fill="currentColor"/><rect x="34" y="8" width="7" height="32" rx="2" fill="currentColor"/>'),
   stop: S_('<rect x="9" y="9" width="30" height="30" rx="6" fill="currentColor"/>'),
   turtle: S_('<path d="M6 34a16 15 0 0 1 32 0z" fill="#3fbf6a"/><path d="M14 34q2-9 8-9t8 9" fill="none" stroke="#2a8a4b" stroke-width="2"/><circle cx="42" cy="30" r="5" fill="#8be0a4"/><circle cx="43.500" cy="28.500" r="1.200" fill="#123"/><rect x="10" y="34" width="6" height="6" rx="2" fill="#8be0a4"/><rect x="28" y="34" width="6" height="6" rx="2" fill="#8be0a4"/>'),
-  hare: S_('<ellipse cx="21" cy="33" rx="15" ry="9" fill="#f4f6fa"/><circle cx="36" cy="27" r="7" fill="#f4f6fa"/><ellipse cx="33" cy="12" rx="3" ry="9" fill="#f4f6fa"/><ellipse cx="40" cy="13" rx="3" ry="8" fill="#f4f6fa"/><ellipse cx="33" cy="12" rx="1.200" ry="6" fill="#ffb3c7"/><circle cx="38.500" cy="26" r="1.500" fill="#222"/><circle cx="6" cy="31" r="3.500" fill="#fff"/>')
+  hare: S_('<ellipse cx="21" cy="33" rx="15" ry="9" fill="#f4f6fa"/><circle cx="36" cy="27" r="7" fill="#f4f6fa"/><ellipse cx="33" cy="12" rx="3" ry="9" fill="#f4f6fa"/><ellipse cx="40" cy="13" rx="3" ry="8" fill="#f4f6fa"/><ellipse cx="33" cy="12" rx="1.200" ry="6" fill="#ffb3c7"/><circle cx="38.500" cy="26" r="1.500" fill="#222"/><circle cx="6" cy="31" r="3.500" fill="#fff"/>'),
+  game: S_('<rect x="5" y="13" width="38" height="24" rx="12" fill="#7b5cff"/><rect x="11" y="22" width="12" height="4" rx="2" fill="#fff"/><rect x="15" y="18" width="4" height="12" rx="2" fill="#fff"/><circle cx="32" cy="20" r="3" fill="#ffc857"/><circle cx="37" cy="26" r="3" fill="#ff7a59"/><circle cx="27" cy="26" r="3" fill="#6be38f"/>'),
+  rock: S_('<path d="M9 28c-3-9 5-18 15-18 11 0 18 8 14 18-3 8-12 11-20 9-5-1-8-4-9-9z" fill="#a89f94"/><path d="M9 28c-3-9 5-18 15-18" fill="none" stroke="#cfc6ba" stroke-width="2.500"/><circle cx="19" cy="21" r="3.500" fill="#8a8178"/><circle cx="31" cy="28" r="4.500" fill="#8a8178"/><circle cx="22" cy="33" r="2.200" fill="#8a8178"/><circle cx="40" cy="8" r="1.800" fill="#fff"/><circle cx="7" cy="9" r="1.400" fill="#fff"/>'),
+  pass: S_('<rect x="9" y="5" width="30" height="38" rx="5" fill="#2f6fd6"/><rect x="9" y="5" width="30" height="38" rx="5" fill="none" stroke="#9fc4ff" stroke-width="2"/><circle cx="24" cy="20" r="8" fill="none" stroke="#ffc857" stroke-width="2.500"/><path d="M24 14.500l1.800 3.800 4.100.5-3 2.800.8 4.100-3.700-2-3.700 2 .8-4.100-3-2.800 4.100-.5z" fill="#ffc857"/><rect x="15" y="33" width="18" height="3" rx="1.500" fill="#9fc4ff"/>'),
+  back: S_('<path d="M30 7L13 24l17 17" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>')
 };
 const ic = n => '<span class="mi">' + (IC[n] || '') + '</span>';
 function fillIcons() { document.querySelectorAll('[data-ic]').forEach(e => { e.innerHTML = IC[e.dataset.ic] || ''; }); }
@@ -349,7 +428,6 @@ function rateHtml() {
   return '<label class="rate">' + ic('turtle') + '<input type="range" class="rateSl" min="0.5" max="1.4" step="0.1" value="' + Narr.rate + '" aria-label="Velocidade da voz">' + ic('hare') + '<b class="rateV">' + rateTxt() + '</b></label>';
 }
 function updateDock() {
-  const o = $('dkOnOff'); if (o) o.innerHTML = ic(Narr.enabled ? 'speaker' : 'speakerOff') + (Narr.enabled ? ' Voz ligada' : ' Voz desligada');
   const p = $('dkPR'); if (p) p.innerHTML = Narr.paused ? ic('play') + ' Continuar' : ic('pause') + ' Pausar';
 }
 
@@ -679,12 +757,12 @@ const DEFS = [
   { key: 'sol', name: 'Sol', dist: 0, rad: 6, T: 0, spinH: 600, tilt: 0, tex: 'sun', D: 30, basic: true, noOrbit: true,
     size: 'Cabe mais de 1 milhão de Terras dentro dele', dia: 'Cerca de 25 dias na região do equador', ano: 'Não se aplica: o Sol é o centro do Sistema Solar',
     main: 'Este é o Sol! Ele não é um planeta, ele é uma estrela. Uma estrela é uma bola enorme de gás muito quente que produz sua própria luz e energia. O Sol é tão grande que caberiam mais de um milhão de Terras dentro dele! É ele que ilumina e esquenta os planetas. Sem a energia do Sol, a vida na Terra como conhecemos não existiria. Todos os planetas giram em volta dele.',
-    curios: ['A luz do Sol demora mais ou menos oito minutos para chegar até a Terra!', 'Se fosse possível ir até o Sol de carro, a viagem demoraria mais de cento e setenta anos sem parar!', 'O Sol também gira em volta dele mesmo!', 'O Sol é uma estrela igual às estrelinhas que vemos à noite. Ele parece maior porque está muito mais perto!', 'Nunca devemos olhar diretamente para o Sol. Sua luz pode machucar nossos olhos!'],
+    curios: ['A luz do Sol demora mais ou menos oito minutos para chegar até a Terra!', 'Se fosse possível ir até o Sol de carro, a viagem demoraria mais de cento e setenta anos sem parar!', 'O Sol também gira em volta dele mesmo!', 'O Sol é uma estrela parecida com as estrelinhas que vemos à noite. Ele parece maior porque está muito mais perto!', 'Nunca devemos olhar diretamente para o Sol. Sua luz pode machucar nossos olhos!'],
     pois: [] },
   { key: 'mercurio', name: 'Mercúrio', dist: 14, rad: 1.1, T: 0.2408, spinH: 1407.6, tilt: 0.03, tex: 'mercury', D: 7,
     size: 'Um pouco maior que a Lua', dia: '59 dias terrestres', ano: '88 dias terrestres',
     main: 'Este é Mercúrio, o primeiro planeta, o mais pertinho do Sol. Ele é o menor de todos os oito planetas, só um pouquinho maior que a nossa Lua. Mercúrio é cheio de buracos chamados crateras, feitos por pedras do espaço que caíram nele. Seu ano dura apenas oitenta e oito dias terrestres!',
-    curios: ['Em Mercúrio, de dia é muito quente e de noite é geladíssimo!', 'Um dia de nascer do Sol até o próximo nascer do Sol dura quase o mesmo que dois anos de Mercúrio!', 'Mercúrio não tem nenhuma lua!', 'Seu nome vem de um mensageiro veloz das histórias antigas!'],
+    curios: ['Em Mercúrio, de dia é muito quente e de noite é geladíssimo!', 'Sabia que Mercúrio gira tão devagar que, lá, um dia inteiro, de um nascer do sol até o outro, dura dois anos inteiros de Mercúrio?', 'Mercúrio não tem nenhuma lua!', 'Seu nome vem de um mensageiro veloz das histórias antigas!'],
     pois: [
       { id: 'caloris', name: 'Bacia Caloris', lat: 30, lon: 165, D: 4, text: 'A Bacia Caloris é uma cratera gigante, formada por um impacto muito forte.', cat: 'Superfície' },
       { id: 'rochoso', name: 'Superfície rochosa', lat: -10, lon: 60, D: 4, text: 'A superfície de Mercúrio é rochosa e cheia de crateras, como um tabuleiro de pedras.', cat: 'Superfície' } ] },
@@ -698,7 +776,7 @@ const DEFS = [
   { key: 'terra', name: 'Terra', dist: 28, rad: 1.8, T: 1, spinH: 23.93, tilt: 23.5, tex: 'earth', D: 11, atmo: { color: 0x6fb4ff, s: 1.1, o: 0.22 }, clouds: true,
     size: 'Nossa casa: um planeta de tamanho médio', dia: '24 horas', ano: '365 dias',
     main: 'Esta é a Terra, a nossa casa! É o terceiro planeta a partir do Sol. A Terra é o único lugar onde conhecemos a existência de vida: pessoas, bichos e plantas. Ela tem muita água, por isso parece azul vista do espaço. A Terra tem condições especiais que permitem a existência de vida!',
-    curios: ['Se você dividir a superfície da Terra em dez pedaços, mais ou menos sete são cobertos por água!', 'Cada vez que você faz aniversário, a Terra deu uma volta inteirinha em volta do Sol!', 'A Terra está girando agora mesmo, e nós não sentimos!', 'A Terra é inclinada, como um pião meio tortinho. Essa inclinação ajuda a produzir as estações do ano!', 'A cada quatro anos, geralmente temos um dia a mais no calendário: vinte e nove de fevereiro!'],
+    curios: ['Se você dividir a superfície da Terra em dez pedaços, mais ou menos sete são cobertos por água!', 'Cada vez que você faz aniversário, a Terra deu uma volta inteirinha em volta do Sol! Quando você fizer {idade+1} anos, você terá dado {idade+1} voltas no Sol junto com a Terra!', 'A Terra está girando agora mesmo, e nós não sentimos!', 'A Terra é inclinada, como um pião meio tortinho. Essa inclinação ajuda a produzir as estações do ano!', 'A cada quatro anos, geralmente temos um dia a mais no calendário: vinte e nove de fevereiro!'],
     pois: [
       { id: 'am-sul', name: 'América do Sul', lat: -15, lon: -60, cat: 'Continentes', D: 7, text: 'A América do Sul fica no lado oeste do planeta. Nela está o Brasil, com florestas, rios e praias enormes!' },
       { id: 'am-norte', name: 'América do Norte', lat: 45, lon: -100, cat: 'Continentes', D: 7, text: 'A América do Norte tem neve no norte, desertos no oeste e grandes cidades.' },
@@ -762,11 +840,11 @@ const DEFS = [
   { key: 'plutao', name: 'Plutão', dist: 107, rad: 1.0, T: 248, spinH: 153.3, tilt: 120, tex: 'pluto', D: 6,
     size: 'Menor que a nossa Lua', dia: 'Cerca de 6 dias e meio', ano: 'Quase 248 anos terrestres',
     main: 'Este é Plutão! Durante muito tempo, ele foi chamado de nono planeta. Hoje sabemos que ele é um planeta anão. Plutão é pequeno, gelado e fica muito longe do Sol. Ele faz parte de uma região distante chamada Cinturão de Kuiper!',
-    curios: ['Plutão tem uma região clara que parece um coração!', 'Plutão demora duzentos e quarenta e oito anos terrestres para dar uma volta no Sol!', 'Sua lua Caronte é tão grande em comparação com Plutão que os dois parecem dançar juntos!', 'Plutão é menor que a nossa Lua!'],
+    curios: ['Plutão tem uma região clara que parece um coração!', 'Plutão demora duzentos e quarenta e oito anos terrestres para dar uma volta no Sol!', 'Sabia que Plutão tem uma lua chamada Caronte, que tem mais ou menos a metade do tamanho dele? Os dois giram juntinhos, como dois amigos dançando de mãos dadas.', 'Plutão é menor que a nossa Lua!'],
     pois: [ { id: 'coracao', name: 'Coração de Plutão', lat: 5, lon: 0, cat: 'Superfície', D: 4, text: 'A região clara em formato de coração é feita de gelo de nitrogênio.' } ] },
   { key: 'lua', name: 'Lua', moon: true, dist: 0, rad: 0.5, T: 0, spinH: 0, tilt: 0, tex: 'moon', D: 3.6,
     size: 'Cerca de um quarto da largura da Terra', dia: 'Cerca de 27 dias', ano: '27 dias ao redor da Terra',
-    main: 'Esta é a Lua, a companheira da Terra! A Lua não é um planeta. Ela é um satélite natural, que fica girando em volta da Terra. A Lua não tem luz própria. Ela brilha porque a luz do Sol bate nela e volta até nossos olhos. Ela demora aproximadamente um mês para dar uma volta em torno da Terra.',
+    main: 'Esta é a Lua, a companheira da Terra! A Lua não é um planeta. Ela é um satélite natural, que fica girando em volta da Terra. A Lua não tem luz própria. Ela brilha porque a luz do Sol bate nela, como uma bola iluminada por uma lanterna. Ela demora aproximadamente um mês para dar uma volta em torno da Terra.',
     curios: ['A Lua mostra sempre praticamente o mesmo lado para nós!', 'Doze astronautas já caminharam na Lua!', 'As pegadas dos astronautas podem continuar lá por muito tempo, porque não existem ventos e chuvas como na Terra!', 'Na Lua você conseguiria pular muito mais alto do que aqui!', 'A Lua parece mudar de forma, mas continua redondinha. O que muda é a parte iluminada que conseguimos enxergar!'],
     pois: [
       { id: 'apollo', name: 'Mar da Tranquilidade', lat: 0.7, lon: 23.5, cat: 'Superfície', D: 1.4, text: 'Foi aqui, no Mar da Tranquilidade, que a missão Apollo 11 pousou em 1969. As pegadas dos astronautas ainda estão lá!' },
@@ -1085,10 +1163,13 @@ function clearFocus() { focus = null; ctrl.auto = true; ctrl.desired = overviewR
    5. ESTADO GERAL
    --------------------------------------------------------------------- */
 const state = {
-  mode: 'edu', speed: 'normal', orbits: true, labels: true, paused: false,
+  mode: save.mode === 'prop' ? 'prop' : 'edu', speed: ['lento', 'normal', 'rapido'].includes(save.speed) ? save.speed : 'normal',
+  orbits: save.orbits !== false, labels: save.labels !== false, paused: false,
   sel: null, panel: null, infoOpen: false, infoKey: null, exp: null, ecl: null,
-  age: 5, sizeMode: 'real', quiz: null, mission: -1, hlOrbit: null, poiKey: null
+  age: save.idade || 5, sizeMode: 'real', quiz: null, mission: -1, hlOrbit: null, poiKey: null, prev: null
 };
+/* Movimento reduzido (acessibilidade): voos de câmera mais curtos e sem partículas de comemoração */
+const RM = !!(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);
 const tour = { on: false, i: 0, paused: false, phase: 'idle', timer: null };
 const TOUR = ['sol', 'mercurio', 'venus', 'terra', 'lua', 'marte', 'cinturao', 'jupiter', 'saturno', 'urano', 'netuno', 'plutao'];
 let expTimer = null, tgtKey = null, selKey = null;
@@ -1141,10 +1222,30 @@ function clearHl() {
   el.querySelectorAll('.w.wOn').forEach(n => n.classList.remove('wOn'));
 }
 
+/* AUDIO MANAGER: único ponto do código que fala com a Web Speech API.
+   Toda fala passa por uma fila; uma nova fala cancela a anterior.
+   API em português: falar(textos, opcoes), parar(), estaFalando(), on(evento, fn) com 'inicio', 'frase' e 'fim'.
+   Narr é o mesmo objeto (nome antigo, mantido para o restante do código). */
 const Narr = {
   supported: ('speechSynthesis' in window) && ('SpeechSynthesisUtterance' in window),
-  enabled: true, rate: save.rate || 1.1, active: false, cur: 0, pitch: 1.1, volume: 1, voice: null,
-  session: 0, sents: [], onDone: null, timer: null, paused: false,
+  enabled: save.voiceOn !== false, rate: save.rate || 1.1, active: false, cur: 0, pitch: 1.1, volume: 1, voice: null,
+  session: 0, sents: [], onDone: null, timer: null, paused: false, style: 'normal', handlers: { inicio: [], frase: [], fim: [] },
+  on(ev, fn) { if (this.handlers[ev]) this.handlers[ev].push(fn); },
+  emit(ev, data) { for (const f of this.handlers[ev] || []) { try { f(data); } catch (e) {} } },
+  falar(textos, opcoes) { this.speak(Array.isArray(textos) ? textos.join(' ') : textos, opcoes || {}); },
+  parar() { this.stop(); },
+  estaFalando() { return this.active; },
+  /* Navegadores só liberam áudio depois de um toque: fala um espaço mudo no primeiro clique */
+  unlock() { if (this.supported) { try { const u = new SpeechSynthesisUtterance(' '); u.volume = 0; speechSynthesis.speak(u); } catch (e) {} } },
+  onVisibility(hidden) {
+    if (!this.supported) return;
+    try { if (hidden) speechSynthesis.pause(); else if (!this.paused) speechSynthesis.resume(); } catch (e) {}
+  },
+  init() {
+    if (!this.supported) return;
+    this.pickVoice();
+    speechSynthesis.onvoiceschanged = () => this.pickVoice();
+  },
   pickVoice() {
     if (!this.supported) return null;
     const vs = speechSynthesis.getVoices() || [];
@@ -1157,11 +1258,14 @@ const Narr = {
   speak(text, opts = {}) {
     this.stop();
     const sid = ++this.session;
+    text = tpl(text);
     this.onDone = opts.onDone || null;
+    this.style = opts.estilo || 'normal';
     this.sents = splitSentences(text);
-    lastNarr = { text, label: opts.label || '' };
+    lastNarr = { text, label: opts.label || '', estilo: this.style };
     this.active = true;
     renderNarr(this.sents, opts.label);
+    this.emit('inicio', { label: opts.label || '', texto: text });
     this.timer = setTimeout(() => this.play(0, sid), this.supported ? 60 : 0);
   },
   play(i, sid) {
@@ -1169,6 +1273,7 @@ const Narr = {
     if (i >= this.sents.length) { this.finish(sid); return; }
     this.cur = i;
     hlSentence(i);
+    this.emit('frase', { i, texto: this.sents[i] });
     const text = this.sents[i];
     if (!this.enabled || !this.supported) {
       this.timer = setTimeout(() => this.play(i + 1, sid), Math.max(1400, text.length * 75) / (this.rate || 1));
@@ -1177,16 +1282,23 @@ const Narr = {
     const u = new SpeechSynthesisUtterance(text);
     u.lang = 'pt-BR';
     if (this.voice) { try { u.voice = this.voice; } catch (e) { this.voice = null; } }
-    u.rate = this.rate; u.pitch = this.pitch; u.volume = this.volume;
-    let settled = false, wd = null;
-    const next = () => { if (settled) return; settled = true; clearTimeout(wd); if (sid === this.session) this.play(i + 1, sid); };
+    /* Estilo "história" (contação): voz um pouco mais aguda e mais calma */
+    const story = this.style === 'historia';
+    u.rate = clamp(this.rate - (story ? 0.05 : 0), 0.5, 1.5); u.pitch = this.pitch + (story ? 0.1 : 0); u.volume = this.volume;
+    let settled = false, wd = null, sd = null;
+    const next = () => { if (settled) return; settled = true; clearTimeout(wd); clearTimeout(sd); if (sid === this.session) this.play(i + 1, sid); };
     /* Se o navegador nunca iniciar a fala, avança pelo tempo estimado para a narração não travar */
     wd = setTimeout(() => {
       if (settled || sid !== this.session) return;
       if (!started) { try { speechSynthesis.cancel(); } catch (e) {} next(); }
     }, 6000);
     let started = false;
-    u.onstart = () => { started = true; clearTimeout(wd); };
+    /* Chrome às vezes trava e nunca dispara onend: se passar de 15 s (ou do dobro do tempo estimado), cancela e segue */
+    u.onstart = () => {
+      started = true; clearTimeout(wd);
+      sd = setTimeout(() => { if (settled || sid !== this.session || this.paused) return; try { speechSynthesis.cancel(); } catch (e) {} next(); },
+        Math.max(15000, text.length * 75 * 2 / (this.rate || 1)));
+    };
     u.onboundary = ev => { if (sid !== this.session) return; if (ev.name && ev.name !== 'word') return; hlWord(i, ev.charIndex || 0); };
     u.onend = () => next();
     u.onerror = ev => {
@@ -1200,6 +1312,7 @@ const Narr = {
     const cb = this.onDone; this.onDone = null;
     this.active = false;
     clearHl();
+    this.emit('fim', {});
     if (cb) cb();
   },
   stop() {
@@ -1224,10 +1337,8 @@ const Narr = {
     this.timer = setTimeout(() => this.play(i, sid), 80);
   }
 };
-if (Narr.supported) {
-  Narr.pickVoice();
-  speechSynthesis.onvoiceschanged = () => Narr.pickVoice();
-}
+const AudioManager = Narr;
+Narr.init();
 function voiceInfo() {
   if (!Narr.supported) return 'Este navegador não tem narração por voz. O texto continua visível na tela.';
   if (!Narr.voice) return 'Nenhuma voz em português foi encontrada. Usando a voz padrão do navegador.';
@@ -1239,31 +1350,44 @@ function voiceInfo() {
    7. INTERFACE: PAINÉIS, AÇÕES E FEEDBACK
    --------------------------------------------------------------------- */
 let lastNarr = { text: '', label: '' };
-const CURI = {};
+/* Curiosidades sem repetição: os índices já contados ficam salvos; só reinicia quando todas foram contadas */
 function nextCuriosity() {
   const b = BODY[state.infoKey]; if (!b || !b.curios || !b.curios.length) return;
-  const d = CURI[b.key] || (CURI[b.key] = { deck: [], last: null });
-  if (!d.deck.length) {
-    d.deck = shuffle(b.curios.slice());
-    if (d.deck.length > 1 && d.deck[0] === d.last) d.deck.push(d.deck.shift());
+  const seen = save.curiSeen[b.key] || (save.curiSeen[b.key] = []);
+  const all = b.curios.map((_, i) => i);
+  let pool = all.filter(i => !seen.includes(i));
+  if (!pool.length) {
+    const lastIdx = seen.length ? seen[seen.length - 1] : -1;
+    seen.length = 0;
+    pool = all.filter(i => i !== lastIdx || all.length === 1);
   }
-  const text = d.deck.shift();
-  d.last = text;
-  const shown = b.curios.length - d.deck.length;
-  const label = `Curiosidade ${shown} de ${b.curios.length}`;
+  const idx = pick(pool);
+  seen.push(idx); persist();
+  const text = tpl(b.curios[idx]);
+  const label = `Curiosidade ${seen.length} de ${b.curios.length}`;
   const box = $('curi');
   if (box) { box.style.display = 'block'; box.textContent = '💡 ' + text; }
   lastNarr = { text, label };
   Narr.speak(text, { label });
 }
+/* Narração "Curtinho": só as duas primeiras frases (ou o texto curto do objeto, se existir) */
+function mainText(b) {
+  const full = tpl(b.main);
+  if (save.narrLevel !== 'curtinho') return full;
+  if (b.short) return tpl(b.short);
+  return splitSentences(full).slice(0, 2).join(' ');
+}
 
-function showPanel(html) {
+function showPanel(html, opt = {}) {
   const pb = $('panelBody');
   pb.innerHTML = `<button class="x" data-act="closePanel" aria-label="Fechar">✕</button>` + html;
-  $('panel').hidden = false;
+  const pn = $('panel');
+  pn.classList.toggle('story', !!opt.story);
+  pn.hidden = false;
 }
 function closePanel() {
   if (!tour.on) Narr.stop();
+  clearTimeout(state.prevTimer); state.prev = null;
   $('panel').hidden = true;
   state.panel = null;
   if (state.infoOpen) { state.infoOpen = false; }
@@ -1293,14 +1417,14 @@ function showInfo(key, opt = {}) {
   state.infoOpen = true; state.infoKey = key; state.panel = 'info';
   const img = THUMB[key] ? `<img src="${THUMB[key]}" alt="${esc(b.name)}">` : `<div class="noimg">☄️</div>`;
   showPanel(`
-    <div class="ph">${img}<div><h2>${esc(b.name)}</h2><p style="margin:0;color:#a9bbe0">Toque nos botões para ouvir e descobrir.</p></div></div>
+    <div class="ph">${img}<div><span class="seal">🔬 É de verdade</span><h2>${esc(b.name)}</h2><p style="margin:0;color:#a9bbe0">Toque nos botões para ouvir e descobrir.</p></div></div>
     ${factsHtml(b)}
     <div class="curi" id="curi"></div>
     <div class="row">
       <button class="btn sm on" data-act="curio">💡 Outra curiosidade</button>
     </div>
     ${poiHtml(b)}`);
-  const text = opt.text || b.main;
+  const text = opt.text || mainText(b);
   const label = opt.label || ('Conhecendo ' + b.name);
   lastNarr = { text, label };
   if (!opt.noSpeak) Narr.speak(text, { label });
@@ -1331,11 +1455,12 @@ function renderPoiLabels(key) {
 }
 
 function openPanel(name) {
-  if (name === 'exp') return renderExp();
+  if (name === 'exp' || name === 'mov') return renderMov();
+  if (name === 'play') return renderPlay();
   if (name === 'mis') return renderMissions();
   if (name === 'quiz') { state.quiz = null; return renderQuiz(true); }
   if (name === 'age') return renderAge();
-  if (name === 'opt') return renderOpt();
+  if (name === 'opt' || name === 'papai') return renderPapai();
 }
 
 /* Missões */
@@ -1420,7 +1545,8 @@ const QUIZ = [
   { q: 'O que causa o dia e a noite?', a: 'rot', exp: 'A Terra gira, e o Sol ilumina um lado de cada vez.', opts: [{ id: 'rot', label: 'Rotação da Terra', emo: '🌍' }, { id: 'luz', label: 'Luz própria da Lua', emo: '🌕' }, { id: 'eclipse', label: 'Eclipse', emo: '🌑' }, { id: 'chuva', label: 'Chuva', emo: '🌧️' }] },
   { q: 'A Lua tem luz própria?', a: 'nao', exp: 'A Lua não tem luz própria. Ela reflete a luz do Sol.', opts: [{ id: 'sim', label: 'Sim', emo: '✨' }, { id: 'nao', label: 'Não', emo: '🌕' }] }
 ];
-const PRAISE = [n => 'Uau, ' + n + ', acertou!', n => 'Você é astronauta de verdade, ' + n + '!', n => 'Isso mesmo, ' + n + '! Que descoberta incrível!', n => 'Mandou muito bem, ' + n + '!'];
+const PRAISE = [n => 'Uau, ' + n + ', acertou!', n => 'Você é astronauta de verdade, ' + n + '!', n => 'Isso mesmo, ' + n + '! Que descoberta incrível!', n => 'Mandou muito bem, ' + n + '!',
+  n => 'Isso mesmo, você prestou atenção!', n => 'Você pensou direitinho, ' + n + '!', n => 'Essa foi difícil, e você conseguiu!'];
 const ENCOUR = ['Quase! Vamos descobrir juntos?', 'Boa tentativa! Vou mostrar a resposta.', 'Errar também faz parte de aprender!'];
 
 function renderQuiz(speakQ) {
@@ -1517,37 +1643,88 @@ function ageSay() {
   Narr.speak(`Você tem ${numWords(a)} anos aqui na Terra. ` + parts.join(' '), { label: 'Meu aniversário' });
 }
 
-/* Opções */
-function renderOpt() {
-  state.infoOpen = false; state.panel = 'opt';
-  showPanel(`<h2>⚙️ Opções</h2>
-    <div class="cat">Movimento</div>
-    <div class="row">
-      <button class="btn sm ${state.mode === 'edu' ? 'on' : ''}" data-act="mode" data-arg="edu">🎓 Modo educativo</button>
-      <button class="btn sm ${state.mode === 'prop' ? 'on' : ''}" data-act="mode" data-arg="prop">📐 Modo proporcional</button>
-    </div>
-    <p style="font-size:14px">${state.mode === 'prop' ? 'Tempo acelerado: as proporções dos períodos são reais, mas o tempo está muito acelerado para caber na tela.' : 'Velocidades ajustadas para facilitar a observação. A Terra completa uma volta em torno do Sol em cerca de 60 segundos.'}</p>
-    <div class="cat">Velocidade</div>
-    <div class="row">
-      <button class="btn sm ${state.speed === 'lento' ? 'on' : ''}" data-act="speed" data-arg="lento">🐢 Lenta</button>
-      <button class="btn sm ${state.speed === 'normal' ? 'on' : ''}" data-act="speed" data-arg="normal">▶ Normal</button>
-      <button class="btn sm ${state.speed === 'rapido' ? 'on' : ''}" data-act="speed" data-arg="rapido">🐇 Rápida</button>
-    </div>
-    <div class="cat">Exibição</div>
-    <div class="row">
-      <button class="btn sm ${state.orbits ? 'on' : ''}" data-act="toggleOrbits">🪐 Órbitas: ${state.orbits ? 'visíveis' : 'ocultas'}</button>
-      <button class="btn sm ${state.labels ? 'on' : ''}" data-act="toggleLabels">🏷️ Nomes: ${state.labels ? 'visíveis' : 'ocultos'}</button>
-    </div>
-    <div class="cat">Velocidade da voz</div>
-    ${rateHtml()}
-    <div class="row" style="margin-top:6px"><button class="btn sm ${Narr.enabled ? 'on' : ''}" data-act="narrToggle">${Narr.enabled ? 'Voz ligada' : 'Voz desligada'}</button></div>
-    <p style="font-size:14px">${esc(voiceInfo())}</p>
+/* Funcionalidades já disponíveis nesta versão (ligadas fase a fase) */
+const FEAT = { asteroids: false, passport: false, dino: false, reminder: false };
+
+/* Portas da barra inferior: Movimentos e Brincar */
+function renderMov() {
+  state.infoOpen = false; state.panel = 'mov';
+  showPanel(`<h2>🧭 Movimentos</h2>
+    <p>Escolha um movimento para ver e ouvir a explicação.</p>
+    <div class="grid2" style="margin-top:8px">${EXP_LIST.map(([k, l]) => `<button class="btn" style="min-height:76px;font-size:16px" data-act="exp" data-arg="${k}">${l}</button>`).join('')}
+      <button class="btn" style="min-height:76px;font-size:16px" data-act="sizeOpen">📏 Tamanho de verdade</button></div>`);
+}
+function renderPlay() {
+  state.infoOpen = false; state.panel = 'play';
+  showPanel(`<h2>🎮 Brincar</h2>
+    <p>Escolha uma brincadeira.</p>
+    <div class="grid2" style="margin-top:8px">
+      <button class="btn" style="min-height:84px;font-size:17px" data-act="openPanel" data-arg="quiz">❓ Perguntas</button>
+      <button class="btn" style="min-height:84px;font-size:17px" data-act="openPanel" data-arg="age">🎂 Meu aniversário nos planetas</button>
+      <button class="btn" style="min-height:84px;font-size:17px" data-act="openPanel" data-arg="mis">🎯 Missões</button>
+    </div>`);
+}
+
+/* MODO PAPAI: abre só com toque longo de 2 segundos na engrenagem */
+function renderPapai() {
+  state.infoOpen = false; state.panel = 'papai';
+  const t = (c, a, arg, label) => `<button class="btn sm ${c ? 'on' : ''}" data-act="${a}"${arg !== undefined ? ` data-arg="${arg}"` : ''}>${label}</button>`;
+  const modeTxt = state.mode === 'prop' ? 'Tempo acelerado: as proporções dos períodos são reais, mas o tempo está muito acelerado para caber na tela.' : 'Velocidades ajustadas para facilitar a observação. A Terra completa uma volta em torno do Sol em cerca de 60 segundos.';
+  const reset = state.confirmReset
+    ? `<div class="confirm">Zerar estrelas, missões e conquistas? O nome e os ajustes continuam. Isso não pode ser desfeito.<div class="row" style="margin-top:8px">${t(0, 'resetYes', undefined, 'Sim, zerar')}${t(1, 'resetNo', undefined, 'Não')}</div></div>`
+    : `<div class="row">${t(0, 'resetAsk', undefined, '🗑️ Zerar progresso')}</div>`;
+  showPanel(`<h2>⚙️ Modo Papai</h2>
+    <p style="font-size:15px">Ajustes para quem acompanha a criança.</p>
+    <div class="pset">
     <div class="cat">Quem está aprendendo</div>
     <div class="row"><input id="optName" class="txt" style="width:180px" maxlength="16" value="${esc(kid())}"><button class="btn sm on" data-act="nameSave">Salvar nome</button></div>
+    <div class="cat">Idade padrão</div>
+    <div class="row" style="align-items:center">${t(0, 'idadeDec', undefined, '−')}<b style="font-size:26px;min-width:56px;text-align:center">${save.idade}</b>${t(0, 'idadeInc', undefined, '+')}</div>
+    <div class="cat">Velocidade do tempo</div>
+    <div class="row">
+      ${t(state.speed === 'lento' && !state.paused, 'speed', 'lento', '🐢 Devagar')}${t(state.speed === 'normal' && !state.paused, 'speed', 'normal', '▶️ Normal')}${t(state.speed === 'rapido' && !state.paused, 'speed', 'rapido', '🐇 Rápido')}${t(state.paused, 'pause', undefined, state.paused ? '⏸ Pausado (continuar)' : '⏸ Pausar')}
+    </div>
+    <div class="cat">Modo de movimento</div>
+    <div class="row">${t(state.mode === 'edu', 'mode', 'edu', '🎓 Educativo')}${t(state.mode === 'prop', 'mode', 'prop', '📐 Proporcional')}</div>
+    <p style="font-size:14px">${modeTxt}</p>
+    <div class="cat">Voz</div>
+    <div class="row">${t(Narr.enabled, 'narrToggle', undefined, Narr.enabled ? 'Voz ligada' : 'Voz desligada')}${t(Narr.rate <= 0.95, 'rateSet', 0.85, '🐢 Mais devagar')}${t(Narr.rate > 0.95, 'rateSet', 1.1, '▶️ Normal')}</div>
+    ${rateHtml()}
+    <p style="font-size:14px">${esc(voiceInfo())}</p>
+    <div class="cat">Narração</div>
+    <div class="row">${t(save.narrLevel === 'curtinho', 'narrLevel', 'curtinho', '⚡ Curtinho')}${t(save.narrLevel !== 'curtinho', 'narrLevel', 'completo', '📖 Completo')}</div>
+    <div class="cat">Exibição</div>
+    <div class="row">${t(state.orbits, 'toggleOrbits', undefined, '🪐 Órbitas: ' + (state.orbits ? 'visíveis' : 'ocultas'))}${t(state.labels, 'toggleLabels', undefined, '🏷️ Nomes: ' + (state.labels ? 'visíveis' : 'ocultos'))}</div>
+    <div class="cat">Aprender brincando</div>
+    <div class="row">${t(save.preview, 'togglePreview', undefined, '🤔 Pergunta antes de contar: ' + (save.preview ? 'ligada' : 'desligada'))}</div>
+    ${FEAT.dino ? `<div class="row" style="margin-top:8px">${t(save.dino, 'toggleDino', undefined, '🦕 Cartão da pedra dos dinossauros: ' + (save.dino ? 'ligado' : 'desligado'))}</div>` : ''}
+    ${FEAT.reminder ? `<div class="cat">Lembrete de pausa</div><div class="row">${t(!save.breakMin, 'breakSet', 0, 'Desligado')}${t(save.breakMin === 15, 'breakSet', 15, '15 min')}${t(save.breakMin === 20, 'breakSet', 20, '20 min')}${t(save.breakMin === 30, 'breakSet', 30, '30 min')}</div>` : ''}
+    <div class="cat">Progresso</div>
+    ${reset}
     <div class="cat">Sobre</div>
     <p style="font-size:14px">Tamanhos e distâncias foram ajustados na cena principal para facilitar a visualização. Não confunda escala visual com escala física real.</p>
-    <p class="copyline">© 2026 Daniel Moura Ferreira. Todos os direitos reservados. Criado com Three.js e Web Speech API.</p>`);
+    <p class="copyline">© 2026 Daniel Moura Ferreira. Todos os direitos reservados. Criado com Three.js e Web Speech API.</p>
+    </div>`);
 }
+(function papaiLongPress() {
+  const btn = $('papaiBtn'); if (!btn) return;
+  let t0 = 0, raf = 0, active = false;
+  const reset = () => { active = false; cancelAnimationFrame(raf); btn.style.setProperty('--p', 0); };
+  const tick = () => {
+    if (!active) return;
+    const p = Math.min(100, (performance.now() - t0) / 2000 * 100);
+    btn.style.setProperty('--p', p);
+    if (p >= 100) { reset(); state.confirmReset = false; renderPapai(); return; }
+    raf = requestAnimationFrame(tick);
+  };
+  const begin = () => { if (active) return; active = true; t0 = performance.now(); tick(); };
+  btn.addEventListener('pointerdown', e => { e.preventDefault(); begin(); });
+  ['pointerup', 'pointerleave', 'pointercancel'].forEach(ev => btn.addEventListener(ev, reset));
+  btn.addEventListener('contextmenu', e => e.preventDefault());
+  btn.addEventListener('keydown', e => { if ((e.key === 'Enter' || e.key === ' ') && !e.repeat) { e.preventDefault(); begin(); } });
+  btn.addEventListener('keyup', reset);
+  btn.addEventListener('blur', reset);
+})();
 
 /* Experiências educativas */
 const TXT = {
@@ -1559,15 +1736,15 @@ const TXT = {
   s0: 'Agora é verão no Hemisfério Norte. O lado Norte está mais voltado para o Sol, a luz chega mais forte e os dias são mais longos. Aqui no Brasil é inverno.',
   s1: 'Agora é outono no Hemisfério Norte. A luz do Sol vai ficando mais fraca no Norte e mais forte no Sul.',
   s2: 'Agora é inverno no Hemisfério Norte. O lado Norte fica mais afastado do Sol, a luz chega mais fraca e os dias são mais curtos. Aqui no Brasil é verão!',
-  s3: 'Agora é primavera no Hemisfério Norte. A luz do Sol volta a chegar mais forte, e as plantas começam a florir.',
-  moon: 'A Lua parece mudar de forma, mas ela continua redondinha! O Sol ilumina metade da Lua. Enquanto a Lua passeia em volta da Terra, vemos partes diferentes dessa metade iluminada. Assim acontecem as fases da Lua!',
+  s3: 'Agora é primavera no Hemisfério Norte. A luz do Sol volta a chegar mais forte, e as plantas começam a florir. E tem uma coisa que até muita gente grande erra: o verão não acontece porque a Terra chega mais perto do Sol. É por causa da inclinação da Terra!',
+  moon: 'A Lua parece mudar de forma, mas ela continua redondinha! O Sol ilumina metade da Lua. Enquanto a Lua passeia em volta da Terra, vemos partes diferentes dessa metade iluminada. E atenção: as fases não são a sombra da Terra. A sombra da Terra só aparece na Lua quando tem eclipse. Assim acontecem as fases da Lua!',
   eclIntro: 'Os eclipses acontecem quando o Sol, a Terra e a Lua ficam alinhados. Toque em um dos botões para ver.',
   eclSolar: 'Este é um eclipse solar. A Lua fica entre o Sol e a Terra e faz uma sombra sobre a Terra. Quem está na sombra vê o Sol escondido!',
   eclLunar: 'Este é um eclipse lunar. A Terra fica entre o Sol e a Lua, e a sombra da Terra cobre a Lua. Os eclipses não acontecem todo mês, porque a órbita da Lua é um pouco inclinada.',
   terra: 'Esta é a nossa casa, a Terra! Vamos nos aproximar devagar. Primeiro, a Terra inteira. Depois, os continentes, o Brasil e a atmosfera que envolve o planeta.',
   atmo: 'A atmosfera é como um cobertor de ar que envolve a Terra. Ela guarda parte do calor do Sol e protege a gente. Sem ela, a vida como conhecemos não existiria!',
   order: 'Quer aprender a ordem dos planetas? Mercúrio, Vênus, Terra, Marte, Júpiter, Saturno, Urano e Netuno! Os quatro primeiros são rochosos. Os quatro últimos são gigantes gasosos ou gelados!',
-  size: 'Na nossa tela, diminuímos os planetas e aproximamos as distâncias para que tudo caiba! Na verdade, o Sol é gigantesco. Se o Sol fosse do tamanho de uma porta, a Terra seria aproximadamente uma bolinha de alguns milímetros!',
+  size: 'Na nossa tela, a gente diminuiu o Sol e aproximou os planetas, senão eles não caberiam! De verdade, o Sol é gigantesco. Imagina que o Sol fosse do tamanho de uma bola grande de ginástica, daquelas de pular em cima. A Terra seria do tamanho de uma ervilha! Júpiter seria como uma laranja, e Mercúrio seria do tamanho de um grãozinho de arroz. E as distâncias são enormes: se o Sol fosse aquela bola, a Terra estaria quase do outro lado de um campo de futebol!',
   get welcome() { return 'Oi, ' + kid() + '! Que bom que você chegou! Agora nós vamos fazer uma viagem pelo espaço. Lá no meio está o Sol, uma estrela gigante. Em volta dele, os planetas ficam passeando, sem parar, cada um no seu caminho. Esse grupo todo se chama Sistema Solar, que é a família do Sol. E a nossa casa, a Terra, faz parte dessa família! Toque em qualquer planeta para conhecê-lo de pertinho. Vamos lá?'; }
 };
 
@@ -1687,11 +1864,12 @@ function tourGo() {
   setPoiKey(null);
   selKey = key;
   focusObj(b.focusObj, b.D);
-  showInfo(key, { noSpeak: true });
+  showInfo(key, { noSpeak: true, text: mainText(b) });
   T.timer = setTimeout(() => {
     if (!T.on || T.paused) return;
     T.phase = 'speak';
-    Narr.speak(b.main, {
+    markVisited(key);
+    Narr.speak(mainText(b), {
       label: 'Viagem: ' + b.name,
       onDone: () => {
         if (!T.on) return;
@@ -1741,16 +1919,84 @@ function goOverview() {
 function selectBody(key) {
   if (tour.on) { astroSay('Durante a viagem, use os botões no topo.'); return; }
   const b = BODY[key]; if (!b) return;
+  clearTimeout(state.prevTimer); state.prev = null;
   state.sel = key; selKey = key;
   setPoiKey(key);
   if (state.exp === 'trans' || state.exp === 'both') setOrbitHL(key);
   focusObj(b.focusObj, b.D);
-  let text = b.main;
   const ok = emit({ type: 'select', key });
-  if (ok) text = ok + ' ' + text;
-  showInfo(key, { text, label: 'Conhecendo ' + b.name });
+  firstTouch();
+  if (PREVIEW[key] && save.preview && !save.visited[key]) startPreview(key, ok);
+  else {
+    markVisited(key);
+    showInfo(key, { text: (ok ? ok + ' ' : '') + mainText(b), label: 'Conhecendo ' + b.name });
+  }
   if (!ok) astroSay(pick(['Uau! Olha só!', 'Vamos descobrir juntos!', 'Que lugar incrível!', 'Você encontrou um tesouro!']));
   else burst(12);
+}
+
+/* Estrela de "já visitei" ao lado do nome e mãozinha do primeiro toque */
+function markVisited(key) {
+  save.visited[key] = true; persist();
+  const b = BODY[key]; if (b && b.label) b.label.textContent = b.name + ' ⭐';
+}
+function refreshVisitedLabels() {
+  for (const b of BODY_LIST) if (b.label) b.label.textContent = b.name + (save.visited[b.key] ? ' ⭐' : '');
+}
+function firstTouch() {
+  if (!save.onboarded) { save.onboarded = true; persist(); }
+  $('hand').hidden = true;
+}
+function updateHand() {
+  const h = $('hand');
+  if (save.onboarded || !$('intro').hidden || tour.on) { h.hidden = true; return; }
+  BODY.terra.focusObj.getWorldPosition(_w);
+  const p = toScreen(_w);
+  if (!p.ok) { h.hidden = true; return; }
+  h.hidden = false;
+  h.style.left = (p.x - 20) + 'px';
+  h.style.top = (46 + p.y + 14) + 'px';
+}
+
+/* PREVER ANTES DE CONTAR: uma pergunta com 2 ou 3 botões, sem certo ou errado; a fala principal revela a resposta */
+const PREVIEW = {
+  sol: { q: 'Você acha que o Sol é um planeta ou uma estrela?', o: [{ emo: '🪐', label: 'Planeta' }, { emo: '⭐', label: 'Estrela' }] },
+  mercurio: { q: 'Você acha que o planeta mais perto do Sol é grande ou pequeno?', o: [{ emo: '🐘', label: 'Grande' }, { emo: '🐜', label: 'Pequeno' }] },
+  venus: { q: 'Qual você acha que é o planeta mais quente?', o: [{ img: 'mercurio', label: 'Mercúrio' }, { img: 'venus', label: 'Vênus' }] },
+  terra: { q: 'Por que você acha que a Terra parece azul?', o: [{ emo: '🌊', label: 'Água' }, { emo: '🎨', label: 'Tinta' }] },
+  lua: { q: 'A Lua tem luz própria, igual a uma lâmpada?', o: [{ emo: '💡', label: 'Sim' }, { emo: '🔦', label: 'Não, ela é iluminada' }] },
+  marte: { q: 'Por que você acha que Marte é vermelho?', o: [{ emo: '🍓', label: 'Frutas' }, { emo: '🔩', label: 'Ferrugem' }] },
+  jupiter: { q: 'Você acha que dá para pisar em Júpiter?', o: [{ emo: '👣', label: 'Dá' }, { emo: '☁️', label: 'Não dá' }] },
+  saturno: { q: 'Do que você acha que os anéis são feitos?', o: [{ emo: '🧊', label: 'Gelo e pedra' }, { emo: '🍬', label: 'Bala' }] },
+  urano: { q: 'Como você acha que Urano gira?', o: [{ emo: '🌀', label: 'Em pé' }, { emo: '🛞', label: 'Deitado' }] },
+  netuno: { q: 'Lá no último planeta é quente ou gelado?', o: [{ emo: '🔥', label: 'Quente' }, { emo: '🧊', label: 'Gelado' }] },
+  plutao: { q: 'Plutão é um planeta normal ou um planeta anão?', o: [{ emo: '🪐', label: 'Normal' }, { emo: '🫘', label: 'Anão' }] }
+};
+function startPreview(key, okText) {
+  const b = BODY[key], P = PREVIEW[key];
+  state.infoOpen = true; state.infoKey = key; state.panel = 'info';
+  state.prev = { key, okText };
+  const img = THUMB[key] ? `<img src="${THUMB[key]}" alt="${esc(b.name)}">` : `<div class="noimg">☄️</div>`;
+  const opts = P.o.map((o, i) => `<button class="opt" data-act="prevAns" data-arg="${i}">${o.img ? `<img src="${THUMB[o.img]}" alt="${esc(o.label)}">` : `<span class="emo">${o.emo}</span>`}<span>${esc(o.label)}</span></button>`).join('');
+  showPanel(`<div class="ph">${img}<div><span class="seal">🔬 É de verdade</span><h2>${esc(b.name)}</h2></div></div>
+    <p class="prevq">${esc(P.q)}</p>
+    <div class="grid2">${opts}</div>
+    <div class="row" style="margin-top:12px"><button class="btn sm" data-act="prevSkip">Pular ➜</button></div>`);
+  lastNarr = { text: P.q, label: 'Vamos pensar' };
+  Narr.speak(P.q, { label: 'Vamos pensar', onDone: () => { clearTimeout(state.prevTimer); state.prevTimer = setTimeout(revealPreview, 8000); } });
+}
+function prevAnswer(i) {
+  if (!state.prev) return;
+  clearTimeout(state.prevTimer);
+  document.querySelectorAll('.opt[data-act="prevAns"]').forEach((el, k) => { el.classList.toggle('pickd', k === i); el.disabled = true; });
+  Narr.speak('Vamos descobrir!', { label: 'Vamos descobrir', onDone: revealPreview });
+}
+function revealPreview() {
+  const pv = state.prev; if (!pv) return;
+  state.prev = null; clearTimeout(state.prevTimer);
+  const b = BODY[pv.key];
+  markVisited(pv.key);
+  showInfo(pv.key, { text: (pv.okText ? pv.okText + ' ' : '') + mainText(b), label: 'Conhecendo ' + b.name });
 }
 function activatePoi(key, id) {
   const b = BODY[key]; if (!b) return;
@@ -1792,6 +2038,12 @@ function openSize(sunPx, quiet, measured) {
       <button class="btn sm" data-act="sizeClose">✕ Fechar</button>
     </div>
     <div class="sizeRow">${items}</div>
+    <div class="sizeRef" aria-label="Comparação com coisas do dia a dia">
+      <div class="rf" style="--c:#ffb24d"><i style="width:64px;height:64px"></i>Sol: bola de ginástica</div>
+      <div class="rf" style="--c:#d9a676"><i style="width:24px;height:24px"></i>Júpiter: laranja</div>
+      <div class="rf" style="--c:#4f9dff"><i style="width:9px;height:9px"></i>Terra: ervilha</div>
+      <div class="rf" style="--c:#b5aea4"><i class="rice" style="width:5px;height:5px"></i>Mercúrio: grão de arroz</div>
+    </div>
     <p class="sizeNote">${esc(TXT.size)}</p>`;
   hud.hidden = false;
   if (!measured) {
@@ -1842,6 +2094,7 @@ function astroSay(t) {
   bubbleTimer = setTimeout(() => bb.classList.remove('show'), 3800);
 }
 function burst(n = 14) {
+  if (RM) return;
   for (let i = 0; i < n; i++) {
     const s = document.createElement('div');
     s.className = 'burst';
@@ -1986,10 +2239,23 @@ function handleTap(e) {
   raycaster.setFromCamera(ndc, camera);
   raycaster.params.Points = { threshold: 0.6 };
   const hits = raycaster.intersectObjects(CLICK, false).filter(h => isVisibleChain(h.object));
-  if (!hits.length) return;
-  const ud = hits[0].object.userData;
-  if (ud.poi) activatePoi(ud.body, ud.id);
-  else if (ud.key) selectBody(ud.key);
+  if (hits.length) {
+    const ud = hits[0].object.userData;
+    if (ud.poi) activatePoi(ud.body, ud.id);
+    else if (ud.key) selectBody(ud.key);
+    return;
+  }
+  /* Área de toque generosa: se o dedo caiu perto de um objeto pequeno, conta como toque nele (raio mínimo de 48 px) */
+  const px = e.clientX - r.left, py = e.clientY - r.top;
+  let best = null, bd = 1e9;
+  for (const b of BODY_LIST) {
+    if (!b.focusObj || b.key === 'cinturao') continue;
+    b.focusObj.getWorldPosition(_w);
+    const s = toScreen(_w); if (!s.ok) continue;
+    const d = Math.hypot(s.x - px, s.y - py);
+    if (d < 48 && d < bd) { bd = d; best = b.key; }
+  }
+  if (best) selectBody(best);
 }
 
 /* ---------------------------------------------------------------------
@@ -2097,8 +2363,9 @@ function stepCamera() {
   if (Math.abs(camera.fov - fovT) > 0.02) { camera.fov = lerp(camera.fov, fovT, 0.06); camera.updateProjectionMatrix(); }
   if (!focus && !pointers.size && !state.paused && !tour.on) ctrl.theta += dtG * 0.035;
   const tgt = focus && focus.obj ? focus.obj.getWorldPosition(_w) : _zero;
-  ctrl.target.lerp(tgt, focus ? 0.12 : 0.06);
-  ctrl.radius = lerp(ctrl.radius, ctrl.desired, 0.08);
+  /* Movimento reduzido: o voo da câmera é bem mais curto (cerca de 0,6 s em vez de 1,5 s) */
+  ctrl.target.lerp(tgt, RM ? 0.3 : (focus ? 0.12 : 0.06));
+  ctrl.radius = lerp(ctrl.radius, ctrl.desired, RM ? 0.22 : 0.08);
   const R = ctrl.radius, sp = ctrl.phi, th = ctrl.theta;
   camera.position.set(ctrl.target.x + R * Math.sin(sp) * Math.cos(th), ctrl.target.y + R * Math.cos(sp), ctrl.target.z + R * Math.sin(sp) * Math.sin(th));
   camera.lookAt(ctrl.target);
@@ -2134,34 +2401,64 @@ function frame(now) {
     l.material.color.setHex(hl ? 0xffc857 : l.userData.col);
   });
   updateLabels();
+  updateHand();
+  updateBack();
   updateAstro(dt);
   renderer.render(scene, camera);
+}
+/* Botão Voltar: sempre no mesmo lugar, volta um nível por vez */
+function updateBack() {
+  const bb = $('backBtn');
+  const show = $('intro').hidden && !tour.on && (!$('panel').hidden || !!state.exp || !!focus || !$('sizeHud').hidden);
+  if (bb.hidden === show) bb.hidden = !show;
+}
+function goBack() {
+  if (!$('sizeHud').hidden) { $('sizeHud').hidden = true; Narr.stop(); return; }
+  if (state.exp) { expStop(); return; }
+  if (!$('panel').hidden) { closePanel(); return; }
+  if (focus) goOverview();
 }
 
 /* ---------------------------------------------------------------------
    10. AÇÕES DA INTERFACE (botões com data-act)
    --------------------------------------------------------------------- */
 const ACT = {
-  start() { saveName($('introName').value); Narr.enabled = true; if (Narr.supported) { try { const u = new SpeechSynthesisUtterance(' '); u.volume = 0; speechSynthesis.speak(u); } catch (e) {} }
+  start() { saveName($('introName').value); Narr.enabled = save.voiceOn !== false; Narr.unlock();
     $('intro').hidden = true; $('bottom').hidden = false;
     layout();
     Narr.speak(TXT.welcome, { label: 'Boas-vindas' });
     astroSay('Oi, ' + kid() + '! Vamos viajar?'); },
   sel(d) { selectBody(d.arg); },
   poi(d) { activatePoi(d.arg, d.id); },
-  again() { if (lastNarr.text) Narr.speak(lastNarr.text, { label: lastNarr.label }); },
+  back() { goBack(); },
+  again() { if (lastNarr.text) Narr.speak(lastNarr.text, { label: lastNarr.label, estilo: lastNarr.estilo }); },
   curio() { if (state.infoKey) nextCuriosity(); },
+  prevAns(d) { prevAnswer(+d.arg); },
+  prevSkip() { revealPreview(); },
   stopNarr() { Narr.stop(); },
   narrPause() { Narr.pause(); },
   narrResume() { Narr.resume(); },
-  narrToggle() { Narr.enabled = !Narr.enabled; if (!Narr.enabled) Narr.stop(); updateDock(); if (state.panel === 'opt') renderOpt(); },
+  narrToggle() { Narr.enabled = !Narr.enabled; save.voiceOn = Narr.enabled; persist(); if (!Narr.enabled) Narr.stop(); updateDock(); if (state.panel === 'papai') renderPapai(); },
   narrPR() { if (Narr.paused) Narr.resume(); else Narr.pause(); },
-  nameSave() { saveName($('optName').value); astroSay('Oi, ' + kid() + '!'); renderOpt(); },
-  rateDown() { Narr.rate = clamp(Narr.rate - 0.1, 0.6, 1.3); if (state.panel === 'opt') renderOpt(); },
-  rateUp() { Narr.rate = clamp(Narr.rate + 0.1, 0.6, 1.3); if (state.panel === 'opt') renderOpt(); },
+  nameSave() { saveName($('optName').value); astroSay('Oi, ' + kid() + '!'); renderPapai(); },
+  rateSet(d) { Narr.rate = parseFloat(d.arg); save.rate = Narr.rate; persist(); if (state.panel === 'papai') renderPapai(); },
+  narrLevel(d) { save.narrLevel = d.arg; persist(); renderPapai(); },
+  togglePreview() { save.preview = !save.preview; persist(); renderPapai(); },
+  toggleDino() { save.dino = !save.dino; persist(); renderPapai(); },
+  breakSet(d) { save.breakMin = +d.arg; persist(); if (typeof resetBreakTimer === 'function') resetBreakTimer(); renderPapai(); },
+  idadeInc() { save.idade = Math.min(12, (save.idade || 5) + 1); state.age = save.idade; persist(); renderPapai(); },
+  idadeDec() { save.idade = Math.max(3, (save.idade || 5) - 1); state.age = save.idade; persist(); renderPapai(); },
+  resetAsk() { state.confirmReset = true; renderPapai(); },
+  resetNo() { state.confirmReset = false; renderPapai(); },
+  resetYes() {
+    const keep = ['name', 'idade', 'rate', 'voiceOn', 'narrLevel', 'preview', 'dino', 'breakMin', 'orbits', 'labels', 'speed', 'mode'];
+    const nu = SAVE_DEFAULT(); for (const k of keep) nu[k] = save[k]; nu.onboarded = true;
+    save = nu; persist(); state.confirmReset = false; state.quiz = null; cancelMission();
+    updateStars(); refreshVisitedLabels(); astroSay('Tudo zerado! Vamos começar de novo?'); renderPapai();
+  },
   pause() {
     state.paused = !state.paused;
-    $('btnPause').innerHTML = state.paused ? ic('play') + ' Continuar' : ic('pause') + ' Pausar';
+    if (state.panel === 'papai') renderPapai();
   },
   overview() { goOverview(); },
   openPanel(d) { openPanel(d.arg); },
@@ -2183,10 +2480,10 @@ const ACT = {
   ageInc() { state.age = Math.min(99, state.age + 1); renderAge(); clearTimeout(ageTimer); ageTimer = setTimeout(ageSay, 700); },
   ageDec() { state.age = Math.max(1, state.age - 1); renderAge(); clearTimeout(ageTimer); ageTimer = setTimeout(ageSay, 700); },
   ageSay() { ageSay(); },
-  mode(d) { state.mode = d.arg; renderOpt(); },
-  speed(d) { state.speed = d.arg; if (state.panel === 'opt') renderOpt(); },
-  toggleOrbits() { state.orbits = !state.orbits; renderOpt(); },
-  toggleLabels() { state.labels = !state.labels; renderOpt(); },
+  mode(d) { state.mode = d.arg; save.mode = d.arg; persist(); renderPapai(); },
+  speed(d) { state.speed = d.arg; state.paused = false; save.speed = d.arg; persist(); if (state.panel === 'papai') renderPapai(); },
+  toggleOrbits() { state.orbits = !state.orbits; save.orbits = state.orbits; persist(); renderPapai(); },
+  toggleLabels() { state.labels = !state.labels; save.labels = state.labels; persist(); renderPapai(); },
   sizeOpen() { openSize(); },
   sizeMode(d) { state.sizeMode = d.arg; openSize(0, true); },
   sizeClose() { $('sizeHud').hidden = true; Narr.stop(); }
@@ -2224,16 +2521,18 @@ function expStop() {
 buildThumbs();
 buildLabels();
 fillIcons();
-$('dkRate').innerHTML = rateHtml();
 $('introName').value = kid();
+refreshVisitedLabels();
+$('tbAst').hidden = !FEAT.asteroids;
+$('tbPass').hidden = !FEAT.passport;
 updateDock();
 layout();
 updateStars();
 clearFocus();
 ctrl.radius = ctrl.desired;
 document.addEventListener('visibilitychange', () => {
-  if (document.hidden) { if (Narr.supported) speechSynthesis.pause(); }
-  else { if (Narr.supported && !Narr.paused) speechSynthesis.resume(); last = performance.now(); }
+  Narr.onVisibility(document.hidden);
+  if (!document.hidden) last = performance.now();
 });
 window.addEventListener('resize', () => { lastBox = ''; layout(); });
 requestAnimationFrame(frame);
