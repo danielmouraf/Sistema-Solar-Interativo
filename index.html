@@ -1407,7 +1407,7 @@ const Narr = {
       this.timer = setTimeout(() => this.play(i + 1, sid), Math.max(1400, text.length * 75) / (this.rate || 1));
       return;
     }
-    const u = new SpeechSynthesisUtterance(text);
+    const u = new SpeechSynthesisUtterance(String(text).replace(/B\s?612/g, 'B seiscentos e doze'));
     u.lang = 'pt-BR';
     if (this.voice) { try { u.voice = this.voice; } catch (e) { this.voice = null; } }
     /* Estilo "história" (contação): voz um pouco mais aguda e mais calma */
@@ -3108,7 +3108,7 @@ function wordHtml(key) {
   const ws = WORDS[key]; if (!ws) return '';
   return `<div class="wrow">${ws.map(w => `<button class="wd" data-act="word" data-arg="${w}" aria-label="Ouvir a palavra ${esc(w.replace(/-/g, ''))}">${sylHtml(w)}<span class="spk">🔊</span></button>`).join('')}</div>`;
 }
-const WORD_SPEAK = { 'B-SEIS-UM-DOIS': 'B. Seis. Um. Dois. B seis um dois.' };
+const WORD_SPEAK = { 'B-SEIS-UM-DOIS': 'B seiscentos e doze.' };
 function speakWord(w) {
   save.words[w] = true; persist();
   const parts = w.split('-');
