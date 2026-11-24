@@ -269,6 +269,14 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 .bubble{left:clamp(88px,10.5vw,124px);top:116px;border-radius:4px 18px 18px 18px;max-width:min(280px,calc(100vw - 150px))}
 @media (max-width:760px){.avatar{width:62px;left:6px}.backBtn{left:74px}.bubble{top:114px;left:74px;font-size:15px;max-width:calc(100vw - 88px)}}
 @media (prefers-reduced-motion:reduce){.avFloat,.avatar .av-eyes,.avatar .av-armL,.avatar .av-armR{animation:none!important}}
+#dkRate{flex:1 0 100%}
+.rate{font-size:11px;gap:4px;opacity:.95}.rate .mi svg{width:20px;height:20px}.rate input{height:26px;flex:1;min-width:70px;accent-color:#ffc857}
+/* Legenda oculta: fica só o áudio e os botões de controle */
+.nocap .dock{width:auto;max-width:calc(100vw - 16px);justify-content:center}
+.nocap .dock .narr{display:none}
+.nocap .dctl{width:min(300px,calc(100vw - 40px))}
+#dkCC{font-size:12px!important;gap:4px;padding:2px 10px!important}
+#dkCC .mi svg{width:20px;height:20px}
 </style>
 </head>
 <body>
@@ -302,7 +310,8 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
     <div class="narr"><div class="narrLabel" id="narrLabel">Narração</div><div id="narrText" class="narrText"></div></div>
     <div class="dctl">
       <div class="r"><button class="btn sm on" data-act="again" title="Ouvir de novo" aria-label="Ouvir de novo"><span class="mi" data-ic="speaker"></span> Ouvir</button><button class="btn sm" data-act="stopNarr" title="Parar" aria-label="Parar"><span class="mi" data-ic="stop"></span> Parar</button></div>
-      <div class="r"><button class="btn sm" id="dkPR" data-act="narrPR" title="Pausar ou continuar a voz" aria-label="Pausar ou continuar a voz"></button></div>
+      <div class="r"><button class="btn sm" id="dkCC" data-act="capToggle" title="Mostrar ou esconder o texto da legenda" aria-label="Mostrar ou esconder o texto da legenda"></button><button class="btn sm" id="dkPR" data-act="narrPR" title="Pausar ou continuar a voz" aria-label="Pausar ou continuar a voz"></button></div>
+      <div id="dkRate"></div>
     </div>
   </div>
   <nav id="toolbar">
@@ -381,7 +390,7 @@ const mkCanvas = (w, h) => { const c = document.createElement('canvas'); c.width
 const SAVE_KEY = 'sistemaSolar.v2', SAVE_KEY_V1 = 'planetario-sistema-solar-v1';
 const SAVE_DEFAULT = () => ({
   v: 2, name: 'Maya', avatar: 'maya', idade: 5, rate: 1.1,
-  voiceOn: true, narrLevel: 'completo', preview: true, dino: true, breakMin: 20,
+  voiceOn: true, captions: true, narrLevel: 'completo', preview: true, dino: true, breakMin: 20,
   orbits: true, labels: true, speed: 'normal', mode: 'edu',
   stars: 0, done: {}, visited: {}, seals: {}, words: {}, wrong: {}, drawings: [], curiSeen: {}, onboarded: false
 });
@@ -444,6 +453,8 @@ const IC = {
   age: S_('<rect x="8" y="27" width="32" height="14" rx="3.500" fill="#ff8fb1"/><rect x="8" y="27" width="32" height="6" rx="3" fill="#fff0f5"/><path d="M8 33q4 5 8 0t8 0 8 0 8 0" fill="none" stroke="#fff0f5" stroke-width="2.200"/><rect x="22.500" y="17" width="3" height="10" rx="1" fill="#5ec8ff"/><path d="M24 6c3.500 3 3.500 7 0 9-3.500-2-3.500-6 0-9z" fill="#ffc857"/>'),
   size: S_('<g transform="rotate(-28 24 26)"><rect x="3" y="20" width="42" height="11" rx="2.500" fill="#ffc857"/><path d="M9 20v5M15 20v7M21 20v5M27 20v7M33 20v5M39 20v7" stroke="#7a4a00" stroke-width="1.600"/></g><circle cx="11" cy="39" r="3.500" fill="#4f9dff"/><circle cx="38" cy="10" r="7" fill="#ff9a5a"/>'),
   opt: S_('<g fill="#c3cde6"><rect x="21" y="3" width="6" height="42" rx="2"/><rect x="21" y="3" width="6" height="42" rx="2" transform="rotate(45 24 24)"/><rect x="21" y="3" width="6" height="42" rx="2" transform="rotate(90 24 24)"/><rect x="21" y="3" width="6" height="42" rx="2" transform="rotate(135 24 24)"/><circle cx="24" cy="24" r="14"/></g><circle cx="24" cy="24" r="7" fill="#0d1630"/><circle cx="24" cy="24" r="3.500" fill="#ffc857"/>'),
+  cc: S_('<rect x="4" y="9" width="40" height="30" rx="7" fill="none" stroke="currentColor" stroke-width="3.5"/><path d="M20 20.500q-6-3-6 3.500t6 3.500M34 20.500q-6-3-6 3.500t6 3.500" fill="none" stroke="currentColor" stroke-width="3.200" stroke-linecap="round"/>'),
+  ccOff: S_('<rect x="4" y="9" width="40" height="30" rx="7" fill="none" stroke="currentColor" stroke-width="3.5"/><path d="M20 20.500q-6-3-6 3.500t6 3.500M34 20.500q-6-3-6 3.500t6 3.500" fill="none" stroke="currentColor" stroke-width="3.200" stroke-linecap="round"/><path d="M6 42L42 6" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>'),
   speaker: S_('<path d="M5 18h8l10-8v28l-10-8H5z" fill="currentColor"/><path d="M30 17q5 7 0 14M35 12q9 12 0 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>'),
   speakerOff: S_('<path d="M5 18h8l10-8v28l-10-8H5z" fill="currentColor"/><path d="M30 18l12 12M42 18L30 30" stroke="currentColor" stroke-width="3.500" stroke-linecap="round"/>'),
   pause: S_('<rect x="10" y="8" width="10" height="32" rx="3" fill="currentColor"/><rect x="28" y="8" width="10" height="32" rx="3" fill="currentColor"/>'),
@@ -463,7 +474,12 @@ const rateTxt = () => Narr.rate.toFixed(1).replace('.', ',') + '×';
 function rateHtml() {
   return '<label class="rate">' + ic('turtle') + '<input type="range" class="rateSl" min="0.5" max="1.4" step="0.1" value="' + Narr.rate + '" aria-label="Velocidade da voz">' + ic('hare') + '<b class="rateV">' + rateTxt() + '</b></label>';
 }
+function applyCaptions() {
+  document.body.classList.toggle('nocap', save.captions === false);
+  const c = $('dkCC'); if (c) { c.innerHTML = ic(save.captions === false ? 'ccOff' : 'cc') + (save.captions === false ? ' Mostrar texto' : ' Esconder texto'); c.classList.toggle('on', save.captions !== false); c.setAttribute('aria-pressed', String(save.captions !== false)); }
+}
 function updateDock() {
+  applyCaptions();
   const p = $('dkPR'); if (p) p.innerHTML = Narr.paused ? ic('play') + ' Continuar' : ic('pause') + ' Pausar';
 }
 
@@ -1729,6 +1745,8 @@ function renderPapai() {
     <div class="row">${t(Narr.enabled, 'narrToggle', undefined, Narr.enabled ? 'Voz ligada' : 'Voz desligada')}${t(Narr.rate <= 0.95, 'rateSet', 0.85, '🐢 Mais devagar')}${t(Narr.rate > 0.95, 'rateSet', 1.1, '▶️ Normal')}</div>
     ${rateHtml()}
     <p style="font-size:14px">${esc(voiceInfo())}</p>
+    <div class="cat">Texto da legenda</div>
+    <div class="row">${t(save.captions !== false, 'capToggle', undefined, save.captions !== false ? '💬 Texto visível' : '🔈 Só áudio (texto oculto)')}</div>
     <div class="cat">Narração</div>
     <div class="row">${t(save.narrLevel === 'curtinho', 'narrLevel', 'curtinho', '⚡ Curtinho')}${t(save.narrLevel !== 'curtinho', 'narrLevel', 'completo', '📖 Completo')}</div>
     <div class="cat">Exibição</div>
@@ -2504,6 +2522,7 @@ const ACT = {
   narrPause() { Narr.pause(); },
   narrResume() { Narr.resume(); },
   narrToggle() { Narr.enabled = !Narr.enabled; save.voiceOn = Narr.enabled; persist(); if (!Narr.enabled) Narr.stop(); updateDock(); if (state.panel === 'papai') renderPapai(); },
+  capToggle() { save.captions = save.captions === false; persist(); applyCaptions(); lastBox = ''; if (state.panel === 'papai') renderPapai(); },
   narrPR() { if (Narr.paused) Narr.resume(); else Narr.pause(); },
   nameSave() { saveName($('optName').value); astroSay('Oi, ' + kid() + '!'); renderPapai(); },
   rateSet(d) { Narr.rate = parseFloat(d.arg); save.rate = Narr.rate; persist(); if (state.panel === 'papai') renderPapai(); },
@@ -2516,7 +2535,7 @@ const ACT = {
   resetAsk() { state.confirmReset = true; renderPapai(); },
   resetNo() { state.confirmReset = false; renderPapai(); },
   resetYes() {
-    const keep = ['name', 'avatar', 'idade', 'rate', 'voiceOn', 'narrLevel', 'preview', 'dino', 'breakMin', 'orbits', 'labels', 'speed', 'mode'];
+    const keep = ['name', 'avatar', 'idade', 'rate', 'voiceOn', 'captions', 'narrLevel', 'preview', 'dino', 'breakMin', 'orbits', 'labels', 'speed', 'mode'];
     const nu = SAVE_DEFAULT(); for (const k of keep) nu[k] = save[k]; nu.onboarded = true;
     save = nu; persist(); state.confirmReset = false; state.quiz = null; cancelMission();
     updateStars(); refreshVisitedLabels(); astroSay('Tudo zerado! Vamos começar de novo?'); renderPapai();
@@ -2587,6 +2606,7 @@ buildThumbs();
 buildLabels();
 refreshAvatars();
 fillIcons();
+$('dkRate').innerHTML = rateHtml();
 $('introName').value = kid();
 refreshVisitedLabels();
 $('tbAst').hidden = !FEAT.asteroids;
