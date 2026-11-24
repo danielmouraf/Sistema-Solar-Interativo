@@ -277,6 +277,76 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 .nocap .dctl{width:min(300px,calc(100vw - 40px))}
 #dkCC{font-size:12px!important;gap:4px;padding:2px 10px!important}
 #dkCC .mi svg{width:20px;height:20px}
+/* ===== v2: asteroides, B612, passaporte, jogos ===== */
+.lbl.sm{font-size:12px;padding:3px 8px;opacity:.92}
+.seal.enl{background:rgba(255,200,87,.18);border-color:#ffc857;color:#ffe29a}
+.wrow{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+.wd{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:2px solid var(--line);border-radius:16px;padding:6px 14px;font-family:"Baloo 2",Nunito,sans-serif;font-size:26px;font-weight:800;letter-spacing:1px;min-height:52px;color:inherit;cursor:pointer}
+.wd.sm{font-size:16px;padding:2px 10px;min-height:44px}
+.wd.off{opacity:.35;justify-content:center;min-width:64px}
+.wd .sy{display:inline-block}.wd .sy.c0{color:#ffc857}.wd .sy.c1{color:#5ec8ff}
+.panel.story .wd .sy.c0{color:#b3541a}.panel.story .wd .sy.c1{color:#1f6fa8}
+.wd .in{font-size:1.35em}
+.wd .spk{font-size:16px;opacity:.8}
+.convStrip{position:fixed;left:50%;top:84px;transform:translateX(-50%);z-index:70;background:var(--panel);border:2px solid var(--acc);border-radius:20px;padding:12px 16px;max-width:min(560px,calc(100vw - 24px));backdrop-filter:blur(8px);font-weight:700}
+.convStrip p{margin:6px 0}.convStrip .cvx{font-weight:600;color:#dbe6ff}
+.carWrap{position:relative;margin-top:8px}
+.car{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 10px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.car::-webkit-scrollbar{display:none}
+.cc{flex:0 0 82%;scroll-snap-align:center;background:rgba(255,255,255,.08);border:2px solid var(--line);border-radius:22px;padding:14px;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center}
+.cc img{width:132px;height:132px;object-fit:contain}
+.cc img.spin{animation:wob 5s ease-in-out infinite}
+@keyframes wob{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(6deg)}}
+.cc .cn{font-family:"Baloo 2",Nunito,sans-serif;font-size:22px;font-weight:800}
+.cc .cs{font-size:14px;color:#c9d6f5}
+.carA{position:absolute;top:38%;z-index:2;width:48px;height:60px;border-radius:16px;border:2px solid var(--line);background:rgba(5,10,25,.8);color:#fff;font-size:22px}
+.carA.l{left:-6px}.carA.r{right:-6px}
+.ptabs{display:flex;gap:6px;overflow-x:auto;padding-bottom:6px;margin-bottom:6px;scrollbar-width:none}
+.ptabs .btn{flex:0 0 auto}
+.pcover{text-align:center}.pcover .pstar{font-size:60px}
+.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.pgrid small{font-weight:700;color:#c9d6f5}
+.sgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:8px}
+.sl{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:84px;border-radius:18px;border:2px solid var(--line);background:rgba(255,255,255,.08);color:inherit;padding:6px;font-weight:800;font-size:13px}
+.sl .e{font-size:32px;line-height:1.1}
+.sl.on{border-color:#ffc857;background:rgba(255,200,87,.16)}
+.sl.off{filter:grayscale(1);opacity:.45}
+.sgrid.lic .sl{min-height:60px}.sgrid.lic .e{font-size:22px}
+.dgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.dgrid img{width:100%;border-radius:14px;border:2px solid var(--line)}
+.cert{text-align:center;padding:18px 10px;border:4px double #ffc857;border-radius:22px;background:linear-gradient(145deg,rgba(255,200,87,.2),rgba(94,200,255,.12));margin-bottom:12px}
+.cert .cs1{font-size:56px}.cert .cs2{font-size:16px;letter-spacing:4px;text-transform:uppercase}
+.cert .cs3{font-family:"Baloo 2",Nunito,sans-serif;font-size:30px;font-weight:800;color:#ffc857}
+.cert .cs4{font-family:"Baloo 2",Nunito,sans-serif;font-size:38px;font-weight:800}
+.cert .cs5{font-size:14px;margin-top:8px;color:#dbe6ff}
+.dinoSvg{width:100%;max-height:180px;margin:8px 0}
+#gameHud,#drawHud{position:fixed;inset:0;z-index:45;background:#03060d;display:flex;flex-direction:column;padding:72px 16px calc(var(--bot,80px) + 8px);gap:14px;touch-action:none}
+#gameHud[hidden],#drawHud[hidden]{display:none}
+.gTop{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;font-size:20px;font-weight:900}
+.ordRow{display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:nowrap}
+.sunDot{font-size:44px;flex:0 0 auto}
+.slot{flex:1 1 0;min-width:0;max-width:92px;aspect-ratio:1;border:3px dashed var(--line);border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;font-size:11px;font-weight:800;text-align:center}
+.slot .num{font-family:"Baloo 2",Nunito,sans-serif;font-size:26px;opacity:.5}
+.slot.ok{border-style:solid;border-color:#6be38f;background:rgba(107,227,143,.18);box-shadow:0 0 18px rgba(107,227,143,.55)}
+.slot.ok img{width:70%;height:auto;border-radius:50%}
+.ordTray{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;align-items:center;flex:1;align-content:center}
+.pchip{width:92px;display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px;border-radius:18px;border:2px solid var(--line);background:rgba(255,255,255,.08);font-weight:800;font-size:13px;touch-action:none;cursor:grab;user-select:none}
+.pchip img{width:64px;height:64px;border-radius:50%;pointer-events:none}
+.pchip.sel{border-color:#ffc857;background:rgba(255,200,87,.2)}
+.pchip.ghost{opacity:.3}
+.pchip.dragging{position:fixed;z-index:200;pointer-events:none;background:#16264a;transform:scale(1.1)}
+.pchip.shake{animation:shk .45s}
+@keyframes shk{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+.drBoard{position:relative;flex:1;min-height:200px;border-radius:22px;overflow:hidden;background:#fff7e3;border:3px solid #c9a45c}
+.drBoard canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none}
+.drTools{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;align-items:center}
+.dc{width:52px;height:52px;border-radius:50%;border:4px solid transparent;box-shadow:0 0 0 2px rgba(255,255,255,.4)}
+.dc.on{border-color:#fff;transform:scale(1.12)}
+#sunsetTint{position:fixed;inset:0;z-index:12;pointer-events:none;opacity:0;transition:opacity 1.6s;background:radial-gradient(ellipse at 50% 100%,rgba(255,140,60,.55),rgba(255,90,60,.25) 55%,rgba(255,150,80,.12))}
+.breakBox{position:fixed;left:50%;top:84px;transform:translateX(-50%);z-index:75;background:var(--panel);border:2px solid #ffc857;border-radius:20px;padding:14px 18px;max-width:min(520px,calc(100vw - 24px));text-align:center;font-weight:800;backdrop-filter:blur(8px)}
+.breakBox[hidden]{display:none}
+.tourEmo{display:flex;gap:4px;justify-content:center;flex-wrap:wrap;flex-basis:100%;font-size:18px}
+.tourEmo .te{opacity:.4;transition:transform .3s,opacity .3s}.tourEmo .te.done{opacity:.85}.tourEmo .te.on{opacity:1;transform:scale(1.5)}
+.panel.story .fact b{color:#8a5a14}.panel.story .fact{background:rgba(120,80,20,.08)}
 </style>
 </head>
 <body>
@@ -296,6 +366,7 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 <div id="banner" class="banner" hidden></div>
 <div id="expBar" class="expbar" hidden></div>
 <div id="tourBar" class="tourbar" hidden>
+  <div id="tourEmo" class="tourEmo" aria-hidden="true"></div>
   <span id="tourTxt">Viagem guiada</span>
   <button class="btn sm" id="tourPauseBtn" data-act="tourPause"><span class="mi" data-ic="pause"></span> Pausar</button>
   <button class="btn sm" data-act="tourSkip"><span class="mi" data-ic="skip"></span> Pular</button>
@@ -328,6 +399,11 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 <div id="bubble" class="bubble"></div>
 
 <section id="sizeHud" hidden></section>
+<section id="gameHud" hidden></section>
+<section id="drawHud" hidden></section>
+<div id="convStrip" class="convStrip" hidden></div>
+<div id="sunsetTint" aria-hidden="true"></div>
+<div id="breakBox" class="breakBox" hidden></div>
 
 <section id="intro" class="intro">
   <div>
@@ -864,7 +940,7 @@ const DEFS = [
   { key: 'cinturao', name: 'Cinturão de asteroides', belt: true, dist: 0, rad: 0, T: 0, spinH: 0, tilt: 0, D: 75, noLabel: true,
     size: 'Milhões de pedras de tamanhos variados', dia: 'Não gira como um planeta', ano: 'Cada pedra tem a sua própria órbita',
     main: 'Isto é o cinturão de asteroides! São muitos objetos rochosos de diferentes tamanhos. Eles ficam principalmente entre Marte e Júpiter, passeando em volta do Sol. Parece um grande conjunto de pedras no espaço!',
-    curios: ['Apesar de existirem muitos asteroides, eles ficam bem separados uns dos outros!', 'Ceres é um planeta anão que fica no cinturão de asteroides!', 'Alguns asteroides são pequenos como pedras, enquanto outros podem ter centenas de quilômetros!'] },
+    curios: ['Apesar de existirem muitos asteroides, eles ficam bem separados uns dos outros!', 'Sabia que a maior pedra de lá é tão grande que ganhou o nome de planeta anão? Ela se chama Ceres. Toque nela para conhecer!', 'Sabia que tem asteroides que não moram no cinturão? Alguns passeiam perto da Terra, e os cientistas acompanham todos eles com telescópios.', 'Alguns asteroides são pequenos como pedras, enquanto outros podem ter centenas de quilômetros!'] },
   { key: 'jupiter', name: 'Júpiter', dist: 58, rad: 4.4, T: 11.862, spinH: 9.93, tilt: 3, tex: 'jupiter', D: 17,
     size: 'Mais de mil Terras cabem dentro dele', dia: 'Cerca de 10 horas', ano: 'Quase 12 anos terrestres',
     main: 'Este é Júpiter, o quinto planeta e o maior de todos! Ele é tão grande que caberiam mais de mil Terras dentro dele. Júpiter é um gigante gasoso. Não tem uma superfície sólida como a Terra. Essas listras são nuvens e gases que se movimentam pela atmosfera!',
@@ -1223,7 +1299,7 @@ const state = {
 /* Movimento reduzido (acessibilidade): voos de câmera mais curtos e sem partículas de comemoração */
 const RM = !!(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);
 const tour = { on: false, i: 0, paused: false, phase: 'idle', timer: null };
-const TOUR = ['sol', 'mercurio', 'venus', 'terra', 'lua', 'marte', 'cinturao', 'jupiter', 'saturno', 'urano', 'netuno', 'plutao'];
+const TOUR = ['sol', 'mercurio', 'venus', 'terra', 'lua', 'apofis', 'bennu', 'marte', 'dimorfo', 'vesta', 'ceres', 'psique', 'cinturao', 'jupiter', 'saturno', 'urano', 'netuno', 'plutao', 'b612'];
 let expTimer = null, tgtKey = null, selKey = null;
 
 /* ---------------------------------------------------------------------
@@ -1403,25 +1479,6 @@ function voiceInfo() {
    --------------------------------------------------------------------- */
 let lastNarr = { text: '', label: '' };
 /* Curiosidades sem repetição: os índices já contados ficam salvos; só reinicia quando todas foram contadas */
-function nextCuriosity() {
-  const b = BODY[state.infoKey]; if (!b || !b.curios || !b.curios.length) return;
-  const seen = save.curiSeen[b.key] || (save.curiSeen[b.key] = []);
-  const all = b.curios.map((_, i) => i);
-  let pool = all.filter(i => !seen.includes(i));
-  if (!pool.length) {
-    const lastIdx = seen.length ? seen[seen.length - 1] : -1;
-    seen.length = 0;
-    pool = all.filter(i => i !== lastIdx || all.length === 1);
-  }
-  const idx = pick(pool);
-  seen.push(idx); persist();
-  const text = tpl(b.curios[idx]);
-  const label = `Curiosidade ${seen.length} de ${b.curios.length}`;
-  const box = $('curi');
-  if (box) { box.style.display = 'block'; box.textContent = '💡 ' + text; }
-  lastNarr = { text, label };
-  Narr.speak(text, { label });
-}
 /* Narração "Curtinho": só as duas primeiras frases (ou o texto curto do objeto, se existir) */
 function mainText(b) {
   const full = tpl(b.main);
@@ -1438,6 +1495,7 @@ function showPanel(html, opt = {}) {
   pn.hidden = false;
 }
 function closePanel() {
+  state.showSmall = false;
   if (!tour.on) Narr.stop();
   clearTimeout(state.prevTimer); state.prev = null;
   $('panel').hidden = true;
@@ -1464,25 +1522,6 @@ function poiHtml(b) {
   }
   return h;
 }
-function showInfo(key, opt = {}) {
-  const b = BODY[key]; if (!b) return;
-  state.infoOpen = true; state.infoKey = key; state.panel = 'info';
-  const img = THUMB[key] ? `<img src="${THUMB[key]}" alt="${esc(b.name)}">` : `<div class="noimg">☄️</div>`;
-  showPanel(`
-    <div class="ph">${img}<div><span class="seal">🔬 É de verdade</span><h2>${esc(b.name)}</h2><p style="margin:0;color:#a9bbe0">Toque nos botões para ouvir e descobrir.</p></div></div>
-    ${factsHtml(b)}
-    <div class="curi" id="curi"></div>
-    <div class="row">
-      <button class="btn sm on" data-act="curio">💡 Outra curiosidade</button>
-    </div>
-    ${poiHtml(b)}`);
-  const text = opt.text || mainText(b);
-  const label = opt.label || ('Conhecendo ' + b.name);
-  lastNarr = { text, label };
-  if (!opt.noSpeak) Narr.speak(text, { label });
-  $('curi').style.display = 'none';
-}
-
 /* Destaque de pontos de interesse com rótulos na tela */
 /* Mostra os marcadores de pontos de interesse apenas do corpo em foco */
 function setPoiKey(key) {
@@ -1507,6 +1546,8 @@ function renderPoiLabels(key) {
 }
 
 function openPanel(name) {
+  if (name === 'ast') return renderAst();
+  if (name === 'pass') return renderPass('cover');
   if (name === 'exp' || name === 'mov') return renderMov();
   if (name === 'play') return renderPlay();
   if (name === 'mis') return renderMissions();
@@ -1516,20 +1557,7 @@ function openPanel(name) {
 }
 
 /* Missões */
-const MISSIONS = [
-  { id: 'm1', title: 'Encontrar o Sol', target: 'sol', intro: 'Missão um! Vamos encontrar a estrela do nosso sistema. Toque no Sol!', goal: 'Toque no Sol.', ok: 'Isso mesmo! Você encontrou o Sol, a nossa estrela!' },
-  { id: 'm2', title: 'Descobrir o menor planeta', target: 'mercurio', intro: 'Missão dois! Qual é o planeta menorzinho? Procure o planeta mais pertinho do Sol.', goal: 'Procure o planeta mais pertinho do Sol.', ok: 'Achou! Mercúrio é o menor planeta. Mandou muito bem!' },
-  { id: 'm3', title: 'Conhecer o planeta mais quente', target: 'venus', intro: 'Missão três! Existe um planeta com nuvens grossas que prendem o calor. Qual será?', goal: 'Toque no planeta de nuvens amareladas.', ok: 'Uau! Vênus é o planeta mais quente de todos!' },
-  { id: 'm4', title: 'Encontrar nossa casa', target: 'terra', intro: 'Missão quatro! Onde será que a gente mora? Toque na nossa casa!', goal: 'Toque na Terra, a nossa casa.', ok: 'Olha só! Esta é a nossa casa, a Terra!' },
-  { id: 'm5', title: 'Visitar a Lua', target: 'lua', intro: 'Missão cinco! Vamos visitar a companheira da Terra.', goal: 'Toque na Lua.', ok: 'Chegamos à Lua! Doze astronautas já caminharam por aqui.' },
-  { id: 'm6', title: 'Explorar Marte', target: 'marte', intro: 'Missão seis! Vamos viajar até o planeta vermelho.', goal: 'Toque em Marte.', ok: 'Chegamos a Marte! Lá já passearam robôs tirando fotografias.' },
-  { id: 'm7', title: 'Encontrar a Grande Mancha Vermelha', target: 'jupiter', check: e => e.type === 'poi' && e.id === 'grm', intro: 'Missão sete! Júpiter tem uma tempestade gigante. Toque em Júpiter e depois na Grande Mancha Vermelha.', goal: 'Toque em Júpiter e depois na Grande Mancha Vermelha.', ok: 'Você encontrou a Grande Mancha Vermelha, uma tempestade maior que a Terra!' },
-  { id: 'm8', title: 'Descobrir os anéis de Saturno', target: 'saturno', intro: 'Missão oito! Saturno tem anéis lindos. Toque no planeta dos anéis!', goal: 'Toque em Saturno.', ok: 'Que anéis lindos! Eles são feitos de gelo e pedras.' },
-  { id: 'm9', title: 'Encontrar o planeta que gira deitado', target: 'urano', intro: 'Missão nove! Existe um planeta que gira deitado, como uma bola rolando. Qual é?', goal: 'Toque no planeta azul-esverdeado que gira deitado.', ok: 'Isso mesmo! Urano gira quase deitado!' },
-  { id: 'm10', title: 'Chegar a Netuno', target: 'netuno', intro: 'Missão dez! Vamos até o planeta mais distante do Sol, bem azul e muito frio.', goal: 'Toque em Netuno.', ok: 'Chegamos a Netuno! Os ventos de lá são muito rápidos.' },
-  { id: 'm11', title: 'Descobrir Plutão', target: 'plutao', intro: 'Missão onze! Última missão! Vamos visitar um planeta anão, pequeno e gelado.', goal: 'Toque em Plutão.', ok: 'Você descobriu Plutão! Ele tem uma região clara em formato de coração.' }
-];
-MISSIONS.forEach(m => { if (!m.check) m.check = e => e.type === 'select' && e.key === m.target; });
+const MISSIONS = [];
 
 function renderMissions() {
   state.infoOpen = false; state.panel = 'mis';
@@ -1551,6 +1579,7 @@ function renderMissions() {
 function startMission(i) {
   state.mission = i;
   const m = MISSIONS[i];
+  if (m.start) m.start();
   tgtKey = m.target;
   $('banner').hidden = false;
   $('banner').innerHTML = `<b>🚀 Missão ${i + 1}: ${esc(m.title)}</b><span>${esc(m.goal)}</span><button class="btn sm" data-act="mCancel">Cancelar</button>`;
@@ -1585,66 +1614,10 @@ function emit(ev) {
 function updateStars() { $('starsN').textContent = save.stars; }
 
 /* Quiz */
-const QUIZ = [
-  { q: 'Qual é a estrela que fica no meio do Sistema Solar?', a: 'sol', exp: 'O Sol é uma estrela e fica bem no centro.', opts: [{ id: 'sol', label: 'Sol', img: 'sol' }, { id: 'lua', label: 'Lua', img: 'lua' }, { id: 'terra', label: 'Terra', img: 'terra' }, { id: 'jupiter', label: 'Júpiter', img: 'jupiter' }] },
-  { q: 'Qual é o planeta onde moramos?', a: 'terra', exp: 'A Terra é a nossa casa!', opts: [{ id: 'marte', label: 'Marte', img: 'marte' }, { id: 'terra', label: 'Terra', img: 'terra' }, { id: 'venus', label: 'Vênus', img: 'venus' }, { id: 'saturno', label: 'Saturno', img: 'saturno' }] },
-  { q: 'Qual é o maior planeta?', a: 'jupiter', exp: 'Júpiter é o maior planeta do Sistema Solar.', opts: [{ id: 'saturno', label: 'Saturno', img: 'saturno' }, { id: 'jupiter', label: 'Júpiter', img: 'jupiter' }, { id: 'netuno', label: 'Netuno', img: 'netuno' }, { id: 'terra', label: 'Terra', img: 'terra' }] },
-  { q: 'Qual planeta tem anéis famosos?', a: 'saturno', exp: 'Os anéis de Saturno são feitos de gelo e pedras.', opts: [{ id: 'urano', label: 'Urano', img: 'urano' }, { id: 'saturno', label: 'Saturno', img: 'saturno' }, { id: 'marte', label: 'Marte', img: 'marte' }, { id: 'jupiter', label: 'Júpiter', img: 'jupiter' }] },
-  { q: 'Qual é o planeta vermelho?', a: 'marte', exp: 'Marte é avermelhado por causa da ferrugem no solo.', opts: [{ id: 'venus', label: 'Vênus', img: 'venus' }, { id: 'mercurio', label: 'Mercúrio', img: 'mercurio' }, { id: 'marte', label: 'Marte', img: 'marte' }, { id: 'jupiter', label: 'Júpiter', img: 'jupiter' }] },
-  { q: 'Qual planeta gira deitado?', a: 'urano', exp: 'Urano gira quase deitado, como uma bola rolando de lado.', opts: [{ id: 'netuno', label: 'Netuno', img: 'netuno' }, { id: 'urano', label: 'Urano', img: 'urano' }, { id: 'venus', label: 'Vênus', img: 'venus' }, { id: 'saturno', label: 'Saturno', img: 'saturno' }] },
-  { q: 'Como se chama o movimento de girar em torno de si mesmo?', a: 'rotacao', exp: 'Girar em volta de si mesmo se chama rotação.', opts: [{ id: 'rotacao', label: 'Rotação', emo: '🌀' }, { id: 'translacao', label: 'Translação', emo: '🔁' }, { id: 'fase', label: 'Fase da Lua', emo: '🌙' }, { id: 'eclipse', label: 'Eclipse', emo: '🌑' }] },
-  { q: 'Como se chama o movimento de dar a volta no Sol?', a: 'translacao', exp: 'Dar a volta no Sol se chama translação.', opts: [{ id: 'rotacao', label: 'Rotação', emo: '🌀' }, { id: 'translacao', label: 'Translação', emo: '🔁' }, { id: 'fase', label: 'Fase da Lua', emo: '🌙' }, { id: 'eclipse', label: 'Eclipse', emo: '🌑' }] },
-  { q: 'O que causa o dia e a noite?', a: 'rot', exp: 'A Terra gira, e o Sol ilumina um lado de cada vez.', opts: [{ id: 'rot', label: 'Rotação da Terra', emo: '🌍' }, { id: 'luz', label: 'Luz própria da Lua', emo: '🌕' }, { id: 'eclipse', label: 'Eclipse', emo: '🌑' }, { id: 'chuva', label: 'Chuva', emo: '🌧️' }] },
-  { q: 'A Lua tem luz própria?', a: 'nao', exp: 'A Lua não tem luz própria. Ela reflete a luz do Sol.', opts: [{ id: 'sim', label: 'Sim', emo: '✨' }, { id: 'nao', label: 'Não', emo: '🌕' }] }
-];
+const QUIZ = [];
 const PRAISE = [n => 'Uau, ' + n + ', acertou!', n => 'Você é astronauta de verdade, ' + n + '!', n => 'Isso mesmo, ' + n + '! Que descoberta incrível!', n => 'Mandou muito bem, ' + n + '!',
   n => 'Isso mesmo, você prestou atenção!', n => 'Você pensou direitinho, ' + n + '!', n => 'Essa foi difícil, e você conseguiu!'];
 const ENCOUR = ['Quase! Vamos descobrir juntos?', 'Boa tentativa! Vou mostrar a resposta.', 'Errar também faz parte de aprender!'];
-
-function renderQuiz(speakQ) {
-  state.infoOpen = false; state.panel = 'quiz';
-  if (!state.quiz) state.quiz = { i: 0, score: 0, answered: null };
-  const Q = state.quiz;
-  if (Q.i >= QUIZ.length) {
-    const s = Q.score;
-    const msg = s >= 8 ? 'Você é astronauta de verdade!' : s >= 5 ? 'Que bom! Você já sabe muita coisa do espaço.' : 'Que aventura! Vamos explorar de novo?';
-    showPanel(`<h2>⭐ Resultado</h2><p style="font-size:24px;font-weight:900">Você acertou ${s} de ${QUIZ.length}!</p><p>${msg}</p>
-      <button class="btn pri" data-act="qRestart">🔁 Jogar de novo</button>`);
-    Narr.speak(`Você acertou ${numWords(s)} de ${numWords(QUIZ.length)} perguntas! ${msg}`, { label: 'Resultado' });
-    return;
-  }
-  const q = QUIZ[Q.i];
-  const opts = q.opts.map(o => {
-    let cls = '';
-    if (Q.answered) { if (o.id === q.a) cls = 'ok'; else if (o.id === Q.answered) cls = 'bad'; }
-    const visual = o.img ? `<img src="${THUMB[o.img]}" alt="${esc(o.label)}">` : `<span class="emo">${o.emo}</span>`;
-    return `<button class="opt ${cls}" data-act="qAns" data-arg="${o.id}" ${Q.answered ? 'disabled' : ''}>${visual}<span>${esc(o.label)}</span></button>`;
-  }).join('');
-  const fb = Q.answered ? `<div class="narr" style="font-size:18px;font-weight:800">${Q.answered === q.a ? '✅' : '💡'} ${esc(q.exp)}</div>
-     <button class="btn pri" data-act="qNext">Próxima ➜</button>` : '';
-  showPanel(`<h2>❓ Brincadeira de perguntas</h2>
-    <div class="bar"><i style="width:${(Q.i / QUIZ.length) * 100}%"></i></div>
-    <p style="margin:2px 0 8px">Pergunta ${Q.i + 1} de ${QUIZ.length} · Acertos: ${Q.score}</p>
-    <div class="row" style="margin:8px 0"><button class="btn sm" data-act="qSay">🔊 Ouvir pergunta</button></div>
-    <p style="font-size:21px;font-weight:900;color:#fff">${esc(q.q)}</p>
-    <div class="grid2" style="margin-top:10px">${opts}</div>
-    ${fb}`);
-  if (speakQ && !Q.answered) Narr.speak(q.q, { label: 'Pergunta' });
-}
-function quizAnswer(id) {
-  const Q = state.quiz; if (!Q || Q.answered) return;
-  const q = QUIZ[Q.i];
-  Q.answered = id;
-  if (id === q.a) {
-    Q.score++; save.stars++; persist(); updateStars(); burst(14);
-    Narr.speak(pick(PRAISE)(kid()) + ' ' + q.exp, { label: 'Acertou!' });
-    astroJump();
-  } else {
-    const correct = q.opts.find(o => o.id === q.a);
-    Narr.speak(pick(ENCOUR) + ' A resposta certa é: ' + correct.label + '. ' + q.exp, { label: 'Vamos aprender' });
-  }
-  renderQuiz(false);
-}
 
 /* Idade planetária */
 const AGE_PL = [
@@ -1696,7 +1669,7 @@ function ageSay() {
 }
 
 /* Funcionalidades já disponíveis nesta versão (ligadas fase a fase) */
-const FEAT = { asteroids: false, passport: false, dino: false, reminder: false };
+const FEAT = { asteroids: true, passport: true, dino: true, reminder: true };
 
 /* Portas da barra inferior: Movimentos e Brincar */
 function renderMov() {
@@ -1706,17 +1679,6 @@ function renderMov() {
     <div class="grid2" style="margin-top:8px">${EXP_LIST.map(([k, l]) => `<button class="btn" style="min-height:76px;font-size:16px" data-act="exp" data-arg="${k}">${l}</button>`).join('')}
       <button class="btn" style="min-height:76px;font-size:16px" data-act="sizeOpen">📏 Tamanho de verdade</button></div>`);
 }
-function renderPlay() {
-  state.infoOpen = false; state.panel = 'play';
-  showPanel(`<h2>🎮 Brincar</h2>
-    <p>Escolha uma brincadeira.</p>
-    <div class="grid2" style="margin-top:8px">
-      <button class="btn" style="min-height:84px;font-size:17px" data-act="openPanel" data-arg="quiz">❓ Perguntas</button>
-      <button class="btn" style="min-height:84px;font-size:17px" data-act="openPanel" data-arg="age">🎂 Meu aniversário nos planetas</button>
-      <button class="btn" style="min-height:84px;font-size:17px" data-act="openPanel" data-arg="mis">🎯 Missões</button>
-    </div>`);
-}
-
 /* MODO PAPAI: abre só com toque longo de 2 segundos na engrenagem */
 function renderPapai() {
   state.infoOpen = false; state.panel = 'papai';
@@ -1755,6 +1717,8 @@ function renderPapai() {
     <div class="row">${t(save.preview, 'togglePreview', undefined, '🤔 Pergunta antes de contar: ' + (save.preview ? 'ligada' : 'desligada'))}</div>
     ${FEAT.dino ? `<div class="row" style="margin-top:8px">${t(save.dino, 'toggleDino', undefined, '🦕 Cartão da pedra dos dinossauros: ' + (save.dino ? 'ligado' : 'desligado'))}</div>` : ''}
     ${FEAT.reminder ? `<div class="cat">Lembrete de pausa</div><div class="row">${t(!save.breakMin, 'breakSet', 0, 'Desligado')}${t(save.breakMin === 15, 'breakSet', 15, '15 min')}${t(save.breakMin === 20, 'breakSet', 20, '20 min')}${t(save.breakMin === 30, 'breakSet', 30, '30 min')}</div>` : ''}
+    <div class="cat">Encerrar a sessão</div>
+    <div class="row"><button class="btn sm on" data-act="ritual">🌙 Boa noite, astronauta</button></div>
     <div class="cat">Progresso</div>
     ${reset}
     <div class="cat">Sobre</div>
@@ -1816,14 +1780,14 @@ function renderExp() {
 }
 function expBarShow(title, line, extra = '') {
   const bar = $('expBar');
-  bar.innerHTML = `<div class="eb"><b>${title}</b> <span>${line}</span></div><div class="ebb">${extra}<button class="btn sm" data-act="expStop">✕ Sair</button></div>`;
+  bar.innerHTML = `<div class="eb"><b>${title}</b> <span>${line}</span></div><div class="ebb">${extra}${expExtras()}<button class="btn sm" data-act="expStop">✕ Sair</button></div>`;
   bar.hidden = false;
 }
 function setOrbitHL(key) { state.hlOrbit = key; }
 function expStart(id) {
   expStop();
   closePanel();
-  state.exp = id;
+  state.exp = id; markSeal('exp:' + id);
   const E = BODY.terra;
   if (id === 'rot') {
     focusObj(E.focusObj, 8); axisOn('terra');
@@ -1908,32 +1872,6 @@ function startTour() {
   tourBarShow(true);
   $('tourPauseBtn').innerHTML = ic('pause') + ' Pausar';
   tourGo();
-}
-function tourGo() {
-  const T = tour;
-  if (!T.on) return;
-  clearTimeout(T.timer);
-  if (T.i >= TOUR.length) { tourEnd(true); return; }
-  const key = TOUR[T.i], b = BODY[key];
-  $('tourTxt').textContent = `Viagem ${T.i + 1} de ${TOUR.length}: ${b.name}`;
-  T.phase = 'approach';
-  setPoiKey(null);
-  selKey = key;
-  focusObj(b.focusObj, b.D);
-  showInfo(key, { noSpeak: true, text: mainText(b) });
-  T.timer = setTimeout(() => {
-    if (!T.on || T.paused) return;
-    T.phase = 'speak';
-    markVisited(key);
-    Narr.speak(mainText(b), {
-      label: 'Viagem: ' + b.name,
-      onDone: () => {
-        if (!T.on) return;
-        T.phase = 'wait';
-        T.timer = setTimeout(() => { T.i++; tourGo(); }, 1400);
-      }
-    });
-  }, 2600);
 }
 function tourPause() {
   if (!tour.on) return;
@@ -2034,10 +1972,10 @@ function startPreview(key, okText) {
   state.prev = { key, okText };
   const img = THUMB[key] ? `<img src="${THUMB[key]}" alt="${esc(b.name)}">` : `<div class="noimg">☄️</div>`;
   const opts = P.o.map((o, i) => `<button class="opt" data-act="prevAns" data-arg="${i}">${o.img ? `<img src="${THUMB[o.img]}" alt="${esc(o.label)}">` : `<span class="emo">${o.emo}</span>`}<span>${esc(o.label)}</span></button>`).join('');
-  showPanel(`<div class="ph">${img}<div><span class="seal">🔬 É de verdade</span><h2>${esc(b.name)}</h2></div></div>
+  showPanel(`<div class="ph">${img}<div><span class="seal">${b.story ? '📖 É de uma história' : '🔬 É de verdade'}</span><h2>${esc(b.name)}</h2></div></div>
     <p class="prevq">${esc(P.q)}</p>
     <div class="grid2">${opts}</div>
-    <div class="row" style="margin-top:12px"><button class="btn sm" data-act="prevSkip">Pular ➜</button></div>`);
+    <div class="row" style="margin-top:12px"><button class="btn sm" data-act="prevSkip">Pular ➜</button></div>`, { story: !!b.story });
   lastNarr = { text: P.q, label: 'Vamos pensar' };
   Narr.speak(P.q, { label: 'Vamos pensar', onDone: () => { clearTimeout(state.prevTimer); state.prevTimer = setTimeout(revealPreview, 8000); } });
 }
@@ -2052,7 +1990,8 @@ function revealPreview() {
   state.prev = null; clearTimeout(state.prevTimer);
   const b = BODY[pv.key];
   markVisited(pv.key);
-  showInfo(pv.key, { text: (pv.okText ? pv.okText + ' ' : '') + mainText(b), label: 'Conhecendo ' + b.name });
+  const hist = pv.key === 'b612' ? 'Ele é de uma história! Os cientistas nunca encontraram o B612. Mas a história é tão bonita que vale a pena conhecer. ' : '';
+  showInfo(pv.key, { text: (pv.okText ? pv.okText + ' ' : '') + hist + mainText(b), label: 'Conhecendo ' + b.name });
 }
 function activatePoi(key, id) {
   const b = BODY[key]; if (!b) return;
@@ -2076,6 +2015,7 @@ const SIZE_NAMES = { sol: 'Sol', mercurio: 'Mercúrio', venus: 'Vênus', terra: 
 const SIZE_COL = { sol: '#ffb24d', mercurio: '#b5aea4', venus: '#e8c98b', terra: '#4f9dff', marte: '#d0603e', jupiter: '#d9a676', saturno: '#e9d59b', urano: '#9fe3e8', netuno: '#4c74e0', plutao: '#b3a396' };
 function openSize(sunPx, quiet, measured) {
   if (!sunPx) sunPx = 200;
+  markSeal('exp:size');
   closePanel();
   const hud = $('sizeHud');
   const real = state.sizeMode === 'real';
@@ -2091,6 +2031,7 @@ function openSize(sunPx, quiet, measured) {
     <div class="sizeTop">
       <button class="btn sm ${real ? 'on' : ''}" data-act="sizeMode" data-arg="real">📏 Escala real</button>
       <button class="btn sm ${!real ? 'on' : ''}" data-act="sizeMode" data-arg="ampl">🔍 Planetas ampliados</button>
+      <button class="btn sm" data-act="sizeConv">💬 Para conversar</button>
       <button class="btn sm" data-act="sizeClose">✕ Fechar</button>
     </div>
     <div class="sizeRow">${items}</div>
@@ -2226,7 +2167,7 @@ function buildLabels() {
   for (const b of BODY_LIST) {
     if (b.noLabel) continue;
     const el = document.createElement('button');
-    el.className = 'lbl'; el.dataset.act = 'sel'; el.dataset.arg = b.key;
+    el.className = 'lbl' + (b.small && b.key !== 'b612' ? ' sm' : ''); el.dataset.act = 'sel'; el.dataset.arg = b.key;
     el.textContent = b.name;
     host.appendChild(el); b.label = el;
   }
@@ -2234,7 +2175,9 @@ function buildLabels() {
 function updateLabels() {
   const placed = [];
   const pri = b => (selKey === b.key || tgtKey === b.key) ? 0 : (b.key === 'lua' ? 2 : 1);
-  const ord = BODY_LIST.filter(x => x.label).sort((a, b) => pri(a) - pri(b));
+  const smallOk = b => { if (!b.small || b.key === 'b612') return true; if (selKey === b.key || tgtKey === b.key || state.showSmall) return true; b.focusObj.getWorldPosition(_w); return camera.position.distanceTo(_w) < 75; };
+  for (const x of BODY_LIST) if (x.label && !smallOk(x)) x.label.style.display = 'none';
+  const ord = BODY_LIST.filter(x => x.label && smallOk(x)).sort((a, b) => pri(a) - pri(b));
   for (const b of ord) {
     if (!b.label) continue;
     if (!state.labels) { b.label.style.display = 'none'; continue; }
@@ -2278,6 +2221,7 @@ function pinchDist() {
   return Math.hypot(pts[0].x - pts[1].x, pts[0].y - pts[1].y);
 }
 canvasEl.addEventListener('pointerdown', e => {
+  if (b612ChairStart(e)) return;
   pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
   try { canvasEl.setPointerCapture(e.pointerId); } catch (err) {}
   dragInfo = { moved: 0, id: e.pointerId, t: performance.now() };
@@ -2320,13 +2264,22 @@ function handleTap(e) {
   ndc.set(((e.clientX - r.left) / r.width) * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1);
   raycaster.setFromCamera(ndc, camera);
   raycaster.params.Points = { threshold: 0.6 };
+  if (shootScreenHit(e)) { onShootTap(); return; }
   const hits = raycaster.intersectObjects(CLICK, false).filter(h => isVisibleChain(h.object));
   if (hits.length) {
     const ud = hits[0].object.userData;
     if (ud.poi) activatePoi(ud.body, ud.id);
-    else if (ud.key) selectBody(ud.key);
+    else if (ud.b612el) b612Tap(ud.b612el, ud.idx);
+    else if (ud.key) {
+      if (dayMissionTap(hits[0], ud.key)) return;
+      if (ud.key === 'b612' && b612ElFallback(e)) return;
+      /* O cinturão é só um monte de pontinhos: se há um objeto bem perto do dedo (48 px), ele tem prioridade */
+      const nb = ud.key === 'cinturao' ? nearestBody(e.clientX - r.left, e.clientY - r.top) : null;
+      selectBody(nb || ud.key);
+    }
     return;
   }
+  if (b612ElFallback(e)) return;
   /* Área de toque generosa: se o dedo caiu perto de um objeto pequeno, conta como toque nele (raio mínimo de 48 px) */
   const px = e.clientX - r.left, py = e.clientY - r.top;
   let best = null, bd = 1e9;
@@ -2368,6 +2321,7 @@ function stepBodies(s) {
   if (belt) belt.rotation.y += s * 0.02;
   stepSats(s);
   stepComet(s);
+  stepSmall(s);
   const sun = BODY.sol;
   sun.flares.forEach((f, i) => {
     const u = f.userData;
@@ -2416,7 +2370,7 @@ function stepFX() {
   if (selKey && BODY[selKey] && BODY[selKey].focusObj && !(selKey === 'cinturao')) {
     const sb = BODY[selKey];
     sb.focusObj.getWorldPosition(selSpr.position);
-    selSpr.visible = true; selSpr.scale.setScalar(Math.max(1.4, sb.rad * 3.2));
+    selSpr.visible = !(sb.key === 'b612' && focus); selSpr.scale.setScalar(Math.max(1.4, sb.rad * 3.2));
   } else selSpr.visible = false;
   if (tgtKey && BODY[tgtKey] && tgtKey !== 'cinturao') {
     const tb = BODY[tgtKey];
@@ -2484,6 +2438,7 @@ function frame(now) {
   });
   updateLabels();
   updateHand();
+  updateHand2();
   updateBack();
   updateAstro();
   renderer.render(scene, camera);
@@ -2491,10 +2446,13 @@ function frame(now) {
 /* Botão Voltar: sempre no mesmo lugar, volta um nível por vez */
 function updateBack() {
   const bb = $('backBtn');
-  const show = $('intro').hidden && !tour.on && (!$('panel').hidden || !!state.exp || !!focus || !$('sizeHud').hidden);
+  const show = $('intro').hidden && !tour.on && (!$('panel').hidden || !!state.exp || !!focus || !$('sizeHud').hidden || !$('gameHud').hidden || !$('drawHud').hidden);
   if (bb.hidden === show) bb.hidden = !show;
 }
 function goBack() {
+  if (!$('gameHud').hidden) { closeOrder(); return; }
+  if (!$('drawHud').hidden) { closeDraw(); return; }
+  if (!$('convStrip').hidden) { $('convStrip').hidden = true; return; }
   if (!$('sizeHud').hidden) { $('sizeHud').hidden = true; Narr.stop(); return; }
   if (state.exp) { expStop(); return; }
   if (!$('panel').hidden) { closePanel(); return; }
@@ -2599,10 +2557,1228 @@ function expStop() {
   if (!tour.on) Narr.stop();
 }
 
+/* =====================================================================
+   // ASTEROIDES, B612, DINO e METEORO: dados e textos (v2)
+   ===================================================================== */
+const LIC = [
+  { n: 1, el: 'chapeu', t: 'Quando o aviador era criança, ele desenhou uma cobra enorme que tinha engolido um elefante inteiro. Ele mostrou para os adultos, e todos disseram: que chapéu bonito! Ninguém usou a imaginação. A lição é: olhe com calma e com imaginação, porque as coisas podem ser muito mais do que parecem.', conv: 'O que mais esse desenho poderia ser?' },
+  { n: 2, el: 'caixinha', t: 'O Pequeno Príncipe pediu para o aviador: desenha um carneiro para mim? O aviador tentou várias vezes, mas nenhum carneiro ficava do jeito certo. Então ele desenhou uma caixa com furinhos e disse: o carneiro está aí dentro. E o príncipe adorou! A lição é: a imaginação deixa a gente ver coisas lindas, mesmo quando elas estão escondidas.', conv: 'Como é o carneirinho que está aí dentro, na sua imaginação?' },
+  { n: 3, el: 'luneta', t: 'Um astrônomo descobriu o B612 com o seu telescópio e foi contar para todo mundo. Mas ninguém acreditou, só porque ele estava usando uma roupa diferente. Anos depois, ele contou a mesma coisa vestindo um terno chique, e aí todos acreditaram! A lição é: não julgue as pessoas pela roupa ou pela aparência. O que importa é o que elas dizem e o que elas fazem.', conv: 'Você já conheceu alguém que parecia uma coisa, mas era outra bem diferente?' },
+  { n: 4, el: 'baobas', t: 'No B612 nascem sementes de baobá, uma árvore gigante. Se deixar crescer, as raízes ficam tão grandes que podem até rachar o planetinha! Por isso, o Pequeno Príncipe arranca os brotinhos todo dia, enquanto eles ainda são pequenos. A lição é: cuidar das coisas um pouquinho todo dia, como escovar os dentes e guardar os brinquedos, evita problemas grandes depois.', conv: 'Qual é o brotinho que você cuida todo dia?' },
+  { n: 5, el: 'cadeira', t: 'O B612 é tão pequenininho que, para ver o pôr do sol de novo, bastava puxar a cadeira alguns passos. Teve um dia em que o Pequeno Príncipe viu o Sol se pôr mais de quarenta vezes! Ele fazia isso quando estava tristinho. A lição é: todo mundo fica triste às vezes, e tudo bem. Fazer uma coisa que a gente ama ajuda o coração a ficar melhor.',
+    ponte: 'E isso tem ciência de verdade! O pôr do sol acontece por causa da rotação, lembra? O planeta vai girando e o nosso lugar passa do claro para o escuro. Num planeta pequenininho, dá para andar até onde o Sol está se pondo bem rapidinho. Na Terra, que é enorme, a gente teria que viajar de avião!',
+    conv: 'O que você gosta de fazer quando fica tristinha?' },
+  { n: 6, el: 'rosa', t: 'O Pequeno Príncipe tinha uma rosa muito especial. Ela era meio exigente e gostava de ser elogiada, e às vezes ele ficava confuso com o que ela dizia. Depois ele entendeu que deveria prestar atenção no que a rosa fazia, e não só no que ela falava. Ela perfumava e enfeitava o planeta dele todos os dias. A lição é: o carinho aparece mais nas atitudes do que nas palavras.', conv: 'Como você mostra carinho para quem você ama, sem usar palavras?' },
+  { n: 7, el: 'vulcoes', t: 'Antes de viajar, o Pequeno Príncipe limpou com muito cuidado os seus três vulcõezinhos. Dois estavam acesos e um estava apagado. Ele limpou até o apagado, porque nunca se sabe! Ele até esquentava o café da manhã nos vulcões acesos. A lição é: cuidar bem da nossa casa, até das partes que parecem não precisar.', conv: 'Qual cantinho da nossa casa você gosta de cuidar?' },
+  { n: 8, t: 'Numa viagem, o Pequeno Príncipe conheceu um homem que passava o dia inteiro contando estrelas, só para dizer que elas eram dele. Mas ele nunca parava para olhar para elas! A lição é: as coisas bonitas não são para guardar numa gaveta. São para admirar e cuidar.', conv: 'Qual é a coisa mais bonita que você já viu no céu?' },
+  { n: 9, t: 'Em outro planetinha, morava um homem que acendia e apagava um lampião de rua. O planeta dele girava tão rápido que lá o dia durava só um minuto! Então ele acendia e apagava, acendia e apagava, sem parar. O Pequeno Príncipe gostou dele, porque ele cuidava de uma coisa que não era só para ele mesmo. A lição é: fazer coisas que ajudam os outros deixa o nosso trabalho mais bonito.',
+    ponte: 'Sabia que isso também é ciência? Quanto mais rápido um planeta gira, mais curto é o dia dele. Júpiter gira tão rápido que o dia lá dura só umas dez horas!',
+    conv: 'Quem cuida de você todos os dias, mesmo quando está cansado?' },
+  { n: 10, t: 'Aqui na Terra, o Pequeno Príncipe conheceu uma raposa. Ela pediu: me cativa? Cativar é fazer amizade com calma, um pouquinho a cada dia, até a gente ficar importante um para o outro. A raposa ensinou que, quando a gente cativa alguém, a gente fica responsável por cuidar dessa amizade com carinho. A lição é: amizade precisa de tempo e de cuidado.', conv: 'Quem você cativou? E quem cativou você?' },
+  { n: 11, t: 'Na despedida, a raposa contou um segredo para o Pequeno Príncipe: as coisas mais importantes a gente não consegue ver com os olhos. A gente sente com o coração. O amor da família, a amizade, o carinho: ninguém consegue ver, mas eles são de verdade! Por isso a rosa dele era tão especial: por causa de todo o tempo que ele passou cuidando dela.', conv: 'Qual é uma coisa importante que a gente não consegue ver?' },
+  { n: 12, t: 'No deserto, o aviador e o Pequeno Príncipe estavam com muita sede e saíram procurando um poço de água. O Pequeno Príncipe disse que o deserto era bonito porque, em algum lugar, ele escondia um poço. E eles encontraram! A lição é: às vezes, o que deixa um lugar especial está escondido. Vale a pena procurar com paciência.', conv: 'Qual lugar parece comum, mas é especial para você?' },
+  { n: 13, el: 'cachecol', t: 'Quando o Pequeno Príncipe voltou para o seu planetinha, ele deixou um presente para o aviador. Como ele morava numa estrelinha, sempre que o aviador olhasse o céu à noite, ia lembrar do amigo rindo lá de cima. E aí todas as estrelas iam parecer rir também! A lição é: quem a gente ama continua no nosso coração, mesmo quando está longe.', conv: 'Quando você olha o céu, de quem você lembra?' }
+];
+const B612_REAL = [
+  'Sabia que os cientistas gostam tanto dessa história que deram nomes a coisas de verdade no espaço? Existe um asteroide de verdade com o nome do autor do livro, Saint-Exupéry!',
+  'Sabia que existe uma luazinha de verdade, que gira em volta de um asteroide chamado Eugênia, e ela se chama Pequeno Príncipe?',
+  'Sabia que um grupo de cientistas que ajuda a vigiar asteroides para proteger a Terra escolheu o nome Fundação B612? A história virou trabalho de verdade!',
+  'Sabia que esse livro já foi traduzido para centenas de línguas? Crianças do mundo inteiro conhecem o Pequeno Príncipe.'
+];
+const LIC_INTRO = 'Uma lição do Pequeno Príncipe! ';
+
+const SMALL_DEFS = [
+  { key: 'ceres', name: 'Ceres', emo: '✨', rad: 1.1, D: 6, T: 4.6, spinH: 9, belt: 44.6, enlarged: true, alwaysShort: true,
+    size: 'Quase do tamanho de um estado grande do Brasil, como Minas Gerais', dia: 'Cerca de 9 horas', ano: 'Cerca de 4 anos e meio terrestres',
+    main: 'Esta é Ceres, a maior pedra de todo o cinturão de asteroides! Ela é tão grande e redondinha que ganhou um nome especial: planeta anão, igual a Plutão. Ceres foi a primeira pedra do cinturão que os cientistas encontraram, há mais de duzentos anos. Olha esses pontinhos brilhando: parece purpurina no chão!',
+    short: 'Esta é Ceres, a maior pedra do cinturão. Ela é tão grande que virou planeta anão!',
+    curios: ['Sabia que aqueles pontinhos brilhantes de Ceres são feitos de um tipo de sal? Eles ficaram lá quando uma água salgada secou, como quando a água do mar seca e sobra sal na pedra.', 'Sabia que os cientistas acham que Ceres tem água escondida debaixo do chão?', 'Sabia que uma nave chamada Dawn, que quer dizer amanhecer, visitou Ceres e tirou fotos de pertinho?', 'Sabia que, se desse para andar de carro em cima de Ceres, atravessar de um lado até o outro levaria umas dez horas sem parar?'],
+    conv: 'Se você encontrasse um planeta anão, que nome você daria para ele?' },
+  { key: 'vesta', name: 'Vesta', emo: '⛰️', rad: 0.95, D: 5.5, T: 3.63, spinH: 5.3, belt: 42.3, enlarged: true, alwaysShort: true,
+    size: 'Um pouco mais larga que a distância de São Paulo ao Rio de Janeiro', dia: 'Cerca de 5 horas', ano: 'Cerca de 3 anos e meio terrestres',
+    main: 'Esta é Vesta, o asteroide mais brilhante do céu! Às vezes dá até para ver Vesta sem telescópio, como um pontinho de luz bem fraquinho. Ela não é redondinha. Ela tem formato de batata amassada, porque levou uma pancada enorme há muito, muito tempo.',
+    short: 'Esta é Vesta, o asteroide mais brilhante. Ela tem formato de batata!',
+    curios: ['Sabia que, no meio de um buraco gigante de Vesta, tem uma montanha mais de duas vezes mais alta que a montanha mais alta da Terra?', 'Sabia que pedacinhos de Vesta caíram aqui na Terra? Eles estão guardados em museus, e tem gente que já segurou um pedacinho de asteroide na mão!', 'Sabia que a mesma nave que visitou Ceres, a Dawn, também visitou Vesta antes?'],
+    conv: 'Se você pudesse segurar um pedacinho de asteroide, o que você faria com ele?' },
+  { key: 'psique', name: 'Psiquê', emo: '🔩', rad: 0.9, D: 5.2, T: 5.0, spinH: 4.2, belt: 47.1, enlarged: true, alwaysShort: true,
+    size: 'Mais ou menos a distância de Brasília até Goiânia, um pouquinho mais', dia: 'Cerca de 4 horas', ano: 'Cerca de 5 anos terrestres',
+    main: 'Este é Psiquê, um asteroide muito especial. Os cientistas acham que ele é feito de muito metal, como ferro. Imagina um prego gigante voando no espaço! Ele pode ser o pedaço do meio de um planeta que não terminou de se formar.',
+    short: 'Este é Psiquê, um asteroide que deve ser feito de metal!',
+    curios: ['Sabia que uma nave com o mesmo nome, a nave Psiquê, já está viajando até ele? Ela saiu da Terra em dois mil e vinte e três e deve chegar em dois mil e vinte e nove.', 'Sabia que, como ninguém nunca viu Psiquê de pertinho, os cientistas ainda vão descobrir se ele é mesmo de metal? A ciência é assim: a gente imagina, e depois vai lá conferir!', 'Sabia que o nome Psiquê vem de uma princesa das histórias antigas?'],
+    conv: 'O que você acha que a nave vai encontrar quando chegar lá?' },
+  { key: 'bennu', name: 'Bennu', emo: '🫧', rad: 0.5, D: 3.2, T: 1.2, spinH: 4.3, orbit: { a: 30.2, e: 0.15, inc: 6, om: 40 }, enlarged: true, alwaysShort: true,
+    size: 'Do tamanho de cinco campos de futebol enfileirados', dia: 'Cerca de 4 horas', ano: 'Cerca de 14 meses terrestres',
+    main: 'Este é Bennu, um asteroide pequeno que passeia perto da Terra. Ele tem formato de pião! Uma nave chamada OSIRIS-REx viajou até ele, encostou um braço comprido no chão, pegou um pouquinho de terra e trouxe de volta para cá!',
+    short: 'Este é Bennu. Uma nave foi até ele e trouxe um pouquinho de terra para cá!',
+    curios: ['Sabia que, quando a nave encostou em Bennu, o chão era tão fofinho que o braço afundou, como numa piscina de bolinhas?', 'Sabia que a terra de Bennu chegou aqui numa cápsula, que desceu de paraquedas num deserto, em dois mil e vinte e três?', 'Sabia que Bennu é do tamanho de cinco campos de futebol enfileirados? Para um asteroide, isso é pequenininho!'],
+    conv: 'Se você pudesse buscar um pouquinho de terra de qualquer lugar do espaço, de onde seria?' },
+  { key: 'dimorfo', name: 'Dimorfo e Dídimo', emo: '🚀', rad: 0.6, D: 4, T: 2.11, spinH: 2.26, orbit: { a: 32, e: 0.08, inc: 3.4, om: 200 }, enlarged: true, alwaysShort: true, dimorphos: true,
+    size: 'Dídimo tem o tamanho de uns sete campos de futebol; Dimorfo é bem menor', dia: 'Dídimo gira em cerca de 2 horas', ano: 'Cerca de 2 anos terrestres',
+    main: 'Este é Dimorfo, um asteroide pequeno que gira em volta de outro maior, chamado Dídimo. Em dois mil e vinte e dois, os cientistas fizeram um teste: mandaram uma nave chamada DART dar um empurrão nele, de propósito. E deu certo! O caminho de Dimorfo mudou um pouquinho. Foi a primeira vez que alguém conseguiu empurrar uma pedra do espaço.',
+    short: 'Este é Dimorfo. Os cientistas deram um empurrão nele com uma nave, e o caminho dele mudou!',
+    curios: ['Sabia que esse empurrão foi um treino? Dimorfo nunca foi perigoso. Os cientistas queriam aprender a proteger a Terra, caso um dia precise.', 'Sabia que a nave DART era mais ou menos do tamanho de uma geladeira?', { t: 'Sabia que, depois do empurrão, a volta de Dimorfo em torno de Dídimo ficou mais ou menos meia hora mais curta?', dart: true }],
+    conv: 'Que outras coisas você acha que os cientistas fazem para cuidar da Terra?' },
+  { key: 'apofis', name: 'Apófis', emo: '👋', rad: 0.55, D: 3.4, T: 0.89, spinH: 30, orbit: { a: 26, e: 0.19, inc: 3.3, om: 120 }, enlarged: true, alwaysShort: true,
+    size: 'Do tamanho de três campos de futebol', dia: 'Cerca de 30 horas', ano: 'Cerca de 11 meses terrestres',
+    main: 'Este é Apófis, um asteroide do tamanho de três campos de futebol. No dia treze de abril de dois mil e vinte e nove, ele vai passar bem pertinho da Terra. Mas pode ficar tranquila, {nome}: os cientistas já fizeram todas as contas, e ele não vai bater. Vai ser um show no céu!',
+    short: 'Este é Apófis. Ele vai passar pertinho da Terra em dois mil e vinte e nove, sem bater. Vai ser um show!',
+    curios: ['Sabia que, quando Apófis passar, você vai ter mais ou menos {idade_2029} anos?', 'Sabia que Apófis vai passar mais perto da Terra do que alguns satélites que ficam lá em cima?', 'Sabia que, em alguns lugares do mundo, vai dar para ver Apófis sem telescópio, como uma estrelinha andando devagar no céu?', 'Sabia que a mesma nave que visitou Bennu ganhou um nome novo e vai visitar Apófis depois que ele passar por aqui?'],
+    conv: 'Onde você gostaria de estar quando o Apófis passar?' }
+];
+
+const B612_DEF = {
+  key: 'b612', name: 'B612 ✨', emo: '🌹', rad: 1.7, D: 5.2, story: true, small: true, enlarged: false, alwaysShort: false,
+  size: 'Do tamanho de uma casa, mas só na história', dia: 'Bem curtinho: dá para ver o pôr do sol várias vezes', ano: 'Não existe de verdade, é de uma história',
+  main: 'Olha que planetinha diferente! Este é o asteroide B612, a casinha do Pequeno Príncipe. Ele é de uma história muito famosa, de um livro escrito por um aviador chamado Antoine de Saint-Exupéry. O B612 é tão pequenininho que dá para dar a volta nele em poucos passos. Lá moram uma rosa, três vulcõezinhos e umas sementes de árvore bem teimosas. Este planetinha é de uma história, é de mentirinha. Mas as lições que ele ensina são de verdade!',
+  short: 'Este é o B612, a casinha do Pequeno Príncipe. Ele é de uma história, mas as lições são de verdade!',
+  conv: 'Qual lição do Pequeno Príncipe você mais gostou?'
+};
+B612_DEF.curios = LIC.map(l => ({ kind: 'lic', n: l.n, t: l.t, ponte: l.ponte, conv: l.conv })).concat(B612_REAL.map(t => ({ kind: 'real', t })));
+
+const METEORO_DEF = {
+  key: 'meteoro', name: 'Estrela cadente', emo: '☄️', nofacts: true, noFocus: true, curios: [],
+  size: '', dia: '', ano: '',
+  main: 'Você viu? Uma estrela cadente! Mas sabe de uma coisa? Ela não é uma estrela. É uma pedrinha do espaço, às vezes menor que um grão de areia, que entra no ar da Terra tão rápido que esquenta e brilha. O nome disso é meteoro. Quando você vir uma no céu, pode fazer um pedido!',
+  conv: 'Que pedido você faria para uma estrela cadente?'
+};
+const DINO_DEF = {
+  key: 'dino', name: 'A pedra dos dinossauros', emo: '🦕', nofacts: true, noFocus: true, curios: [],
+  size: '', dia: '', ano: '',
+  main: 'Há muito, muito tempo, sessenta e seis milhões de anos, uma pedra enorme do espaço caiu na Terra, num lugar que hoje é o México. Isso mudou o planeta inteiro, e os grandes dinossauros desapareceram. Mas alguns parentes deles conseguiram continuar, e estão aqui até hoje: os passarinhos! Hoje, os cientistas vigiam o céu todos os dias. E pedras grandes assim são muito, muito raras.',
+  conv: 'Qual passarinho você já viu que parece um dinossauro?'
+};
+
+/* Palavras do espaço (sílabas separadas por hífen) */
+const WORDS = {
+  sol: ['SOL', 'ES-TRE-LA'], mercurio: ['MER-CÚ-RI-O', 'CRA-TE-RA'], venus: ['VÊ-NUS'], terra: ['TER-RA', 'PLA-NE-TA'],
+  lua: ['LU-A', 'SA-TÉ-LI-TE'], marte: ['MAR-TE'], cinturao: ['AS-TE-ROI-DE'], jupiter: ['JÚ-PI-TER'], saturno: ['SA-TUR-NO'],
+  urano: ['U-RA-NO'], netuno: ['NE-TU-NO'], plutao: ['PLU-TÃO'],
+  ceres: ['CE-RES'], vesta: ['VES-TA'], psique: ['PSI-QUÊ'], bennu: ['BEN-NU'], dimorfo: ['DI-MOR-FO'], apofis: ['A-PÓ-FIS'],
+  meteoro: ['ME-TE-O-RO'], dino: ['DI-NOS-SAU-RO'], b612: ['B-SEIS-UM-DOIS']
+};
+const EXP_WORDS = { rot: ['RO-TA-ÇÃO'], trans: ['TRANS-LA-ÇÃO', 'ÓR-BI-TA'], both: ['RO-TA-ÇÃO', 'TRANS-LA-ÇÃO'] };
+const ALL_WORDS = (() => { const s = []; const add = w => { if (!s.includes(w)) s.push(w); }; Object.values(WORDS).forEach(a => a.forEach(add)); Object.values(EXP_WORDS).forEach(a => a.forEach(add)); return s; })();
+const WORD_SHOW = { 'B-SEIS-UM-DOIS': 'B 6 1 2' };
+
+/* Pergunta "Para conversar" dos objetos que ainda não tinham */
+const CONV_BASE = {
+  sol: 'Se você pudesse dar um apelido para o Sol, qual seria?',
+  mercurio: 'Como você acha que é viver num lugar onde o dia é muito quente e a noite é geladíssima?',
+  venus: 'O que você faz quando está com muito calor?',
+  terra: 'Do que você mais gosta aqui na nossa casa, a Terra?',
+  lua: 'O que você levaria numa viagem até a Lua?',
+  marte: 'Se você mandasse um robô passear em Marte, o que pediria para ele procurar?',
+  cinturao: 'Se você pudesse colecionar uma pedrinha do espaço, como ela seria?',
+  jupiter: 'De que cor você pintaria as listras de Júpiter?',
+  saturno: 'Se você tivesse um anel de Saturno, o que faria com ele?',
+  urano: 'Como você faria para brincar num planeta que gira deitado?',
+  netuno: 'Que roupa você usaria para visitar um lugar tão gelado?',
+  plutao: 'Por que será que um planeta pequenininho também merece um nome especial?'
+};
+/* Experimentos caseiros do Guia do Papai */
+const EXPERIMENTO = {
+  day: 'Apague a luz, acenda uma lanterna e gire devagar uma laranja com um adesivo no lugar do Brasil.',
+  seasons: 'Espete a laranja num palito inclinado e ande em volta da lanterna, sem mudar a inclinação.',
+  moon: 'Com um abajur de um lado do quarto, segure uma bola de isopor com o braço esticado e gire devagar no lugar.',
+  size: 'Coloque uma bola de ginástica num canto e leve uma ervilha até o outro lado de um campo ou de uma praça.',
+  meteoro: 'Em noites de chuva de meteoros, como as Geminídeas em dezembro, deitem num lugar escuro e contem quantas estrelas cadentes veem.',
+  b612: 'Planta uma sementinha com ela e combina de cuidar um pouquinho todo dia, como o Pequeno Príncipe cuidava dos baobás.'
+};
+/* Frase-resumo de uma linha para os selos do passaporte */
+const SUMMARY = {
+  sol: 'O Sol é uma estrela, uma bola gigante de gás muito quente.', mercurio: 'Mercúrio é o menor planeta e o mais pertinho do Sol.',
+  venus: 'Vênus é o planeta mais quente, coberto de nuvens grossas.', terra: 'A Terra é a nossa casa, o planeta azul com vida.',
+  lua: 'A Lua é o satélite da Terra e brilha com a luz do Sol.', marte: 'Marte é o planeta vermelho, cheio de ferrugem no chão.',
+  cinturao: 'O cinturão de asteroides fica entre Marte e Júpiter.', jupiter: 'Júpiter é o maior planeta de todos.',
+  saturno: 'Saturno tem anéis lindos de gelo e pedra.', urano: 'Urano gira deitado, como uma bola rolando de lado.',
+  netuno: 'Netuno é azul, gelado e tem ventos muito rápidos.', plutao: 'Plutão é um planeta anão, pequeno e gelado.',
+  meteoro: 'Estrela cadente é uma pedrinha do espaço brilhando no ar da Terra.', dino: 'Uma pedra do espaço mudou a Terra, e os passarinhos são parentes dos dinossauros.',
+  b612: 'O B612 é a casinha do Pequeno Príncipe, de uma história.',
+  rosa: 'O carinho aparece mais nas atitudes do que nas palavras.', vulcoes: 'Cuidar bem da nossa casa, até das partes que parecem não precisar.',
+  baobas: 'Cuidar das coisas um pouquinho todo dia evita problemas grandes.', cadeira: 'Fazer uma coisa que a gente ama ajuda o coração a ficar melhor.',
+  caixinha: 'A imaginação deixa a gente ver coisas lindas, mesmo escondidas.', chapeu: 'Olhe com calma e com imaginação.',
+  luneta: 'Não julgue as pessoas pela aparência.', cachecol: 'Quem a gente ama continua no nosso coração.'
+};
+
+/* =====================================================================
+   // ASTEROIDES: formas procedurais, órbitas e animações
+   ===================================================================== */
+const SMALL = [];
+const UP_ = new THREE.Vector3(0, 1, 0);
+function n3(x, y, z, s) { return Math.sin(x * 2.1 + s) * Math.cos(y * 2.7 + s * 1.3) + Math.sin(z * 3.3 + x * 1.7 + s * 0.7) * 0.7 + Math.cos(y * 4.1 + z * 2.3 + s) * 0.5; }
+function craterAt(u, list) {
+  let r = 1, shade = 1;
+  for (const c of list) {
+    const ang = Math.acos(clamp(u.dot(c.c), -1, 1));
+    if (ang < c.w) { const f = 1 - ang / c.w; r -= c.d * Math.min(1, f * 1.8); shade -= 0.22 * f; }
+  }
+  return { r, shade };
+}
+/* Geometria de pedra: icosaedro (cerca de mil vértices) deslocado por ruído */
+function rockGeo(o) {
+  const g = new THREE.IcosahedronGeometry(1, 2);
+  const p = g.attributes.position, cnt = p.count, col = new Float32Array(cnt * 3), nrm = new Float32Array(cnt * 3);
+  const v = new THREE.Vector3(), u = new THREE.Vector3();
+  for (let i = 0; i < cnt; i++) {
+    u.fromBufferAttribute(p, i).normalize();
+    const nz = (n3(u.x, u.y, u.z, o.seed) / 2.2) * 0.6 + (n3(u.x * 2.7, u.y * 2.7, u.z * 2.7, o.seed + 4) / 2.2) * 0.4;
+    let r = 1 + o.amp * nz, shade = 1 + nz * 0.2;
+    const sh = o.shaper ? o.shaper(u) : null;
+    v.copy(u);
+    if (sh) { if (sh.r) r *= sh.r; if (sh.shade) shade *= sh.shade; if (sh.k) { v.x *= sh.k[0]; v.y *= sh.k[1]; v.z *= sh.k[2]; } }
+    v.multiplyScalar(r * o.radius);
+    v.x *= o.scale[0]; v.y *= o.scale[1]; v.z *= o.scale[2];
+    p.setXYZ(i, v.x, v.y, v.z);
+    col[i * 3] = clamp(o.color[0] * shade, 0, 1); col[i * 3 + 1] = clamp(o.color[1] * shade, 0, 1); col[i * 3 + 2] = clamp(o.color[2] * shade, 0, 1);
+    nrm[i * 3] = u.x; nrm[i * 3 + 1] = u.y; nrm[i * 3 + 2] = u.z;
+  }
+  g.setAttribute('color', new THREE.BufferAttribute(col, 3));
+  if (o.smooth) g.setAttribute('normal', new THREE.BufferAttribute(nrm, 3));
+  return g;
+}
+const topShaper = u => ({ k: [1 - 0.34 * Math.abs(u.y), 1.05, 1 - 0.34 * Math.abs(u.y)], r: 1 + 0.1 * Math.pow(1 - Math.abs(u.y), 3) });
+function rockSpec(key, rad) {
+  const V = (x, y, z) => new THREE.Vector3(x, y, z).normalize();
+  switch (key) {
+    case 'ceres': {
+      const cr = [{ c: V(0.6, 0.2, 0.8), w: 0.5, d: 0.07 }, { c: V(-0.7, -0.3, 0.6), w: 0.4, d: 0.06 }, { c: V(0.1, -0.8, -0.5), w: 0.45, d: 0.07 }, { c: V(-0.3, 0.6, -0.7), w: 0.3, d: 0.05 }];
+      return { radius: rad, scale: [1, 0.97, 1], seed: 1.3, amp: 0.05, color: [0.56, 0.55, 0.53], smooth: true, shaper: u => craterAt(u, cr) };
+    }
+    case 'vesta': {
+      const pole = V(0, -1, 0);
+      return { radius: rad, scale: [1.05, 0.86, 1], seed: 4.1, amp: 0.09, color: [0.66, 0.62, 0.56], shaper: u => {
+        const ang = Math.acos(clamp(u.dot(pole), -1, 1)); let r = 1, shade = 1;
+        if (ang < 0.95) { const f = 1 - ang / 0.95; r -= 0.17 * Math.min(1, f * 1.6); shade -= 0.25 * f; }
+        if (ang < 0.2) r += 0.15 * (1 - ang / 0.2);
+        return { r, shade };
+      } };
+    }
+    case 'psique': return { radius: rad, scale: [1.18, 0.9, 1], seed: 7.7, amp: 0.2, color: [0.72, 0.76, 0.82] };
+    case 'bennu': return { radius: rad, scale: [1, 1, 1], seed: 2.2, amp: 0.17, color: [0.36, 0.35, 0.34], shaper: topShaper };
+    case 'dimorfo': return { radius: rad, scale: [1, 1, 1], seed: 5.5, amp: 0.1, color: [0.52, 0.49, 0.45], shaper: topShaper };
+    case 'apofis': return { radius: rad, scale: [1.75, 0.75, 0.8], seed: 9.1, amp: 0.13, color: [0.58, 0.52, 0.45], shaper: u => { const k = 1 - 0.3 * Math.exp(-Math.pow(u.x * 2.4, 2)); return { k: [1, k, k] }; } };
+    case 'dim': return { radius: rad, scale: [1.3, 0.8, 0.9], seed: 3.3, amp: 0.12, color: [0.5, 0.48, 0.45] };
+  }
+}
+function rockMesh(key, rad) {
+  const spec = rockSpec(key, rad);
+  const mat = new THREE.MeshStandardMaterial({ vertexColors: true, flatShading: !spec.smooth, roughness: 0.95, metalness: 0 });
+  if (key === 'psique') { mat.metalness = 0.6; mat.roughness = 0.4; mat.emissive = new THREE.Color(0x1a1e26); }
+  return new THREE.Mesh(rockGeo(spec), mat);
+}
+function solveE(M, e) { let E = M; for (let i = 0; i < 6; i++) E = E - (E - e * Math.sin(E) - M) / (1 - e * Math.cos(E)); return E; }
+const GLOW_GOLD = glowTex('rgba(255,235,170,1)', 'rgba(255,200,90,0.35)');
+
+function mkSmall(d) {
+  const b = Object.assign({}, d, { small: true, pois: [], dist: 0, tilt: null });
+  const o = d.orbit || { a: d.belt, e: 0.012, inc: (Math.random() - 0.5) * 2, om: Math.random() * 360 };
+  const pivot = new THREE.Group();
+  pivot.rotation.set(o.inc * DEG, o.om * DEG, 0, 'YXZ');
+  scene.add(pivot);
+  const grp = new THREE.Group(); pivot.add(grp);
+  const spin = new THREE.Group(); grp.add(spin);
+  const mesh = rockMesh(d.key, d.rad);
+  mesh.userData.key = d.key; spin.add(mesh); CLICK.push(mesh);
+  if (d.key === 'ceres') {
+    const sp = new THREE.MeshBasicMaterial({ color: 0xffffff });
+    [[0.35, 0.8, 0.3], [-0.5, 0.7, 0.35], [0.6, 0.5, -0.5]].forEach(a => {
+      const m = new THREE.Mesh(new THREE.SphereGeometry(d.rad * 0.08, 8, 6), sp);
+      m.position.set(...a).normalize().multiplyScalar(d.rad * 0.99); spin.add(m);
+    });
+  }
+  const hit = new THREE.Mesh(new THREE.SphereGeometry(d.rad * 2.0, 10, 8), new THREE.MeshBasicMaterial({ visible: false }));
+  hit.userData.key = d.key; grp.add(hit); CLICK.push(hit);
+  const glow = new THREE.Sprite(new THREE.SpriteMaterial({ map: GLOW_GOLD, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, opacity: 0.2 }));
+  glow.scale.setScalar(d.rad * 4.2); grp.add(glow);
+  if (d.orbit) {
+    const pts = [];
+    for (let i = 0; i < 160; i++) { const E = i / 160 * TAU; pts.push(new THREE.Vector3(o.a * (Math.cos(E) - o.e), 0, o.a * Math.sqrt(1 - o.e * o.e) * Math.sin(E))); }
+    const ln = new THREE.LineLoop(new THREE.BufferGeometry().setFromPoints(pts), new THREE.LineDashedMaterial({ color: 0xffffff, transparent: true, opacity: 0.35, dashSize: 0.9, gapSize: 0.8 }));
+    ln.computeLineDistances(); pivot.add(ln); b.orbLine = ln;
+  }
+  Object.assign(b, { o, pivot, group: grp, spinG: null, rockSpin: spin, mesh, focusObj: mesh, glow, hit, M: Math.random() * TAU });
+  if (d.dimorphos) {
+    const dg = new THREE.Group(); grp.add(dg);
+    const dm = rockMesh('dim', 0.17); dm.userData.key = d.key; dg.add(dm); CLICK.push(dm);
+    const h2 = new THREE.Mesh(new THREE.SphereGeometry(0.5, 8, 6), new THREE.MeshBasicMaterial({ visible: false })); h2.userData.key = d.key; dg.add(h2); CLICK.push(h2);
+    b.dimG = dg; b.dimMesh = dm; b.dimA = Math.random() * TAU; b.dimR = 1.55; b.dimPer = 4.8;
+    const dart = new THREE.Group();
+    dart.add(new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.07, 0.07), new THREE.MeshBasicMaterial({ color: 0xffffff })));
+    const dsp = new THREE.Sprite(new THREE.SpriteMaterial({ map: GLOW_GOLD, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, opacity: 0.9 }));
+    dsp.scale.setScalar(0.7); dart.add(dsp); dart.visible = false; grp.add(dart);
+    b.dart = { g: dart, spr: dsp, on: false, t: 0 };
+  }
+  BODY[d.key] = b; BODY_LIST.push(b); SMALL.push(b);
+  return b;
+}
+SMALL_DEFS.forEach(mkSmall);
+/* A animação do empurrão: um pontinho de luz encosta em Dimorfo com um brilho suave (sem explosão) e a órbita fica um pouco menor */
+function dartAnim() {
+  const b = BODY.dimorfo; if (!b || !b.dart) return;
+  b.dimR = 1.55; b.dimPer = 4.8;
+  b.dart.on = true; b.dart.t = 0; b.dart.g.visible = true; b.dart.spr.scale.setScalar(0.7);
+}
+function stepSmall(s) {
+  const dt = dtG, tNow = performance.now() / 1000;
+  const close = b612Close();
+  for (const b of SMALL) {
+    b.M += TAU / orbitSec(b) * s;
+    const E = solveE(b.M, b.o.e);
+    b.group.position.set(b.o.a * (Math.cos(E) - b.o.e), 0, b.o.a * Math.sqrt(1 - b.o.e * b.o.e) * Math.sin(E));
+    b.rockSpin.rotation.y += TAU / rotSec(b) * s * (b.spinH < 0 ? -1 : 1);
+    b.glow.material.opacity = (RM ? 0.16 : 0.1 + 0.1 * (0.5 + 0.5 * Math.sin(tNow * Math.PI))) * (selKey === b.key ? 0.4 : 1);
+    if (b.orbLine) b.orbLine.visible = state.orbits;
+    if (b.dimorphos) {
+      const D = b.dart;
+      if (D.on) {
+        D.t += dt;
+        const dp = b.dimG.position;
+        if (D.t < 2.4) {
+          const k = D.t / 2.4, e = k * k;
+          D.g.position.set(dp.x + (-7 * (1 - e)), dp.y + 2.2 * (1 - e), dp.z + 3.5 * (1 - e));
+        } else {
+          D.g.position.copy(dp);
+          const f = (D.t - 2.4) / 1.4;
+          D.spr.scale.setScalar(0.7 + 1.9 * Math.sin(Math.min(1, f) * Math.PI));
+          D.spr.material.opacity = 0.9 * (1 - Math.min(1, f));
+          b.dimR = lerp(1.55, 1.36, Math.min(1, f)); b.dimPer = lerp(4.8, 4.3, Math.min(1, f));
+          if (f >= 1) { D.on = false; D.g.visible = false; D.spr.material.opacity = 0.9; }
+        }
+      }
+      b.dimA += TAU / b.dimPer * s;
+      b.dimG.position.set(Math.cos(b.dimA) * b.dimR, Math.sin(b.dimA * 0.7) * 0.08, Math.sin(b.dimA) * b.dimR);
+      b.dimMesh.rotation.y += dt * 0.6;
+    }
+  }
+  stepB612(s, dt, tNow, close);
+  stepShoot(dt);
+}
+
+/* =====================================================================
+   // B612: o planetinha de uma história
+   ===================================================================== */
+let SMALL_B612 = null;
+const B612 = { els: [], hits: [], sprouts: [], volcs: [], th: 4.4, sunsetOn: false, chairMoved: false, roseN: 0, said: {}, drag: null, handOff: false };
+const b612Close = () => selKey === 'b612' && !!focus;
+(function buildB612() {
+  const d = B612_DEF, R = d.rad;
+  const b = Object.assign({}, d, { small: true, pois: [], dist: 0, tilt: null, T: 3, spinH: 0 });
+  const grp = new THREE.Group(); scene.add(grp);
+  const spin = new THREE.Group(); grp.add(spin);
+  const tex = new THREE.CanvasTexture(paint(512, 256, (u, v) => {
+    const n = fbm(u, v, 5, 4), m = fbm(u + 3, v + 7, 9, 3);
+    return [236 - n * 52 - m * 16, 200 - n * 72 - m * 24, 152 - n * 82 - m * 30];
+  }));
+  const mesh = new THREE.Mesh(new THREE.SphereGeometry(R, 48, 36), new THREE.MeshStandardMaterial({ map: tex, roughness: 0.95 }));
+  mesh.userData.key = 'b612'; spin.add(mesh); CLICK.push(mesh);
+  const halo = new THREE.Mesh(new THREE.SphereGeometry(R * 1.2, 32, 24), new THREE.MeshBasicMaterial({ color: 0xffd46b, transparent: true, opacity: 0.18, side: THREE.BackSide, blending: THREE.AdditiveBlending, depthWrite: false }));
+  grp.add(halo);
+  const sp = new THREE.Sprite(new THREE.SpriteMaterial({ map: GLOW_GOLD, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, opacity: 0.35 }));
+  sp.scale.setScalar(R * 5.5); grp.add(sp);
+  const n = 46, pos = new Float32Array(n * 3);
+  for (let i = 0; i < n; i++) { const a = Math.random() * TAU, e = Math.acos(2 * Math.random() - 1), r = R * (1.45 + Math.random() * 0.9); pos[i * 3] = r * Math.sin(e) * Math.cos(a); pos[i * 3 + 1] = r * Math.cos(e); pos[i * 3 + 2] = r * Math.sin(e) * Math.sin(a); }
+  const pg = new THREE.BufferGeometry(); pg.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+  const sparkles = new THREE.Points(pg, new THREE.PointsMaterial({ color: 0xffe9a8, size: 0.09, map: DOT, transparent: true, opacity: 0.55, depthWrite: false, blending: THREE.AdditiveBlending }));
+  grp.add(sparkles);
+  const hit = new THREE.Mesh(new THREE.SphereGeometry(R * 1.5, 10, 8), new THREE.MeshBasicMaterial({ visible: false }));
+  hit.userData.key = 'b612'; grp.add(hit); CLICK.push(hit);
+  Object.assign(b, { group: grp, mesh, focusObj: mesh, spinG: null, rockSpin: spin, halo, sparkles });
+  Object.assign(B612, { b, group: grp, spin, mesh });
+  const std = (c, r = 0.8) => new THREE.MeshStandardMaterial({ color: c, roughness: r });
+  const place = (obj, lat, lon, lift = 0) => { const nn = ll3(lon, lat, 1); obj.position.copy(nn).multiplyScalar(R + lift); obj.quaternion.setFromUnitVectors(UP_, nn); spin.add(obj); return obj; };
+  const addEl = (id, obj, hr, hy, idx) => {
+    const h = new THREE.Mesh(new THREE.SphereGeometry(hr, 8, 6), new THREE.MeshBasicMaterial({ visible: false }));
+    h.position.y = hy; h.userData = { b612el: id, idx }; h.visible = false; obj.add(h); CLICK.push(h); B612.hits.push(h);
+    const gl = new THREE.Sprite(new THREE.SpriteMaterial({ map: GLOW_GOLD, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, opacity: 0 }));
+    gl.scale.setScalar(Math.max(0.6, hr * 2.2)); gl.position.y = hy; obj.add(gl);
+    const e = { id, idx, obj, hit: h, glow: gl }; B612.els.push(e); return e;
+  };
+  /* Rosa na redoma */
+  const rose = new THREE.Group();
+  const base = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.12, 0.04, 16), std(0x7a4a2a)); base.position.y = 0.02; rose.add(base);
+  const stem = new THREE.Mesh(new THREE.CylinderGeometry(0.012, 0.014, 0.2, 6), std(0x3f8a45)); stem.position.y = 0.14; rose.add(stem);
+  const fl = new THREE.Mesh(new THREE.SphereGeometry(0.06, 12, 10), std(0xd8283c, 0.5)); fl.position.y = 0.26; rose.add(fl);
+  for (let i = 0; i < 5; i++) { const a = i / 5 * TAU; const pt = new THREE.Mesh(new THREE.SphereGeometry(0.035, 8, 6), std(0xe8485a, 0.5)); pt.position.set(Math.cos(a) * 0.05, 0.25, Math.sin(a) * 0.05); rose.add(pt); }
+  const dome = new THREE.Mesh(new THREE.SphereGeometry(0.27, 20, 16), new THREE.MeshPhysicalMaterial({ color: 0xffffff, transparent: true, opacity: 0.2, roughness: 0.05, metalness: 0, clearcoat: 1, depthWrite: false }));
+  dome.position.y = 0.2; dome.scale.y = 1.12; rose.add(dome);
+  place(rose, 38, 30); addEl('rosa', rose, 0.34, 0.18);
+  /* Três vulcõezinhos: dois acesos (com fumacinha) e um apagado */
+  [[15, -60, true], [30, -100, true], [4, -115, false]].forEach(([lat, lon, on], i) => {
+    const v = new THREE.Group();
+    const cone = new THREE.Mesh(new THREE.ConeGeometry(0.2, 0.26, 14), std(0x8b5a46)); cone.position.y = 0.13; v.add(cone);
+    const top = new THREE.Mesh(new THREE.CircleGeometry(0.06, 12), new THREE.MeshBasicMaterial({ color: on ? 0xff7a3a : 0x2a1f1c })); top.rotation.x = -Math.PI / 2; top.position.y = 0.262; v.add(top);
+    place(v, lat, lon); const e = addEl('vulcoes', v, 0.3, 0.14, i);
+    const vol = { e, on, swept: 0, smokes: [] };
+    if (on) for (let k = 0; k < 3; k++) {
+      const s2 = new THREE.Sprite(new THREE.SpriteMaterial({ map: DOT, color: 0xd9d4cc, transparent: true, depthWrite: false, opacity: 0.35 }));
+      s2.scale.setScalar(0.16); s2.position.y = 0.3; s2.userData = { ph: k / 3 }; v.add(s2); vol.smokes.push(s2);
+    }
+    B612.volcs.push(vol);
+  });
+  /* Brotos de baobá (um deles segura o cachecol dourado) */
+  const mkSprout = () => {
+    const g = new THREE.Group();
+    const st = new THREE.Mesh(new THREE.CylinderGeometry(0.014, 0.022, 0.24, 6), std(0x2f7a3a)); st.position.y = 0.12; g.add(st);
+    for (let k = 0; k < 2; k++) { const lf = new THREE.Mesh(new THREE.ConeGeometry(0.05, 0.12, 6), std(0x4aa04f)); lf.position.set(k ? 0.05 : -0.05, 0.24, 0); lf.rotation.z = k ? -1 : 1; g.add(lf); }
+    return g;
+  };
+  [[-22, 140], [-36, 108], [-12, 96]].forEach(([lat, lon], i) => {
+    const g = mkSprout(); place(g, lat, lon); const e = addEl('baobas', g, 0.24, 0.16, i);
+    B612.sprouts.push({ e, g, gone: false, t: 0, regrow: 0 });
+  });
+  const holder = mkSprout(); place(holder, -30, 172);
+  const scarf = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.09, 12, 1), new THREE.MeshStandardMaterial({ color: 0xf2b632, roughness: 0.6, side: THREE.DoubleSide, emissive: 0x4a3200 }));
+  scarf.position.set(0.22, 0.24, 0); holder.add(scarf); B612.scarf = scarf; B612.scarfBase = Float32Array.from(scarf.geometry.attributes.position.array);
+  addEl('cachecol', holder, 0.3, 0.2);
+  /* Cadeirinha (arrastável) */
+  const chair = new THREE.Group();
+  const wood = std(0x8a5a2b);
+  const seat = new THREE.Mesh(new THREE.BoxGeometry(0.17, 0.025, 0.17), wood); seat.position.y = 0.14; chair.add(seat);
+  const back = new THREE.Mesh(new THREE.BoxGeometry(0.17, 0.17, 0.025), wood); back.position.set(0, 0.23, -0.08); chair.add(back);
+  [[-0.07, -0.07], [0.07, -0.07], [-0.07, 0.07], [0.07, 0.07]].forEach(([x, z]) => { const lg = new THREE.Mesh(new THREE.CylinderGeometry(0.012, 0.012, 0.14, 6), wood); lg.position.set(x, 0.07, z); chair.add(lg); });
+  const chairEl = addEl('cadeira', chair, 0.3, 0.16);
+  B612.chair = { obj: chair, n: ll3(-150, 2, 1).clone().normalize() };
+  /* Caixinha com três furinhos */
+  const box = new THREE.Group();
+  const bx = new THREE.Mesh(new THREE.BoxGeometry(0.26, 0.2, 0.2), std(0xc9a46a)); bx.position.y = 0.1; box.add(bx);
+  [-0.07, 0, 0.07].forEach(x => { const hl = new THREE.Mesh(new THREE.CircleGeometry(0.02, 10), new THREE.MeshBasicMaterial({ color: 0x2a1b0a })); hl.position.set(x, 0.1, 0.101); box.add(hl); });
+  place(box, -22, 38); addEl('caixinha', box, 0.28, 0.12);
+  /* Plaquinha com o desenho do chapéu */
+  const hc = mkCanvas(256, 200), hx = hc.getContext('2d');
+  hx.fillStyle = '#f6ecd2'; hx.fillRect(0, 0, 256, 200);
+  hx.fillStyle = '#5a3b22'; hx.beginPath(); hx.moveTo(40, 150); hx.bezierCurveTo(30, 60, 100, 30, 150, 40); hx.bezierCurveTo(210, 50, 230, 110, 216, 150); hx.closePath(); hx.fill();
+  hx.fillStyle = '#3f2815'; hx.fillRect(34, 138, 196, 16);
+  const sign = new THREE.Group();
+  const pole = new THREE.Mesh(new THREE.CylinderGeometry(0.01, 0.01, 0.26, 6), std(0x6a4a2a)); pole.position.y = 0.13; sign.add(pole);
+  const board = new THREE.Mesh(new THREE.BoxGeometry(0.3, 0.23, 0.015), new THREE.MeshStandardMaterial({ map: new THREE.CanvasTexture(hc), roughness: 0.9 })); board.position.y = 0.3; sign.add(board);
+  place(sign, 6, -22); addEl('chapeu', sign, 0.3, 0.26);
+  /* Lunetinha apontada para o céu */
+  const lun = new THREE.Group();
+  const brass = new THREE.MeshStandardMaterial({ color: 0xc89b3c, roughness: 0.4, metalness: 0.4, emissive: 0x2a1f08 });
+  const tube = new THREE.Mesh(new THREE.CylinderGeometry(0.035, 0.05, 0.36, 10), brass); tube.position.y = 0.25; tube.rotation.z = 0.7; lun.add(tube);
+  [0, 1, 2].forEach(k => { const lg = new THREE.Mesh(new THREE.CylinderGeometry(0.008, 0.012, 0.2, 5), std(0x6a4a2a)); const a = k / 3 * TAU; lg.position.set(Math.cos(a) * 0.05, 0.09, Math.sin(a) * 0.05); lg.rotation.set(Math.sin(a) * 0.3, 0, -Math.cos(a) * 0.3); lun.add(lg); });
+  place(lun, -52, 72); addEl('luneta', lun, 0.28, 0.2);
+  B612.els.forEach(e => e.obj.scale.setScalar(1.45));
+  applyChair();
+  BODY.b612 = b; BODY_LIST.push(b); SMALL_B612 = b;
+})();
+function applyChair() {
+  const c = B612.chair;
+  c.obj.position.copy(c.n).multiplyScalar(B612_DEF.rad);
+  c.obj.quaternion.setFromUnitVectors(UP_, c.n);
+  if (!B612.spin.children.includes(c.obj)) B612.spin.add(c.obj);
+}
+function stepB612(s, dt, tNow, close) {
+  const b = SMALL_B612; if (!b) return;
+  B612.th += TAU / orbitSec({ T: 3 }) * s;
+  B612.group.position.set(Math.cos(B612.th) * 38.5, 3.4, Math.sin(B612.th) * 38.5);
+  B612.spin.rotation.y += dt * (RM ? 0.02 : (close ? 0.07 : 0.14));
+  b.sparkles.rotation.y += dt * 0.05;
+  b.sparkles.material.opacity = 0.4 + 0.2 * Math.sin(tNow * 1.3);
+  b.halo.material.opacity = (0.16 + 0.05 * Math.sin(tNow * 1.1)) * (close ? 0.12 : 1);
+  const pulse = 0.5 + 0.5 * Math.sin(tNow * Math.PI);
+  for (const e of B612.els) {
+    e.hit.visible = close;
+    let on = close;
+    if (e.id === 'baobas' && B612.sprouts[e.idx].gone) on = false;
+    e.glow.material.opacity = on ? (RM ? 0.3 : 0.14 + 0.22 * pulse) : 0;
+  }
+  for (const v of B612.volcs) {
+    if (v.swept > 0) { v.swept -= dt; v.fade = 0; } else v.fade = Math.min(1, (v.fade === undefined ? 1 : v.fade) + dt / 3);
+    for (const m of v.smokes) {
+      const ph = (m.userData.ph + tNow * 0.22) % 1;
+      m.position.y = 0.3 + ph * 0.5; m.scale.setScalar(0.12 + ph * 0.2);
+      m.material.opacity = 0.35 * (1 - ph) * v.fade;
+    }
+  }
+  for (const sp of B612.sprouts) {
+    if (sp.anim > 0) { sp.anim -= dt; const k = Math.max(0, sp.anim / 0.5); sp.g.scale.setScalar(Math.max(0.001, k)); if (sp.anim <= 0) sp.g.visible = false; }
+    if (sp.gone && sp.regrowAt && tNow > sp.regrowAt) { sp.gone = false; sp.regrowAt = 0; sp.g.visible = true; sp.g.scale.setScalar(0.45); sp.grow = 1; }
+    if (sp.grow) { const k = Math.min(1, sp.g.scale.x + dt * 0.03); sp.g.scale.setScalar(k); if (k >= 1) sp.grow = 0; }
+  }
+  const sc = B612.scarf;
+  if (sc) { const P = sc.geometry.attributes.position, A = B612.scarfBase; for (let i = 0; i < P.count; i++) { const x = A[i * 3]; P.setZ(i, Math.sin(tNow * 3 + x * 9) * 0.045 * (x + 0.25)); P.setY(i, A[i * 3 + 1] + Math.sin(tNow * 2.2 + x * 6) * 0.02 * (x + 0.25)); } P.needsUpdate = true; }
+  /* Pôr do sol: a cadeira chega perto da linha entre o dia e a noite */
+  if (close && B612.chairMoved) {
+    B612.chair.obj.getWorldPosition(_w); B612.group.getWorldPosition(_p);
+    const nn = _tmp.copy(_w).sub(_p).normalize(), sd = _sc.copy(_p).multiplyScalar(-1).normalize();
+    const dot = nn.dot(sd);
+    if (Math.abs(dot) < 0.13 && !B612.sunsetOn) { B612.sunsetOn = true; b612Sunset(); }
+    else if (Math.abs(dot) > 0.45) B612.sunsetOn = false;
+  } else if (!close) { B612.sunsetOn = false; B612.chairMoved = false; B612.said = {}; }
+  const tint = $('sunsetTint');
+  if (tint) tint.style.opacity = (B612.tintUntil && tNow < B612.tintUntil && close) ? '1' : '0';
+}
+
+/* =====================================================================
+   // ESTRELA CADENTE
+   ===================================================================== */
+const SHOOT = { on: false, t: 0, dur: 3.4, cd: 40 + Math.random() * 30, a: new THREE.Vector3(), b: new THREE.Vector3(), pos: new THREE.Vector3() };
+(function buildShoot() {
+  SHOOT.head = new THREE.Sprite(new THREE.SpriteMaterial({ map: glowTex('rgba(255,255,255,1)', 'rgba(170,220,255,0.6)'), transparent: true, depthWrite: false, blending: THREE.AdditiveBlending }));
+  SHOOT.head.visible = false; scene.add(SHOOT.head);
+  const n = 22, pos = new Float32Array(n * 3), col = new Float32Array(n * 3);
+  const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.BufferAttribute(pos, 3)); g.setAttribute('color', new THREE.BufferAttribute(col, 3));
+  SHOOT.trail = new THREE.Points(g, new THREE.PointsMaterial({ size: 5, map: DOT, vertexColors: true, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, sizeAttenuation: false }));
+  SHOOT.trail.frustumCulled = false; SHOOT.trail.visible = false; scene.add(SHOOT.trail);
+})();
+function spawnShoot(force) {
+  if (SHOOT.on) return;
+  const fwd = camera.getWorldDirection(new THREE.Vector3()), right = new THREE.Vector3().crossVectors(fwd, camera.up).normalize(), up2 = new THREE.Vector3().crossVectors(right, fwd).normalize();
+  const d = Math.max(40, ctrl.radius * 0.8), hh = d * Math.tan(camera.fov * DEG / 2), hw = hh * camera.aspect;
+  const sgn = Math.random() < 0.5 ? 1 : -1, c = camera.position.clone().addScaledVector(fwd, d);
+  SHOOT.a.copy(c).addScaledVector(right, -sgn * hw * 0.95).addScaledVector(up2, hh * (0.55 + Math.random() * 0.3));
+  SHOOT.b.copy(c).addScaledVector(right, sgn * hw * 0.95).addScaledVector(up2, hh * (-0.15 + Math.random() * 0.3));
+  SHOOT.on = true; SHOOT.t = 0; SHOOT.head.visible = true; SHOOT.trail.visible = true; SHOOT.scale = d * 0.03;
+}
+function stepShoot(dt) {
+  if (!SHOOT.on) {
+    SHOOT.cd -= dt;
+    if (SHOOT.cd <= 0) { if (!$('intro').hidden || tour.on || document.hidden) SHOOT.cd = 5; else { spawnShoot(); SHOOT.cd = 40 + Math.random() * 30; } }
+    return;
+  }
+  SHOOT.t += dt;
+  const k = SHOOT.t / SHOOT.dur;
+  if (k >= 1) { SHOOT.on = false; SHOOT.head.visible = false; SHOOT.trail.visible = false; return; }
+  SHOOT.pos.lerpVectors(SHOOT.a, SHOOT.b, k);
+  SHOOT.head.position.copy(SHOOT.pos);
+  SHOOT.head.scale.setScalar(SHOOT.scale * (1 - Math.abs(k - 0.5) * 0.8));
+  const P = SHOOT.trail.geometry.attributes.position, K = SHOOT.trail.geometry.attributes.color, n = P.count;
+  for (let i = 0; i < n; i++) {
+    const f = i / (n - 1), kk = Math.max(0, k - f * 0.18);
+    const q = _tmp.lerpVectors(SHOOT.a, SHOOT.b, kk);
+    P.setXYZ(i, q.x, q.y, q.z);
+    const a = Math.pow(1 - f, 1.8) * (1 - Math.abs(k - 0.5) * 0.8);
+    K.setXYZ(i, 0.7 * a, 0.9 * a, 1.0 * a);
+  }
+  P.needsUpdate = true; K.needsUpdate = true;
+}
+function shootScreenHit(e) {
+  if (!SHOOT.on) return false;
+  const r = canvasEl.getBoundingClientRect();
+  _sc.copy(SHOOT.pos).project(camera);
+  const x = (_sc.x + 1) / 2 * r.width, y = (1 - _sc.y) / 2 * r.height;
+  return Math.hypot(x - (e.clientX - r.left), y - (e.clientY - r.top)) < 80;
+}
+
+/* Miniaturas procedurais dos asteroides e do B612 (cartões, galeria, passaporte e quiz) */
+function buildAstThumbs() {
+  const mk = fn => { const c = mkCanvas(160, 160), x = c.getContext('2d'); fn(x); return c.toDataURL('image/png'); };
+  const ball = (x, cx, cy, rx, ry, c0, c1) => { const g = x.createRadialGradient(cx - rx * 0.35, cy - ry * 0.4, 2, cx, cy, Math.max(rx, ry)); g.addColorStop(0, c0); g.addColorStop(1, c1); x.fillStyle = g; x.beginPath(); x.ellipse(cx, cy, rx, ry, 0, 0, TAU); x.fill(); };
+  THUMB.ceres = mk(x => { ball(x, 80, 80, 62, 60, '#c9c6c1', '#6b6965'); x.fillStyle = '#fff'; [[58, 52, 4], [96, 60, 3.4], [86, 98, 3]].forEach(([a, b, r]) => { x.beginPath(); x.arc(a, b, r, 0, TAU); x.fill(); }); x.fillStyle = 'rgba(0,0,0,.18)'; [[70, 100, 12], [104, 84, 9]].forEach(([a, b, r]) => { x.beginPath(); x.arc(a, b, r, 0, TAU); x.fill(); }); });
+  THUMB.vesta = mk(x => { ball(x, 80, 82, 66, 52, '#d8cfc2', '#7a7064'); x.fillStyle = 'rgba(0,0,0,.28)'; x.beginPath(); x.ellipse(80, 112, 34, 14, 0, 0, TAU); x.fill(); ball(x, 80, 108, 6, 6, '#e6dccb', '#9a9084'); });
+  THUMB.psique = mk(x => { ball(x, 80, 80, 66, 52, '#e1e7f0', '#5a6678'); x.strokeStyle = 'rgba(255,255,255,.55)'; x.lineWidth = 3; x.beginPath(); x.arc(70, 66, 34, 3.6, 4.7); x.stroke(); });
+  THUMB.bennu = mk(x => { x.fillStyle = '#6a6760'; x.beginPath(); x.moveTo(80, 12); x.lineTo(138, 80); x.lineTo(80, 148); x.lineTo(22, 80); x.closePath(); x.fill(); x.fillStyle = 'rgba(255,255,255,.12)'; x.beginPath(); x.moveTo(80, 12); x.lineTo(138, 80); x.lineTo(80, 80); x.closePath(); x.fill(); x.fillStyle = '#4c4a45'; [[60, 70, 5], [96, 92, 6], [80, 54, 4], [70, 108, 4]].forEach(([a, b, r]) => { x.beginPath(); x.arc(a, b, r, 0, TAU); x.fill(); }); });
+  THUMB.dimorfo = mk(x => { x.fillStyle = '#7d776d'; x.beginPath(); x.moveTo(62, 30); x.lineTo(104, 74); x.lineTo(62, 118); x.lineTo(20, 74); x.closePath(); x.fill(); ball(x, 128, 112, 15, 11, '#cfc8bb', '#6e675c'); x.setLineDash([4, 5]); x.strokeStyle = 'rgba(255,255,255,.5)'; x.lineWidth = 2; x.beginPath(); x.ellipse(62, 74, 62, 46, 0, 0, TAU); x.stroke(); });
+  THUMB.apofis = mk(x => { ball(x, 56, 82, 40, 34, '#d9cdbd', '#7a6e5f'); ball(x, 108, 76, 36, 28, '#d2c5b4', '#756958'); });
+  THUMB.b612 = mk(x => { const g = x.createRadialGradient(80, 80, 40, 80, 80, 78); g.addColorStop(0, 'rgba(255,215,110,.55)'); g.addColorStop(1, 'rgba(255,215,110,0)'); x.fillStyle = g; x.fillRect(0, 0, 160, 160); ball(x, 80, 84, 46, 46, '#f3d9b0', '#b9835a'); x.fillStyle = '#d8283c'; x.beginPath(); x.arc(72, 52, 7, 0, TAU); x.fill(); x.fillStyle = '#fff'; x.fillText('✨', 112, 40); });
+  THUMB.meteoro = mk(x => { const g = x.createLinearGradient(20, 130, 130, 30); g.addColorStop(0, 'rgba(120,190,255,0)'); g.addColorStop(1, 'rgba(255,255,255,1)'); x.strokeStyle = g; x.lineWidth = 9; x.lineCap = 'round'; x.beginPath(); x.moveTo(20, 130); x.lineTo(126, 36); x.stroke(); ball(x, 130, 32, 14, 14, '#fff', 'rgba(255,255,255,0)'); });
+  THUMB.dino = mk(x => { ball(x, 80, 80, 62, 62, '#5aa8ff', '#1f4f9c'); x.fillStyle = '#4fae68'; x.beginPath(); x.ellipse(52, 62, 22, 14, -0.4, 0, TAU); x.fill(); x.beginPath(); x.ellipse(84, 108, 12, 20, 0.3, 0, TAU); x.fill(); x.fillStyle = '#ff6a3d'; x.beginPath(); x.arc(56, 76, 5, 0, TAU); x.fill(); });
+}
+
+/* =====================================================================
+   // v2: INTERFACE (galeria, passaporte, quiz, missões, jogos, desenho, ritual)
+   ===================================================================== */
+const markSeal = k => { if (!save.seals[k]) { save.seals[k] = true; persist(); } };
+state.showSmall = false; state.passPage = 'cover'; state.licCur = 0; state.conv = null;
+BODY.meteoro = Object.assign({ pois: [] }, METEORO_DEF);
+BODY.dino = Object.assign({ pois: [] }, DINO_DEF);
+const EMO = { sol: '☀️', mercurio: '⚫', venus: '🟡', terra: '🌍', lua: '🌙', apofis: '👋', bennu: '🫧', marte: '🔴', dimorfo: '🚀', vesta: '⛰️', ceres: '✨', psique: '🔩', cinturao: '🪨', jupiter: '🟠', saturno: '🪐', urano: '🔵', netuno: '💙', plutao: '🫘', b612: '🌹', meteoro: '☄️', dino: '🦕' };
+const ART = { sol: 'o Sol', terra: 'a Terra', lua: 'a Lua', cinturao: 'o cinturão de asteroides', meteoro: 'a estrela cadente', dino: 'a pedra dos dinossauros', b612: 'o B612', dimorfo: 'Dimorfo e Dídimo' };
+const nameOf = k => ART[k] || (BODY[k] ? BODY[k].name.replace(' ✨', '') : k);
+
+/* ---------- Perguntas antes de contar (novos objetos) ---------- */
+Object.assign(PREVIEW, {
+  ceres: { q: 'Você acha que esta pedra é grande ou pequena?', o: [{ emo: '🐘', label: 'Grande' }, { emo: '🐜', label: 'Pequena' }] },
+  vesta: { q: 'Você acha que todo asteroide é redondinho como uma bola?', o: [{ emo: '⚽', label: 'Sim' }, { emo: '🥔', label: 'Não' }] },
+  psique: { q: 'Do que você acha que esta pedra é feita?', o: [{ emo: '🪨', label: 'Pedra' }, { emo: '🔩', label: 'Metal' }, { emo: '🧀', label: 'Queijo' }] },
+  bennu: { q: 'Você acha que uma nave consegue pegar terra de um asteroide e trazer para cá?', o: [{ emo: '👍', label: 'Sim' }, { emo: '👎', label: 'Não' }] },
+  dimorfo: { q: 'Você acha que dá para empurrar uma pedra do espaço?', o: [{ emo: '💪', label: 'Dá' }, { emo: '🙅', label: 'Não dá' }] },
+  apofis: { q: 'Quando você acha que vai ser o show do Apófis?', o: [{ emo: '📅', label: 'Amanhã' }, { emo: '🎂', label: 'Daqui a uns anos' }] },
+  b612: { q: 'Você acha que o B612 existe de verdade no espaço, ou é de uma história?', o: [{ emo: '🔬', label: 'De verdade' }, { emo: '📖', label: 'De uma história' }] }
+});
+
+/* ---------- Palavras do espaço ---------- */
+function sylHtml(w) {
+  const parts = WORD_SHOW[w] ? WORD_SHOW[w].split(' ') : w.split('-');
+  return parts.map((p, i) => `<span class="sy c${i % 2}"><b class="in">${esc(p.charAt(0))}</b>${esc(p.slice(1))}</span>`).join('');
+}
+function wordHtml(key) {
+  const ws = WORDS[key]; if (!ws) return '';
+  return `<div class="wrow">${ws.map(w => `<button class="wd" data-act="word" data-arg="${w}" aria-label="Ouvir a palavra ${esc(w.replace(/-/g, ''))}">${sylHtml(w)}<span class="spk">🔊</span></button>`).join('')}</div>`;
+}
+const WORD_SPEAK = { 'B-SEIS-UM-DOIS': 'B. Seis. Um. Dois. B seis um dois.' };
+function speakWord(w) {
+  save.words[w] = true; persist();
+  const parts = w.split('-');
+  const text = WORD_SPEAK[w] || (parts.length > 1 ? parts.map(s => s.toLowerCase()).join('. ') + '. ' + w.replace(/-/g, '').toLowerCase() + '.' : w.toLowerCase() + '.');
+  Narr.speak(text, { label: 'Palavra: ' + (WORD_SHOW[w] || w.replace(/-/g, '')) });
+}
+
+/* ---------- Curiosidades (suporta lições, ponte científica e DART) ---------- */
+function nextCuriosity() {
+  const b = BODY[state.infoKey]; if (!b || !b.curios || !b.curios.length) return;
+  const seen = save.curiSeen[b.key] || (save.curiSeen[b.key] = []);
+  const all = b.curios.map((_, i) => i);
+  let pool = all.filter(i => !seen.includes(i));
+  if (!pool.length) {
+    const lastIdx = seen.length ? seen[seen.length - 1] : -1;
+    seen.length = 0;
+    pool = all.filter(i => i !== lastIdx || all.length === 1);
+  }
+  const idx = pick(pool);
+  seen.push(idx); persist();
+  const raw = b.curios[idx], o = typeof raw === 'string' ? { t: raw } : raw;
+  let text = tpl(o.t), label = `Curiosidade ${seen.length} de ${b.curios.length}`, estilo, shown = '💡 ' + text, after = null;
+  if (o.kind === 'lic') {
+    text = LIC_INTRO + tpl(o.t); label = `Lição ${o.n} do Pequeno Príncipe`; estilo = 'historia';
+    markSeal('lic:' + o.n); state.licCur = o.n;
+    shown = '📖 ' + tpl(o.t) + (o.ponte ? '\n🔬 ' + o.ponte : '');
+    if (o.ponte) after = () => Narr.speak(o.ponte, { label: '🔬 É de verdade' });
+  } else if (o.kind === 'real') { label = 'Curiosidade de verdade'; shown = '🔬 ' + text; }
+  const box = $('curi');
+  if (box) { box.style.display = 'block'; box.style.whiteSpace = 'pre-line'; box.textContent = shown; }
+  Narr.speak(text, { label, estilo, onDone: after || undefined });
+  if (o.dart) dartAnim();
+}
+
+/* ---------- Cartões de informação (Ciência e História) ---------- */
+function showInfo(key, opt = {}) {
+  const b = BODY[key]; if (!b) return;
+  state.infoOpen = true; state.infoKey = key; state.panel = 'info';
+  const story = !!b.story;
+  const img = THUMB[key] ? `<img src="${THUMB[key]}" alt="${esc(b.name)}">` : `<div class="noimg">${b.emo || '☄️'}</div>`;
+  const seal = story ? '📖 É de uma história' : '🔬 É de verdade';
+  const enl = b.enlarged ? ' <span class="seal enl">🔍 aumentado</span>' : '';
+  const hasCur = b.curios && b.curios.length;
+  showPanel(`
+    <div class="ph">${img}<div><span class="seal">${seal}</span>${enl}<h2>${esc(b.name)}</h2><p style="margin:0;color:${story ? '#6b4a14' : '#a9bbe0'}">${story ? 'Toque nos objetos do planetinha para ouvir as lições.' : 'Toque nos botões para ouvir e descobrir.'}</p></div></div>
+    ${b.nofacts ? '' : factsHtml(b)}
+    ${wordHtml(key)}
+    <div class="curi" id="curi"></div>
+    <div class="row">
+      ${hasCur ? `<button class="btn sm on" data-act="curio">${story ? '📖 Outra lição' : '💡 Outra curiosidade'}</button>` : ''}
+      <button class="btn sm" data-act="conv" aria-label="Para conversar">💬 Para conversar</button>
+    </div>
+    ${poiHtml(b)}`, { story });
+  const text = opt.text || mainText(b);
+  const label = opt.label || ('Conhecendo ' + b.name);
+  lastNarr = { text, label };
+  if (!opt.noSpeak) Narr.speak(text, { label, estilo: story ? 'historia' : undefined });
+  $('curi').style.display = 'none';
+}
+
+/* ---------- Para conversar (Guia do Papai) ---------- */
+function convText(key) {
+  if (key === 'b612' && state.licCur) { const l = LIC.find(x => x.n === state.licCur); if (l && l.conv) return l.conv; }
+  const b = BODY[key];
+  return (b && b.conv) || CONV_BASE[key] || '';
+}
+function showConv(q, exp) {
+  state.conv = { q: q ? tpl(q) : '', exp: exp || '' };
+  const el = $('convStrip');
+  el.innerHTML = `<div class="cvq"><b>💬 Para conversar</b>
+    <p>${esc(state.conv.q || 'Que tal experimentar em casa?')}</p>
+    ${exp ? `<p class="cvx">🧪 <b>Experimento:</b> ${esc(exp)}</p>` : ''}</div>
+    <div class="row" style="justify-content:center"><button class="btn sm on" data-act="convSay">🔊 Ouvir</button><button class="btn sm" data-act="convClose">✕ Fechar</button></div>`;
+  el.hidden = false;
+}
+function expExtras() {
+  const ws = (EXP_WORDS[state.exp] || []).map(w => `<button class="wd sm" data-act="word" data-arg="${w}" aria-label="Ouvir a palavra">${sylHtml(w)} 🔊</button>`).join('');
+  const cv = EXPERIMENTO[state.exp] ? '<button class="btn sm" data-act="expConv">💬 Para conversar</button>' : '';
+  return ws + cv;
+}
+
+/* ---------- Galeria de asteroides ---------- */
+const AST_KEYS = ['ceres', 'vesta', 'psique', 'bennu', 'dimorfo', 'apofis'];
+function renderAst() {
+  state.infoOpen = false; state.panel = 'ast';
+  const card = (k, emo, name, line, enl) => `<article class="cc"><img class="spin" src="${THUMB[k] || ''}" alt="${esc(name)}"><div class="cn">${emo} ${esc(name)}</div><div class="cs">${enl ? '🔍 aumentado · ' : ''}${esc(line)}</div><button class="btn pri" data-act="astGo" data-arg="${k}">🚀 Ir até ele</button></article>`;
+  let cards = AST_KEYS.map(k => card(k, BODY[k].emo, BODY[k].name, BODY[k].size, true)).join('');
+  cards += card('meteoro', '✨', 'Estrela cadente', 'Pedrinhas do espaço que brilham', false);
+  if (save.dino) cards += card('dino', '🦕', 'A pedra dos dinossauros', 'Uma história real, de muito tempo atrás', false);
+  cards += card('b612', '🌹', 'B612 ✨', 'Um planetinha de uma história', false);
+  showPanel(`<h2>🪨 Asteroides famosos</h2><p>Arraste de lado ou use as setas. Toque em “Ir até ele”.</p>
+    <div class="carWrap"><button class="carA l" data-act="carL" aria-label="Anterior">◀</button><div class="car" id="car">${cards}</div><button class="carA r" data-act="carR" aria-label="Próximo">▶</button></div>`);
+  state.showSmall = true;
+}
+function carScroll(d) { const c = $('car'); if (c) c.scrollBy({ left: d * c.clientWidth * 0.8, behavior: RM ? 'auto' : 'smooth' }); }
+function astGo(k) {
+  closePanel();
+  if (k === 'meteoro') return showMeteoro('');
+  if (k === 'dino') return dinoCard();
+  selectBody(k);
+}
+function showMeteoro(pre) {
+  markVisited('meteoro');
+  showInfo('meteoro', { text: (pre ? pre + ' ' : '') + tpl(METEORO_DEF.main), label: 'Estrela cadente' });
+}
+function onShootTap() {
+  SHOOT.on = false; SHOOT.head.visible = false; SHOOT.trail.visible = false;
+  if (tour.on) return;
+  const ok = emit({ type: 'meteoro' });
+  burst(12);
+  showMeteoro(ok || '');
+}
+function dinoCard() {
+  markVisited('dino');
+  state.infoOpen = true; state.infoKey = 'dino'; state.panel = 'info';
+  const svg = `<svg class="dinoSvg" viewBox="0 0 200 140" role="img" aria-label="A Terra com um pontinho na região do México e um passarinho"><circle cx="100" cy="70" r="58" fill="#2f7fe0"/><path d="M62 52c10-8 24-6 30 2s-2 18-10 20-12 12-20 8-8-22 0-30z" fill="#4fae68"/><path d="M104 40c10-6 24-2 28 8s-6 14-4 24-10 18-16 10-14-22-8-42z" fill="#4fae68"/><path d="M96 98c8-2 14 4 12 12s-10 10-14 4-4-14 2-16z" fill="#4fae68"/><circle cx="72" cy="62" r="4.5" fill="#ffb24d"/><g id="birdG" style="opacity:0;transition:opacity 1.6s"><path d="M142 26q7-9 14 0q7-9 14 0" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/><circle cx="156" cy="29" r="2.4" fill="#fff"/></g></svg>`;
+  showPanel(`<div class="ph"><div class="noimg">🦕</div><div><span class="seal">🔬 É de verdade</span><h2>A pedra dos dinossauros</h2></div></div>
+    ${svg}${wordHtml('dino')}
+    <div class="row"><button class="btn sm" data-act="conv">💬 Para conversar</button></div>`);
+  Narr.speak(tpl(DINO_DEF.main), { label: 'A pedra dos dinossauros', onDone: () => { const g = $('birdG'); if (g) g.style.opacity = 1; } });
+}
+
+/* ---------- Quiz v2 (rodadas de 6, prática espaçada) ---------- */
+const IMG = (id, label, img) => ({ id, label, img }), EM = (id, label, emo) => ({ id, label, emo });
+QUIZ.length = 0;
+QUIZ.push(
+  { id: 'q1', obj: 'sol', q: 'Qual é a estrela que fica no meio do Sistema Solar?', a: 'sol', exp: 'O Sol é uma estrela e fica bem no centro.', opts: [IMG('sol', 'Sol', 'sol'), IMG('lua', 'Lua', 'lua'), IMG('terra', 'Terra', 'terra')] },
+  { id: 'q2', obj: 'terra', q: 'Qual é o planeta onde moramos?', a: 'terra', exp: 'A Terra é a nossa casa!', opts: [IMG('marte', 'Marte', 'marte'), IMG('terra', 'Terra', 'terra'), IMG('venus', 'Vênus', 'venus')] },
+  { id: 'q3', obj: 'jupiter', q: 'Qual é o maior planeta?', a: 'jupiter', exp: 'Júpiter é o maior planeta do Sistema Solar.', opts: [IMG('saturno', 'Saturno', 'saturno'), IMG('jupiter', 'Júpiter', 'jupiter'), IMG('terra', 'Terra', 'terra')] },
+  { id: 'q4', obj: 'saturno', q: 'Qual planeta tem anéis famosos?', a: 'saturno', exp: 'Os anéis de Saturno são feitos de gelo e pedras.', opts: [IMG('urano', 'Urano', 'urano'), IMG('saturno', 'Saturno', 'saturno'), IMG('marte', 'Marte', 'marte')] },
+  { id: 'q5', obj: 'marte', q: 'Qual é o planeta vermelho?', a: 'marte', exp: 'Marte é avermelhado por causa da ferrugem no solo.', opts: [IMG('venus', 'Vênus', 'venus'), IMG('mercurio', 'Mercúrio', 'mercurio'), IMG('marte', 'Marte', 'marte')] },
+  { id: 'q6', obj: 'urano', q: 'Qual planeta gira deitado?', a: 'urano', exp: 'Urano gira quase deitado, como uma bola rolando de lado.', opts: [IMG('netuno', 'Netuno', 'netuno'), IMG('urano', 'Urano', 'urano'), IMG('venus', 'Vênus', 'venus')] },
+  { id: 'q7', obj: 'exp:rot', q: 'Como se chama o movimento de girar em torno de si mesmo?', a: 'rotacao', exp: 'Girar em volta de si mesmo se chama rotação.', opts: [EM('rotacao', 'Rotação', '🌀'), EM('translacao', 'Translação', '🔁'), EM('eclipse', 'Eclipse', '🌑')] },
+  { id: 'q8', obj: 'exp:trans', q: 'Como se chama o movimento de dar a volta no Sol?', a: 'translacao', exp: 'Dar a volta no Sol se chama translação.', opts: [EM('rotacao', 'Rotação', '🌀'), EM('translacao', 'Translação', '🔁'), EM('fase', 'Fase da Lua', '🌙')] },
+  { id: 'q9', obj: 'exp:day', q: 'O que causa o dia e a noite?', a: 'rot', exp: 'A Terra gira, e o Sol ilumina um lado de cada vez.', opts: [EM('rot', 'Rotação da Terra', '🌍'), EM('luz', 'Luz própria da Lua', '🌕'), EM('chuva', 'Chuva', '🌧️')] },
+  { id: 'q10', obj: 'lua', q: 'A Lua tem luz própria?', a: 'nao', exp: 'A Lua não tem luz própria. Ela é iluminada pelo Sol, como uma bola iluminada por uma lanterna.', opts: [EM('sim', 'Sim', '✨'), EM('nao', 'Não', '🌕')] },
+  { id: 'q11', obj: 'ceres', q: 'Qual é a maior pedra do cinturão de asteroides?', a: 'ceres', exp: 'Ceres é a maior pedra do cinturão. Ela é tão grande que virou planeta anão!', opts: [IMG('ceres', 'Ceres', 'ceres'), IMG('bennu', 'Bennu', 'bennu'), IMG('apofis', 'Apófis', 'apofis')] },
+  { id: 'q12', obj: 'dimorfo', q: 'Uma nave deu um empurrão em qual asteroide?', a: 'dimorfo', exp: 'A nave DART deu um empurrão em Dimorfo, de treino, para a gente aprender a proteger a Terra.', opts: [IMG('dimorfo', 'Dimorfo', 'dimorfo'), IMG('psique', 'Psiquê', 'psique'), IMG('apofis', 'Apófis', 'apofis')] },
+  { id: 'q13', obj: 'meteoro', q: 'Estrela cadente é uma estrela de verdade?', a: 'nao', exp: 'Estrela cadente não é uma estrela. É uma pedrinha do espaço brilhando no ar da Terra.', opts: [EM('sim', 'Sim, é uma estrela', '⭐'), EM('nao', 'Não, é uma pedrinha do espaço brilhando', '☄️')] },
+  { id: 'q14', obj: 'b612', q: 'O B612 existe de verdade ou é de uma história?', a: 'hist', exp: 'O B612 é de uma história! Mas as lições dele são de verdade.', opts: [EM('real', 'Existe de verdade', '🔬'), EM('hist', 'É de uma história', '📖')] },
+  { id: 'q15', obj: 'b612', q: 'O que o Pequeno Príncipe arrancava todo dia?', a: 'baobas', exp: 'Ele arrancava os brotos de baobá, para eles não crescerem demais.', opts: [EM('baobas', 'Os brotos de baobá', '🌱'), EM('rosas', 'As rosas', '🌹'), EM('cenouras', 'As cenouras', '🥕')] },
+  { id: 'q16', obj: 'exp:seasons', q: 'O que faz existir o verão: a Terra chegar perto do Sol ou a Terra ser inclinada?', a: 'incl', exp: 'É a Terra ser inclinada! O verão não acontece porque a Terra chega mais perto do Sol.', opts: [EM('perto', 'A Terra chegar perto do Sol', '☀️'), EM('incl', 'A Terra ser inclinada', '🌍')] },
+  { id: 'q17', obj: 'exp:moon', q: 'As fases da Lua são a sombra da Terra?', a: 'nao', exp: 'Não! A sombra da Terra só aparece na Lua quando tem eclipse. As fases vêm da metade da Lua que o Sol ilumina.', opts: [EM('sim', 'Sim', '🌑'), EM('nao', 'Não', '🌙')] },
+  { id: 'q18', obj: 'sol', q: 'O Sol é uma bola de fogo?', a: 'nao', exp: 'O Sol é uma bola gigante de gás, muito, muito quente. Parece fogo, mas é ainda mais forte.', opts: [EM('sim', 'Sim, é fogo', '🔥'), EM('nao', 'Não, é uma bola de gás muito quente', '🎈')] }
+);
+const shuf = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+const seen_ = q => !!(save.visited[q.obj] || save.seals[q.obj]);
+function quizRound() {
+  const wrong = shuf(QUIZ.filter(q => save.wrong[q.id]));
+  const vis = shuf(QUIZ.filter(q => !save.wrong[q.id] && seen_(q)));
+  const rest = shuf(QUIZ.filter(q => !save.wrong[q.id] && !seen_(q)));
+  return shuf(wrong.concat(vis, rest).slice(0, 6));
+}
+function renderQuiz(speakQ) {
+  state.infoOpen = false; state.panel = 'quiz';
+  if (!state.quiz) state.quiz = { list: quizRound(), i: 0, score: 0, answered: null };
+  const Q = state.quiz, N = Q.list.length;
+  if (Q.i >= N) {
+    const s = Q.score;
+    const msg = s >= 5 ? 'Você é astronauta de verdade!' : s >= 3 ? 'Que bom! Você já sabe muita coisa do espaço.' : 'Que aventura! Vamos explorar de novo? As perguntas difíceis voltam para a gente treinar.';
+    showPanel(`<h2>⭐ Fim da rodada</h2><p style="font-size:24px;font-weight:900">${s ? '⭐'.repeat(s) : '🚀'}</p><p style="font-size:20px;font-weight:800">${s ? `Você ganhou ${numWords(s)} ${s === 1 ? 'estrelinha' : 'estrelinhas'}!` : 'Você jogou até o fim!'}</p><p>${msg}</p>
+      <button class="btn pri" data-act="qRestart">🔁 Outra rodada</button>`);
+    Narr.speak(`${s ? `Você ganhou ${numWords(s)} ${s === 1 ? 'estrelinha' : 'estrelinhas'}! ` : 'Você jogou até o fim! '}${msg}`, { label: 'Fim da rodada' });
+    return;
+  }
+  const q = Q.list[Q.i];
+  const opts = q.opts.map(o => {
+    let cls = '';
+    if (Q.answered) { if (o.id === q.a) cls = 'ok'; else if (o.id === Q.answered) cls = 'bad'; }
+    const visual = o.img ? `<img src="${THUMB[o.img]}" alt="${esc(o.label)}">` : `<span class="emo">${o.emo}</span>`;
+    return `<button class="opt ${cls}" data-act="qAns" data-arg="${o.id}" ${Q.answered ? 'disabled' : ''}>${visual}<span>${esc(o.label)}</span></button>`;
+  }).join('');
+  const fb = Q.answered ? `<div class="narr" style="font-size:18px;font-weight:800">${Q.answered === q.a ? '✅' : '💡'} ${esc(q.exp)}</div>
+     <button class="btn pri" data-act="qNext">Próxima ➜</button>` : '';
+  showPanel(`<h2>❓ Brincadeira de perguntas</h2>
+    <div class="bar"><i style="width:${(Q.i / N) * 100}%"></i></div>
+    <p style="margin:2px 0 8px">Pergunta ${Q.i + 1} de ${N}</p>
+    <div class="row" style="margin:8px 0"><button class="btn sm" data-act="qSay">🔊 Ouvir pergunta</button></div>
+    <p style="font-size:21px;font-weight:900;color:#fff">${esc(q.q)}</p>
+    <div class="grid2" style="margin-top:10px">${opts}</div>
+    ${fb}`);
+  if (speakQ && !Q.answered) Narr.speak(q.q, { label: 'Pergunta' });
+}
+function quizAnswer(id) {
+  const Q = state.quiz; if (!Q || Q.answered) return;
+  const q = Q.list[Q.i];
+  Q.answered = id;
+  if (id === q.a) {
+    Q.score++; save.stars++; delete save.wrong[q.id]; persist(); updateStars(); burst(14);
+    Narr.speak(pick(PRAISE)(kid()) + ' ' + q.exp, { label: 'Acertou!' });
+    astroJump();
+  } else {
+    save.wrong[q.id] = true; persist();
+    const correct = q.opts.find(o => o.id === q.a);
+    Narr.speak(pick(ENCOUR) + ' A resposta certa é: ' + correct.label + '. ' + q.exp, { label: 'Vamos aprender' });
+  }
+  renderQuiz(false);
+}
+
+/* ---------- Missões v2 ---------- */
+(function () {
+  const M = (id, title, intro, ok, target, extra) => Object.assign({ id, title, target, intro, goal: intro, ok }, extra || {});
+  MISSIONS.push(
+    M('n1', 'Encontrar o planeta onde a gente mora', 'Encontre o planeta onde a gente mora!', 'Olha só! Esta é a nossa casa, a Terra!', 'terra'),
+    M('n2', 'Encontrar o planeta vermelho', 'Encontre o planeta vermelho!', 'Chegamos a Marte! Lá já passearam robôs tirando fotografias.', 'marte'),
+    M('n3', 'Encontrar o planeta que gira deitado', 'Encontre o planeta que gira deitado!', 'Isso mesmo! Urano gira quase deitado!', 'urano'),
+    M('n4', 'Encontrar o maior planeta', 'Encontre o maior planeta de todos!', 'Isso mesmo! Júpiter é o maior planeta de todos!', 'jupiter'),
+    M('n5', 'Encontrar o asteroide de metal', 'Encontre o asteroide de metal!', 'Achou! Psiquê é o asteroide que os cientistas acham que é de metal!', 'psique'),
+    M('n6', 'Encontrar o asteroide que levou um empurrão', 'Encontre o asteroide que levou um empurrão!', 'Achou! Dimorfo foi empurrado pela nave DART, de treino!', 'dimorfo'),
+    M('n7', 'Encontrar a rosa do Pequeno Príncipe', 'Encontre a rosa do Pequeno Príncipe!', 'Você encontrou a rosa do Pequeno Príncipe!', 'b612', { check: e => e.type === 'b612el' && e.id === 'rosa' }),
+    M('n8', 'Fazer o Sol se pôr no B612', 'Faça o Sol se pôr no B612!', 'O Sol se pôs no B612! Que lindo!', 'b612', { check: e => e.type === 'sunset', goal: 'Toque no B612 e arraste a cadeirinha até a linha entre o dia e a noite.' }),
+    M('n9', 'Mostrar onde é noite no Brasil', 'Mostre onde está de noite agora no Brasil!', 'Isso! Aqui no Brasil é noite agora!', null, { check: e => e.type === 'night', start: () => expStart('day'), goal: 'Espere o bonequinho do Brasil ficar no escuro e toque no lado escuro da Terra.' }),
+    M('n10', 'Tocar numa estrela cadente', 'Toque numa estrela cadente!', 'Você tocou numa estrela cadente!', null, { check: e => e.type === 'meteoro', start: () => { SHOOT.cd = Math.min(SHOOT.cd, 4); }, goal: 'Espere uma estrela cadente passar e toque nela.' })
+  );
+  MISSIONS.forEach(m => { if (!m.check) m.check = e => e.type === 'select' && e.key === m.target; });
+})();
+function dayMissionTap(hit, key) {
+  if (key !== 'terra' || state.exp !== 'day' || state.mission < 0 || MISSIONS[state.mission].id !== 'n9') return false;
+  const E = BODY.terra, Ep = E.group.position;
+  E.focusObj.getWorldPosition(_w);
+  const sunDir = _tmp.copy(Ep).multiplyScalar(-1).normalize();
+  const tapN = _p.copy(hit.point).sub(_w).normalize();
+  const brasil = E.pois.find(p => p.id === 'brasilia').marker;
+  brasil.getWorldPosition(_sc);
+  const brN = _sc.sub(_w).normalize();
+  const brNight = brN.dot(sunDir) <= 0, tapDark = tapN.dot(sunDir) <= 0;
+  if (!brNight) { Narr.speak('Ainda é dia no Brasil! Espere o bonequinho entrar no escuro.', { label: 'Missão' }); return true; }
+  if (!tapDark) { Narr.speak('Esse lado está de dia. Toque no lado escuro!', { label: 'Missão' }); return true; }
+  const ok = emit({ type: 'night' });
+  if (ok) Narr.speak(ok, { label: 'Missão cumprida' });
+  return true;
+}
+
+/* ---------- Passaporte de astronauta ---------- */
+const PASS_PAGES = [['sol', '🪐', 'Sistema Solar'], ['ast', '🪨', 'Asteroides'], ['b612', '📖', 'B612'], ['mov', '🧭', 'Movimentos'], ['mis', '🎯', 'Missões'], ['pal', '🔤', 'Palavras'], ['des', '🎨', 'Desenhos']];
+const PASS_SOL = ['sol', 'mercurio', 'venus', 'terra', 'lua', 'marte', 'cinturao', 'jupiter', 'saturno', 'urano', 'netuno', 'plutao'];
+const PASS_AST = ['ceres', 'vesta', 'psique', 'bennu', 'dimorfo', 'apofis', 'meteoro', 'dino'];
+const B612_EL = [['rosa', '🌹', 'Rosa'], ['vulcoes', '🌋', 'Vulcões'], ['baobas', '🌱', 'Baobás'], ['cadeira', '🪑', 'Cadeira'], ['caixinha', '📦', 'Caixinha'], ['chapeu', '🎩', 'Chapéu'], ['luneta', '🔭', 'Lunetinha'], ['cachecol', '🧣', 'Cachecol']];
+const PASS_MOV = [['rot', '🌀', 'Rotação'], ['trans', '🔁', 'Translação'], ['both', '🌍', 'Os dois'], ['day', '🌗', 'Dia e noite'], ['seasons', '🍂', 'Estações'], ['moon', '🌙', 'Fases da Lua'], ['eclipse', '🌑', 'Eclipses'], ['size', '📏', 'Tamanho'], ['terra', '🏠', 'Nossa casa'], ['order', '📋', 'Ordem']];
+function sealList(page) {
+  if (page === 'sol') return PASS_SOL.map(k => ({ key: k, on: !!save.visited[k], emo: EMO[k], name: nameOf(k).replace(/^(o|a) /, '') }));
+  if (page === 'ast') return PASS_AST.map(k => ({ key: k, on: !!save.visited[k], emo: EMO[k], name: BODY[k].name }));
+  if (page === 'b612') return [{ key: 'b612', on: !!save.visited.b612, emo: '🌹', name: 'B612' }].concat(B612_EL.map(([id, e, n]) => ({ key: 'el:' + id, on: !!save.seals['el:' + id], emo: e, name: n })));
+  if (page === 'mov') return PASS_MOV.map(([k, e, n]) => ({ key: 'exp:' + k, on: !!save.seals['exp:' + k], emo: e, name: n }));
+  if (page === 'mis') return MISSIONS.map((m, i) => ({ key: 'mis:' + m.id, on: !!save.done[m.id], emo: '⭐', name: 'Missão ' + (i + 1) }));
+  return [];
+}
+const sealBtn = s => `<button class="sl ${s.on ? 'on' : 'off'}" data-act="sealSay" data-arg="${esc(s.key)}" ${s.on ? '' : 'aria-label="Selo ainda não conquistado"'}><span class="e">${s.on ? s.emo : '?'}</span><span class="n">${s.on ? esc(s.name) : '&nbsp;'}</span></button>`;
+function passCounts() {
+  const c = {};
+  for (const [p] of PASS_PAGES) {
+    if (p === 'pal') c[p] = [ALL_WORDS.filter(w => save.words[w]).length, ALL_WORDS.length];
+    else if (p === 'des') c[p] = [save.drawings.length, 6];
+    else { const l = sealList(p); c[p] = [l.filter(s => s.on).length, l.length]; }
+  }
+  return c;
+}
+function solComplete() { return PASS_SOL.every(k => save.visited[k]); }
+function renderPass(page) {
+  state.infoOpen = false; state.panel = 'pass';
+  if (page) state.passPage = page;
+  const pg = state.passPage, cnt = passCounts();
+  if (solComplete() && !save.seals.certSeen) { save.seals.certSeen = true; persist(); return showCert(); }
+  const tabs = `<div class="ptabs"><button class="btn sm ${pg === 'cover' ? 'on' : ''}" data-act="passPage" data-arg="cover">🎒 Capa</button>${PASS_PAGES.map(([p, e, n]) => `<button class="btn sm ${pg === p ? 'on' : ''}" data-act="passPage" data-arg="${p}">${e} ${n}</button>`).join('')}</div>`;
+  let body = '';
+  if (pg === 'cover') {
+    body = `<div class="pcover"><div class="pstar">🧑‍🚀</div><h2>Passaporte de Astronauta de ${esc(kid())}</h2><p>Cada selo mostra uma coisa que você descobriu. Toque nos selos para ouvir.</p>
+      <div class="pgrid">${PASS_PAGES.map(([p, e, n]) => `<button class="btn" data-act="passPage" data-arg="${p}" style="min-height:70px">${e} ${n}<br><small>${cnt[p][0]} de ${cnt[p][1]}</small></button>`).join('')}</div>
+      ${solComplete() ? '<div class="row" style="margin-top:10px"><button class="btn pri" data-act="certShow">🏅 Ver o certificado</button></div>' : ''}</div>`;
+  } else if (pg === 'pal') {
+    body = `<h2>🔤 Palavras do espaço</h2><p>${cnt.pal[0]} de ${cnt.pal[1]} palavras. Toque numa palavra para ouvir.</p><div class="wrow">${ALL_WORDS.map(w => save.words[w] ? `<button class="wd" data-act="word" data-arg="${w}">${sylHtml(w)}<span class="spk">🔊</span></button>` : '<span class="wd off">?</span>').join('')}</div>`;
+  } else if (pg === 'des') {
+    body = `<h2>🎨 Meus desenhos</h2>${save.drawings.length ? `<div class="dgrid">${save.drawings.map(u => `<img src="${u}" alt="Desenho do carneirinho">`).join('')}</div>` : '<p>Ainda não tem desenhos. Que tal desenhar o carneirinho?</p>'}<div class="row"><button class="btn pri" data-act="drawOpen">✏️ Desenhar o carneirinho</button></div>`;
+  } else {
+    const title = PASS_PAGES.find(x => x[0] === pg);
+    const l = sealList(pg);
+    body = `<h2>${title[1]} ${title[2]}</h2><p>${cnt[pg][0]} de ${cnt[pg][1]} selos.</p>
+      <div class="sgrid">${l.map(sealBtn).join('')}</div>`;
+    if (pg === 'b612') {
+      body += `<h3 style="margin:14px 0 6px">Lições ouvidas</h3><div class="sgrid lic">${LIC.map(L => sealBtn({ key: 'lic:' + L.n, on: !!save.seals['lic:' + L.n], emo: String(L.n), name: 'Lição ' + L.n })).join('')}</div>`;
+    }
+    if (pg === 'sol' && solComplete()) body += '<div class="row" style="margin-top:10px"><button class="btn pri" data-act="certShow">🏅 Ver o certificado</button></div>';
+  }
+  showPanel(tabs + body);
+}
+function showCert() {
+  state.panel = 'pass';
+  showPanel(`<div class="cert"><div class="cs1">🏅</div><div class="cs2">Certificado</div><div class="cs3">Astronauta Mirim</div><div class="cs4">${esc(kid())}</div><div class="cs5">Conheceu o Sol, todos os planetas, a Lua, Plutão e o cinturão de asteroides.</div></div>
+    <div class="row" style="justify-content:center"><button class="btn" data-act="passPage" data-arg="cover">🎒 Voltar ao passaporte</button></div>`);
+  burst(24);
+  Narr.speak(`Parabéns, ${kid()}! Você conheceu o Sol, todos os planetas, a Lua, Plutão e o cinturão de asteroides! Agora você é Astronauta Mirim ${kid()}!`, { label: 'Certificado' });
+}
+function sealText(key) {
+  if (key.startsWith('lic:')) { const L = LIC.find(x => x.n === +key.slice(4)); const m = L && L.t.match(/A lição é:.*$/); return m ? m[0] : (L ? L.t : ''); }
+  if (key.startsWith('exp:')) { const k = key.slice(4); const t = k === 'seasons' ? TXT.seasonIntro : k === 'eclipse' ? TXT.eclIntro : TXT[k]; return t ? splitSentences(t).slice(0, 2).join(' ') : ''; }
+  if (key.startsWith('mis:')) { const m = MISSIONS.find(x => x.id === key.slice(4)); return m ? m.ok : ''; }
+  if (key.startsWith('el:')) return SUMMARY[key.slice(3)] || '';
+  return SUMMARY[key] || '';
+}
+
+/* ---------- Jogo: ordem dos planetas ---------- */
+const PLANET_ORDER = ['mercurio', 'venus', 'terra', 'marte', 'jupiter', 'saturno', 'urano', 'netuno'];
+const ORDN = ['primeiro', 'segundo', 'terceiro', 'quarto', 'quinto', 'sexto', 'sétimo', 'oitavo'];
+let ord = null;
+function openOrder() {
+  closePanel(); goOverview(); Narr.stop();
+  ord = { placed: 0, sel: null, drag: null };
+  const h = $('gameHud');
+  h.innerHTML = `<div class="gTop"><b>🔢 Ordem dos planetas</b><span><button class="btn sm" data-act="ordemHint">💡 Dica</button> <button class="btn sm" data-act="ordemClose">✕ Fechar</button></span></div>
+    <div class="ordRow"><div class="sunDot" aria-hidden="true">☀️</div>${PLANET_ORDER.map((_, i) => `<div class="slot" data-i="${i}" aria-label="Lugar número ${i + 1}"><span class="num">${i + 1}</span></div>`).join('')}</div>
+    <div class="ordTray" id="ordTray">${shuf(PLANET_ORDER).map(k => `<div class="pchip" data-k="${k}" role="button" tabindex="0" aria-label="${esc(BODY[k].name)}"><img src="${THUMB[k]}" alt=""><span>${esc(BODY[k].name)}</span></div>`).join('')}</div>`;
+  h.hidden = false;
+  Narr.speak('Vamos montar o Sistema Solar! Arraste cada planeta para o lugar certo, começando pelo mais pertinho do Sol.', { label: 'Ordem dos planetas' });
+}
+function closeOrder() { $('gameHud').hidden = true; ord = null; Narr.stop(); }
+function ordPlace(k, slot) {
+  if (!ord || slot.classList.contains('ok')) return false;
+  const i = +slot.dataset.i, idx = PLANET_ORDER.indexOf(k), chip = document.querySelector(`.pchip[data-k="${k}"]`);
+  if (idx === i) {
+    slot.classList.add('ok'); slot.innerHTML = `<img src="${THUMB[k]}" alt=""><span>${esc(BODY[k].name)}</span>`;
+    if (chip) chip.remove();
+    ord.placed++; ord.sel = null;
+    Narr.speak(`${BODY[k].name}, o ${ORDN[i]} planeta!`, { label: 'Muito bem' });
+    if (ord.placed === 8) {
+      save.stars++; persist(); updateStars(); markSeal('exp:order'); burst(20); astroJump();
+      Narr.speak(`${BODY[k].name}, o ${ORDN[i]} planeta! Muito bem, ${kid()}! Você montou o Sistema Solar inteirinho!`, { label: 'Parabéns' });
+    }
+    return true;
+  }
+  if (chip) { chip.classList.add('shake'); setTimeout(() => chip.classList.remove('shake'), 500); }
+  Narr.speak(idx > i ? 'Esse fica mais longe do Sol!' : 'Esse fica mais pertinho do Sol!', { label: 'Dica' });
+  return false;
+}
+(function ordInput() {
+  const hud = $('gameHud');
+  hud.addEventListener('pointerdown', e => {
+    const chip = e.target.closest('.pchip');
+    if (!chip || !ord) return;
+    e.preventDefault();
+    const r = chip.getBoundingClientRect();
+    const g = chip.cloneNode(true); g.classList.add('dragging'); g.style.width = r.width + 'px'; g.style.left = r.left + 'px'; g.style.top = r.top + 'px';
+    document.body.appendChild(g);
+    ord.drag = { chip, g, dx: e.clientX - r.left, dy: e.clientY - r.top, x0: e.clientX, y0: e.clientY, id: e.pointerId };
+    chip.classList.add('ghost');
+    try { hud.setPointerCapture(e.pointerId); } catch (err) {}
+  });
+  hud.addEventListener('pointermove', e => {
+    const d = ord && ord.drag; if (!d || e.pointerId !== d.id) return;
+    d.g.style.left = (e.clientX - d.dx) + 'px'; d.g.style.top = (e.clientY - d.dy) + 'px';
+  });
+  const end = e => {
+    const d = ord && ord.drag; if (!d || e.pointerId !== d.id) return;
+    ord.drag = null; d.g.remove(); d.chip.classList.remove('ghost');
+    const moved = Math.hypot(e.clientX - d.x0, e.clientY - d.y0);
+    const k = d.chip.dataset.k;
+    if (moved < 10) {
+      document.querySelectorAll('.pchip.sel').forEach(c => c.classList.remove('sel'));
+      if (ord.sel === k) ord.sel = null; else { ord.sel = k; d.chip.classList.add('sel'); }
+      return;
+    }
+    const under = document.elementFromPoint(e.clientX, e.clientY);
+    const slot = under && under.closest ? under.closest('.slot') : null;
+    if (slot) ordPlace(k, slot);
+  };
+  hud.addEventListener('pointerup', end); hud.addEventListener('pointercancel', end);
+  hud.addEventListener('click', e => {
+    const slot = e.target.closest('.slot');
+    if (slot && ord && ord.sel) { const k = ord.sel; ord.sel = null; document.querySelectorAll('.pchip.sel').forEach(c => c.classList.remove('sel')); ordPlace(k, slot); }
+  });
+})();
+
+/* ---------- Desenhar o carneirinho ---------- */
+const DRAW_COL = ['#ff5a7a', '#3b8bff', '#35c46b', '#ffb02e'];
+let drw = null;
+function openDraw(withLesson) {
+  closePanel(); Narr.stop();
+  const h = $('drawHud');
+  h.innerHTML = `<div class="gTop"><b>✏️ Desenhar o carneirinho</b><span><button class="btn sm" data-act="drawClose">✕ Fechar</button></span></div>
+    <div class="drBoard" id="drBoard"><canvas id="drBox"></canvas><canvas id="drPaint"></canvas></div>
+    <div class="drTools">${DRAW_COL.map((c, i) => `<button class="dc ${i === 0 ? 'on' : ''}" data-act="drawColor" data-arg="${c}" style="background:${c}" aria-label="Cor ${i + 1}"></button>`).join('')}
+      <button class="btn sm" data-act="drawEraser" id="drEr">🧽 Borracha</button>
+      <button class="btn sm" data-act="drawClear">🗑️ Começar de novo</button>
+      <button class="btn sm on" data-act="drawSave">💾 Guardar no passaporte</button></div>`;
+  h.hidden = false;
+  const board = $('drBoard'), W = board.clientWidth, H = board.clientHeight;
+  const bx = $('drBox'), pt = $('drPaint');
+  bx.width = pt.width = W; bx.height = pt.height = H;
+  const c = bx.getContext('2d');
+  const bw = W * 0.5, bh = H * 0.42, x0 = W * 0.25, y0 = H * 0.5;
+  c.fillStyle = 'rgba(217,183,126,.55)'; c.strokeStyle = '#8a5a2b'; c.lineWidth = 6; c.lineJoin = 'round';
+  c.beginPath(); c.rect(x0, y0, bw, bh); c.fill(); c.stroke();
+  c.fillStyle = '#2a1b0a';
+  [0.3, 0.5, 0.7].forEach(f => { c.beginPath(); c.arc(x0 + bw * f, y0 + bh * 0.4, Math.max(6, bw * 0.03), 0, TAU); c.fill(); });
+  const p = pt.getContext('2d'); p.lineCap = 'round'; p.lineJoin = 'round';
+  drw = { p, W, H, color: DRAW_COL[0], eraser: false, on: false, drew: false, x: 0, y: 0 };
+  const pos = e => { const r = pt.getBoundingClientRect(); return { x: (e.clientX - r.left) * (W / r.width), y: (e.clientY - r.top) * (H / r.height) }; };
+  pt.addEventListener('pointerdown', e => { e.preventDefault(); const q = pos(e); drw.on = true; drw.x = q.x; drw.y = q.y; try { pt.setPointerCapture(e.pointerId); } catch (err) {} drawSeg(q.x + 0.1, q.y); });
+  pt.addEventListener('pointermove', e => { if (!drw || !drw.on) return; const q = pos(e); drawSeg(q.x, q.y); });
+  ['pointerup', 'pointercancel'].forEach(ev => pt.addEventListener(ev, () => { if (drw) drw.on = false; }));
+  const invite = 'Desenhe o carneirinho do jeito que você imagina! Ele pode ficar dentro ou fora da caixa.';
+  if (withLesson) {
+    const L = LIC.find(x => x.n === 2); markSeal('lic:2'); state.licCur = 2;
+    Narr.speak(LIC_INTRO + L.t, { label: 'Lição 2 do Pequeno Príncipe', estilo: 'historia', onDone: () => Narr.speak(invite, { label: 'Desenhar' }) });
+  } else Narr.speak(invite, { label: 'Desenhar' });
+}
+function drawSeg(x, y) {
+  const p = drw.p;
+  p.globalCompositeOperation = drw.eraser ? 'destination-out' : 'source-over';
+  p.strokeStyle = drw.color; p.lineWidth = drw.eraser ? 34 : 10;
+  p.beginPath(); p.moveTo(drw.x, drw.y); p.lineTo(x, y); p.stroke();
+  drw.x = x; drw.y = y; drw.drew = true;
+}
+function closeDraw() { $('drawHud').hidden = true; drw = null; Narr.stop(); }
+function saveDrawing() {
+  if (!drw) return;
+  if (!drw.drew) { Narr.speak('Que tal desenhar o carneirinho primeiro?', { label: 'Desenhar' }); return; }
+  const c = mkCanvas(256, Math.round(256 * drw.H / drw.W)), x = c.getContext('2d');
+  x.fillStyle = '#fff7e3'; x.fillRect(0, 0, c.width, c.height);
+  x.drawImage($('drBox'), 0, 0, c.width, c.height); x.drawImage($('drPaint'), 0, 0, c.width, c.height);
+  const url = c.toDataURL('image/jpeg', 0.72);
+  const before = save.drawings.slice();
+  save.drawings.push(url); while (save.drawings.length > 6) save.drawings.shift();
+  let ok = true;
+  try { localStorage.setItem(SAVE_KEY, JSON.stringify(save)); } catch (e) { ok = false; }
+  if (!ok) { save.drawings = before; Narr.speak('Ih, não coube mais um desenho no passaporte. Mas o seu desenho está lindo!', { label: 'Desenho' }); return; }
+  burst(12); astroJump();
+  Narr.speak('Guardei o seu desenho no passaporte!', { label: 'Desenho guardado' });
+}
+
+/* ---------- Boa noite, astronauta e lembrete de pausa ---------- */
+function ritual() {
+  hideBreak(); closeOrder(); closeDraw(); closePanel(); goOverview(); cancelMission();
+  const stars = scene.children.filter(o => o.isPoints && [3200, 500].includes(o.geometry.attributes.position.count));
+  stars.forEach(s => { if (!s.userData.sz) s.userData.sz = s.material.size; s.material.size = s.userData.sz * 1.4; });
+  ctrl.auto = true; ctrl.desired = overviewR() * 1.5;
+  const names = Object.keys(save.visited).slice(-3).map(nameOf);
+  const lst = names.length === 0 ? '' : names.length === 1 ? names[0] : names.slice(0, -1).join(', ') + ' e ' + names[names.length - 1];
+  const intro = `Que viagem linda, ${kid()}! ${lst ? 'Hoje você conheceu ' + lst + '.' : 'Hoje você começou a explorar o espaço.'}`;
+  const restore = () => stars.forEach(s => { s.material.size = s.userData.sz; });
+  markSeal('lic:13');
+  Narr.speak(intro, { label: 'Boa noite', onDone: () => Narr.speak(LIC_INTRO + LIC[12].t, { label: 'Lição 13 do Pequeno Príncipe', estilo: 'historia',
+    onDone: () => Narr.speak('Boa noite, astronauta. O espaço vai estar aqui esperando você!', { label: 'Boa noite', onDone: restore }) }) });
+}
+let breakAcc = 0;
+function resetBreakTimer() { breakAcc = 0; }
+function hideBreak() { const b = $('breakBox'); if (b) b.hidden = true; }
+function tryBreak() {
+  if (Narr.active || !save.breakMin) return false;
+  breakAcc = 0;
+  const b = $('breakBox');
+  b.innerHTML = `<p>Astronauta, já viajamos bastante hoje! Que tal descansar os olhos?</p><div class="row" style="justify-content:center"><button class="btn pri" data-act="ritual">🌙 Boa noite</button>${state.breakMoreUsed ? '' : '<button class="btn" data-act="breakMore">▶️ Só mais um pouquinho</button>'}</div>`;
+  b.hidden = false;
+  Narr.speak('Astronauta, já viajamos bastante hoje! Que tal descansar os olhos? Quando quiser, a gente volta.', { label: 'Hora de descansar' });
+  return true;
+}
+setInterval(() => {
+  if (document.hidden || !$('intro').hidden || !save.breakMin) return;
+  breakAcc++;
+  if (breakAcc >= save.breakMin * 60 && $('breakBox').hidden) tryBreak();
+}, 1000);
+
+/* ---------- Mãozinha sobre a rosa (uma vez) ---------- */
+(function () {
+  const h = document.createElement('div'); h.id = 'hand2'; h.className = 'hand'; h.hidden = true; h.textContent = $('hand').textContent || '👆';
+  document.body.appendChild(h);
+})();
+function updateHand2() {
+  const h = $('hand2'); if (!h) return;
+  const show = b612Close() && !save.seals.handRose && !B612.handOff && $('intro').hidden && !tour.on;
+  if (!show) { h.hidden = true; return; }
+  const rose = B612.els.find(e => e.id === 'rosa'); rose.obj.getWorldPosition(_w);
+  const p = toScreen(_w);
+  if (!p.ok) { h.hidden = true; return; }
+  h.hidden = false; h.style.left = (p.x - 20) + 'px'; h.style.top = (46 + p.y + 14) + 'px';
+}
+
+function nearestBody(px, py) {
+  let best = null, bd = 48;
+  for (const b of BODY_LIST) {
+    if (!b.focusObj || b.key === 'cinturao') continue;
+    b.focusObj.getWorldPosition(_w);
+    const sc = toScreen(_w); if (!sc.ok) continue;
+    const d = Math.hypot(sc.x - px, sc.y - py);
+    if (d < bd) { bd = d; best = b.key; }
+  }
+  return best;
+}
+/* ---------- B612: toques nos elementos ---------- */
+function b612Lesson(n, pre = '', then = null) {
+  const L = LIC.find(x => x.n === n); if (!L) return;
+  markSeal('lic:' + n); state.licCur = n;
+  if (!state.infoOpen || state.infoKey !== 'b612') showInfo('b612', { noSpeak: true });
+  const box = $('curi');
+  if (box) { box.style.display = 'block'; box.style.whiteSpace = 'pre-line'; box.textContent = '📖 ' + L.t + (L.ponte ? '\n🔬 ' + L.ponte : ''); }
+  Narr.speak((pre ? pre : '') + LIC_INTRO + L.t, { label: 'Lição ' + n + ' do Pequeno Príncipe', estilo: 'historia',
+    onDone: L.ponte ? () => Narr.speak(L.ponte, { label: '🔬 É de verdade', onDone: then || undefined }) : (then || undefined) });
+}
+function b612Sunset() {
+  const ok = emit({ type: 'sunset' });
+  B612.tintUntil = performance.now() / 1000 + 12;
+  markSeal('el:cadeira'); burst(10);
+  b612Lesson(5, ok ? ok + ' ' : '');
+}
+function b612Tap(id, idx) {
+  if (tour.on) return;
+  B612.handOff = true; markSeal('handRose');
+  markSeal('el:' + id);
+  const ok = emit({ type: 'b612el', id }), pre = ok ? ok + ' ' : '';
+  if (ok) burst(12);
+  if (id === 'rosa') { const n = [6, 10, 11][B612.roseN % 3]; B612.roseN++; return b612Lesson(n, pre); }
+  if (id === 'chapeu') return b612Lesson(1, pre);
+  if (id === 'luneta') return b612Lesson(3, pre);
+  if (id === 'cachecol') return b612Lesson(13, pre);
+  if (id === 'caixinha') return openDraw(true);
+  if (id === 'cadeira') { astroSay('Arraste a cadeirinha!'); return Narr.speak(pre + 'Arraste a cadeirinha ao redor do planetinha, até a linha onde o Sol está se pondo!', { label: 'Cadeirinha' }); }
+  if (id === 'vulcoes') {
+    const v = B612.volcs[idx]; v.swept = 6; v.fade = 0;
+    if (!B612.said.vulcoes) { B612.said.vulcoes = true; return b612Lesson(7, pre); }
+    astroSay('Varridinho!'); return;
+  }
+  if (id === 'baobas') {
+    const sp = B612.sprouts[idx]; if (sp.gone) return;
+    sp.gone = true; sp.anim = 0.5; sp.regrowAt = performance.now() / 1000 + 30; sp.g.userData.sparkle = true;
+    astroSay('Tchau, brotinho!');
+    if (B612.sprouts.every(s => s.gone)) b612Lesson(4, pre);
+  }
+}
+function b612ChairStart(e) {
+  if (!b612Close() || tour.on || !$('intro').hidden) return false;
+  const c = B612.chair.obj; c.getWorldPosition(_w); _w.y += 0.1;
+  const s = toScreen(_w); if (!s.ok) return false;
+  const r = canvasEl.getBoundingClientRect();
+  if (Math.hypot(s.x - (e.clientX - r.left), s.y - (e.clientY - r.top)) > 56) return false;
+  B612.drag = { id: e.pointerId, x0: e.clientX, y0: e.clientY, moved: 0 };
+  try { canvasEl.setPointerCapture(e.pointerId); } catch (err) {}
+  return true;
+}
+canvasEl.addEventListener('pointermove', e => {
+  const d = B612.drag; if (!d || e.pointerId !== d.id) return;
+  d.moved = Math.hypot(e.clientX - d.x0, e.clientY - d.y0);
+  if (d.moved < 6) return;
+  const r = canvasEl.getBoundingClientRect();
+  ndc.set(((e.clientX - r.left) / r.width) * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1);
+  raycaster.setFromCamera(ndc, camera);
+  const h = raycaster.intersectObject(B612.mesh, false)[0];
+  if (!h) return;
+  const n = B612.spin.worldToLocal(h.point.clone()).normalize();
+  B612.chair.n.copy(n); applyChair();
+  B612.chairMoved = true; B612.handOff = true;
+});
+['pointerup', 'pointercancel'].forEach(ev => canvasEl.addEventListener(ev, e => {
+  const d = B612.drag; if (!d || e.pointerId !== d.id) return;
+  B612.drag = null;
+  if (d.moved < 6) b612Tap('cadeira', 0);
+}));
+function b612ElFallback(e) {
+  if (!b612Close() || tour.on) return false;
+  const r = canvasEl.getBoundingClientRect(), px = e.clientX - r.left, py = e.clientY - r.top;
+  let best = null, bd = 48;
+  for (const el of B612.els) {
+    if (el.id === 'cadeira' || (el.id === 'baobas' && B612.sprouts[el.idx].gone)) continue;
+    el.obj.getWorldPosition(_w); _w.y += 0.12;
+    const s = toScreen(_w); if (!s.ok) continue;
+    const d = Math.hypot(s.x - px, s.y - py);
+    if (d < bd) { bd = d; best = el; }
+  }
+  if (best) { b612Tap(best.id, best.idx); return true; }
+  return false;
+}
+
+/* ---------- Miniaturas 3D dos asteroides (renderizadas uma vez) ---------- */
+function render3dThumbs() {
+  const S = 192, rt = new THREE.WebGLRenderTarget(S, S);
+  const sc = new THREE.Scene(); sc.add(new THREE.AmbientLight(0xffffff, 0.6));
+  const dl = new THREE.DirectionalLight(0xffffff, 1.1); dl.position.set(-3, 2, 4); sc.add(dl);
+  const cam = new THREE.PerspectiveCamera(30, 1, 0.1, 60);
+  const prevRT = renderer.getRenderTarget(), pcol = new THREE.Color(), pa = renderer.getClearAlpha(); renderer.getClearColor(pcol);
+  for (const key of AST_KEYS) {
+    try {
+      const g = new THREE.Group(); g.add(rockMesh(key, 1));
+      if (key === 'dimorfo') { const m2 = rockMesh('dim', 0.32); m2.position.set(1.9, -0.6, 0.5); g.add(m2); }
+      g.rotation.set(0.3, 0.7, 0); sc.add(g);
+      const bb = new THREE.Box3().setFromObject(g), ctr = bb.getCenter(new THREE.Vector3()), r = bb.getSize(new THREE.Vector3()).length() / 2;
+      cam.position.set(ctr.x, ctr.y, ctr.z + r / Math.tan(15 * DEG) * 1.08); cam.lookAt(ctr);
+      renderer.setRenderTarget(rt); renderer.setClearColor(0x000000, 0); renderer.clear(); renderer.render(sc, cam);
+      const buf = new Uint8Array(S * S * 4); renderer.readRenderTargetPixels(rt, 0, 0, S, S, buf);
+      let any = 0; for (let i = 3; i < buf.length; i += 4) if (buf[i] > 20) { any++; if (any > 200) break; }
+      if (any > 200) {
+        const c = mkCanvas(S, S), x = c.getContext('2d'), im = x.createImageData(S, S);
+        for (let yy = 0; yy < S; yy++) im.data.set(buf.subarray((S - 1 - yy) * S * 4, (S - yy) * S * 4), yy * S * 4);
+        x.putImageData(im, 0, 0); THUMB[key] = c.toDataURL('image/png');
+      }
+      sc.remove(g); g.traverse(o => { if (o.geometry) o.geometry.dispose(); if (o.material) o.material.dispose(); });
+    } catch (e) {}
+  }
+  renderer.setRenderTarget(prevRT); renderer.setClearColor(pcol, pa); rt.dispose();
+}
+
+/* ---------- Painel Brincar v2 e viagem guiada v2 ---------- */
+function renderPlay() {
+  state.infoOpen = false; state.panel = 'play';
+  const b = (a, arg, l) => `<button class="btn" style="min-height:84px;font-size:17px" data-act="${a}"${arg ? ` data-arg="${arg}"` : ''}>${l}</button>`;
+  showPanel(`<h2>🎮 Brincar</h2><p>Escolha uma brincadeira.</p>
+    <div class="grid2" style="margin-top:8px">
+      ${b('openPanel', 'quiz', '❓ Perguntas')}${b('openPanel', 'age', '🎂 Meu aniversário nos planetas')}
+      ${b('ordemOpen', '', '🔢 Ordem dos planetas')}${b('openPanel', 'mis', '🎯 Missões')}
+      ${b('drawOpen', '', '✏️ Desenhar o carneirinho')}${b('ritual', '', '🌙 Boa noite, astronauta')}
+    </div>`);
+}
+const TOUR_EMO = Object.assign({}, EMO);
+function tourText(b) { return (b.alwaysShort && b.short) ? tpl(b.short) : mainText(b); }
+function tourGo() {
+  const T = tour;
+  if (!T.on) return;
+  clearTimeout(T.timer);
+  if (T.i >= TOUR.length) { tourEnd(true); return; }
+  const key = TOUR[T.i], b = BODY[key];
+  $('tourTxt').textContent = `Viagem ${T.i + 1} de ${TOUR.length}: ${b.name}`;
+  $('tourEmo').innerHTML = TOUR.map((k, i) => `<span class="te ${i === T.i ? 'on' : (i < T.i ? 'done' : '')}" aria-hidden="true">${TOUR_EMO[k] || '•'}</span>`).join('');
+  T.phase = 'approach';
+  setPoiKey(null);
+  selKey = key;
+  focusObj(b.focusObj, b.D);
+  showInfo(key, { noSpeak: true, text: tourText(b) });
+  T.timer = setTimeout(() => {
+    if (!T.on || T.paused) return;
+    T.phase = 'speak';
+    markVisited(key);
+    const next = () => { if (!T.on) return; T.phase = 'wait'; T.timer = setTimeout(() => { T.i++; tourGo(); }, 1400); };
+    if (key === 'b612') {
+      Narr.speak(tourText(b), { label: 'Viagem: ' + b.name, estilo: 'historia', onDone: () => {
+        if (!T.on) return;
+        markSeal('lic:13');
+        Narr.speak(LIC_INTRO + LIC[12].t, { label: 'Lição 13 do Pequeno Príncipe', estilo: 'historia', onDone: next });
+      } });
+    } else Narr.speak(tourText(b), { label: 'Viagem: ' + b.name, onDone: next });
+  }, 2600);
+}
+
+/* ---------- Ações da interface (novas) ---------- */
+Object.assign(ACT, {
+  word(d) { speakWord(d.arg); if (state.panel === 'pass' && state.passPage === 'pal') renderPass(); },
+  conv() { const k = state.infoKey; showConv(convText(k), EXPERIMENTO[k]); },
+  convSay() { if (state.conv) Narr.speak((state.conv.q ? state.conv.q + ' ' : '') + (state.conv.exp ? 'Experimento: ' + state.conv.exp : ''), { label: 'Para conversar' }); },
+  convClose() { $('convStrip').hidden = true; },
+  expConv() { showConv('', EXPERIMENTO[state.exp]); },
+  sizeConv() { showConv('', EXPERIMENTO.size); },
+  carL() { carScroll(-1); }, carR() { carScroll(1); },
+  astGo(d) { astGo(d.arg); },
+  passPage(d) { state.passPage = d.arg; renderPass(); },
+  certShow() { showCert(); },
+  sealSay(d) { const t = sealText(d.arg); if (t) Narr.speak(t, { label: 'Selo' }); },
+  ordemOpen() { openOrder(); }, ordemClose() { closeOrder(); }, ordemHint() { Narr.speak(TXT.order, { label: 'Dica' }); },
+  drawOpen() { openDraw(false); }, drawClose() { closeDraw(); },
+  drawColor(d) { if (!drw) return; drw.color = d.arg; drw.eraser = false; document.querySelectorAll('.dc').forEach(x => x.classList.toggle('on', x.dataset.arg === d.arg)); $('drEr').classList.remove('on'); },
+  drawEraser() { if (!drw) return; drw.eraser = !drw.eraser; $('drEr').classList.toggle('on', drw.eraser); document.querySelectorAll('.dc').forEach(x => x.classList.remove('on')); },
+  drawClear() { if (drw) { drw.p.clearRect(0, 0, drw.W, drw.H); drw.drew = false; } },
+  drawSave() { saveDrawing(); },
+  ritual() { ritual(); },
+  breakMore() { state.breakMoreUsed = true; resetBreakTimer(); hideBreak(); astroSay('Só mais um pouquinho!'); },
+  qNext() { if (state.quiz) { state.quiz.i++; state.quiz.answered = null; renderQuiz(true); } },
+  qSay() { const Q = state.quiz; if (Q && Q.i < Q.list.length) Narr.speak(Q.list[Q.i].q, { label: 'Pergunta' }); }
+});
+
+
 /* ---------------------------------------------------------------------
    11. INICIALIZAÇÃO
    --------------------------------------------------------------------- */
 buildThumbs();
+buildAstThumbs();
+try { render3dThumbs(); } catch (e) {}
 buildLabels();
 refreshAvatars();
 fillIcons();
