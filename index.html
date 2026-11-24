@@ -1973,7 +1973,7 @@ function startPreview(key, okText) {
   state.prev = { key, okText };
   const img = THUMB[key] ? `<img src="${THUMB[key]}" alt="${esc(b.name)}">` : `<div class="noimg">☄️</div>`;
   const opts = P.o.map((o, i) => `<button class="opt" data-act="prevAns" data-arg="${i}">${o.img ? `<img src="${THUMB[o.img]}" alt="${esc(o.label)}">` : `<span class="emo">${o.emo}</span>`}<span>${esc(o.label)}</span></button>`).join('');
-  showPanel(`<div class="ph">${img}<div><span class="seal">${b.story ? '📖 É de uma história' : '🔬 É de verdade'}</span><h2>${esc(b.name)}</h2></div></div>
+  showPanel(`<div class="ph">${img}<div><span class="seal">${b.story ? '📖 Uma história que virou real' : '🔬 É de verdade'}</span><h2>${esc(b.name)}</h2></div></div>
     <p class="prevq">${esc(P.q)}</p>
     <div class="grid2">${opts}</div>
     <div class="row" style="margin-top:12px"><button class="btn sm" data-act="prevSkip">Pular ➜</button></div>`, { story: !!b.story });
@@ -1991,7 +1991,7 @@ function revealPreview() {
   state.prev = null; clearTimeout(state.prevTimer);
   const b = BODY[pv.key];
   markVisited(pv.key);
-  const hist = pv.key === 'b612' ? 'Ele é de uma história! Os cientistas nunca encontraram o B612. Mas a história é tão bonita que vale a pena conhecer. ' : '';
+  const hist = pv.key === 'b612' ? 'Os dois! Ele nasceu numa história, e hoje existe de verdade no céu: os cientistas deram o nome B612 a um asteroide real! ' : '';
   showInfo(pv.key, { text: (pv.okText ? pv.okText + ' ' : '') + hist + mainText(b), label: 'Conhecendo ' + b.name });
 }
 function activatePoi(key, id) {
@@ -2581,6 +2581,7 @@ const LIC = [
   { n: 13, el: 'cachecol', t: 'Quando o Pequeno Príncipe voltou para o seu planetinha, ele deixou um presente para o aviador. Como ele morava numa estrelinha, sempre que o aviador olhasse o céu à noite, ia lembrar do amigo rindo lá de cima. E aí todas as estrelas iam parecer rir também! A lição é: quem a gente ama continua no nosso coração, mesmo quando está longe.', conv: 'Quando você olha o céu, de quem você lembra?' }
 ];
 const B612_REAL = [
+  'Sabia que existe um asteroide de verdade chamado B612? Ele ganhou esse nome em dois mil e dois, em homenagem à casinha do Pequeno Príncipe, e passeia entre Marte e Júpiter!',
   'Sabia que os cientistas gostam tanto dessa história que deram nomes a coisas de verdade no espaço? Existe um asteroide de verdade com o nome do autor do livro, Saint-Exupéry!',
   'Sabia que existe uma luazinha de verdade, que gira em volta de um asteroide chamado Eugênia, e ela se chama Pequeno Príncipe?',
   'Sabia que um grupo de cientistas que ajuda a vigiar asteroides para proteger a Terra escolheu o nome Fundação B612? A história virou trabalho de verdade!',
@@ -2629,9 +2630,9 @@ const SMALL_DEFS = [
 
 const B612_DEF = {
   key: 'b612', name: 'B612 ✨', emo: '🌹', rad: 1.7, D: 5.2, story: true, small: true, enlarged: false, alwaysShort: false,
-  size: 'Do tamanho de uma casa, mas só na história', dia: 'Bem curtinho: dá para ver o pôr do sol várias vezes', ano: 'Não existe de verdade, é de uma história',
-  main: 'Olha que planetinha diferente! Este é o asteroide B612, a casinha do Pequeno Príncipe. Ele é de uma história muito famosa, de um livro escrito por um aviador chamado Antoine de Saint-Exupéry. O B612 é tão pequenininho que dá para dar a volta nele em poucos passos. Lá moram uma rosa, três vulcõezinhos e umas sementes de árvore bem teimosas. Este planetinha é de uma história, é de mentirinha. Mas as lições que ele ensina são de verdade!',
-  short: 'Este é o B612, a casinha do Pequeno Príncipe. Ele é de uma história, mas as lições são de verdade!',
+  size: 'Na história, do tamanho de uma casa. O de verdade tem uns dois quilômetros', dia: 'Bem curtinho: dá para ver o pôr do sol várias vezes', ano: 'O B612 de verdade dá a volta no Sol em uns três anos e meio',
+  main: 'Olha que planetinha diferente! Este é o asteroide B612, a casinha do Pequeno Príncipe. Ele é de uma história muito famosa, de um livro escrito por um aviador chamado Antoine de Saint-Exupéry. O B612 é tão pequenininho que dá para dar a volta nele em poucos passos. Lá moram uma rosa, três vulcõezinhos e umas sementes de árvore bem teimosas. Este planetinha nasceu numa história, mas hoje existe de verdade no céu, porque os cientistas deram o nome B612 a um asteroide real! E as lições que ele ensina são de verdade!',
+  short: 'Este é o B612, a casinha do Pequeno Príncipe. Ele nasceu numa história, e hoje existe um asteroide de verdade com esse nome!',
   conv: 'Qual lição do Pequeno Príncipe você mais gostou?'
 };
 B612_DEF.curios = LIC.map(l => ({ kind: 'lic', n: l.n, t: l.t, ponte: l.ponte, conv: l.conv })).concat(B612_REAL.map(t => ({ kind: 'real', t })));
@@ -2694,7 +2695,7 @@ const SUMMARY = {
   saturno: 'Saturno tem anéis lindos de gelo e pedra.', urano: 'Urano gira deitado, como uma bola rolando de lado.',
   netuno: 'Netuno é azul, gelado e tem ventos muito rápidos.', plutao: 'Plutão é um planeta anão, pequeno e gelado.',
   meteoro: 'Estrela cadente é uma pedrinha do espaço brilhando no ar da Terra.', dino: 'Uma pedra do espaço mudou a Terra, e os passarinhos são parentes dos dinossauros.',
-  b612: 'O B612 é a casinha do Pequeno Príncipe, de uma história.',
+  b612: 'O B612 é a casinha do Pequeno Príncipe, e existe um asteroide de verdade com esse nome.',
   rosa: 'O carinho aparece mais nas atitudes do que nas palavras.', vulcoes: 'Cuidar bem da nossa casa, até das partes que parecem não precisar.',
   baobas: 'Cuidar das coisas um pouquinho todo dia evita problemas grandes.', cadeira: 'Fazer uma coisa que a gente ama ajuda o coração a ficar melhor.',
   caixinha: 'A imaginação deixa a gente ver coisas lindas, mesmo escondidas.', chapeu: 'Olhe com calma e com imaginação.',
@@ -3149,7 +3150,7 @@ function showInfo(key, opt = {}) {
   state.infoOpen = true; state.infoKey = key; state.panel = 'info';
   const story = !!b.story;
   const img = THUMB[key] ? `<img src="${THUMB[key]}" alt="${esc(b.name)}">` : `<div class="noimg">${b.emo || '☄️'}</div>`;
-  const seal = story ? '📖 É de uma história' : '🔬 É de verdade';
+  const seal = story ? '📖 Uma história que virou real' : '🔬 É de verdade';
   const enl = b.enlarged ? ' <span class="seal enl">🔍 aumentado</span>' : '';
   const hasCur = b.curios && b.curios.length;
   showPanel(`
@@ -3198,7 +3199,7 @@ function renderAst() {
   let cards = AST_KEYS.map(k => card(k, BODY[k].emo, BODY[k].name, BODY[k].size, true)).join('');
   cards += card('meteoro', '✨', 'Estrela cadente', 'Pedrinhas do espaço que brilham', false);
   if (save.dino) cards += card('dino', '🦕', 'A pedra dos dinossauros', 'Uma história real, de muito tempo atrás', false);
-  cards += card('b612', '🌹', 'B612 ✨', 'Um planetinha de uma história', false);
+  cards += card('b612', '🌹', 'B612 ✨', 'A casinha do Pequeno Príncipe, que virou real', false);
   showPanel(`<h2>🪨 Asteroides famosos</h2><p>Arraste de lado ou use as setas. Toque em “Ir até ele”.</p>
     <div class="carWrap"><button class="carA l" data-act="carL" aria-label="Anterior">◀</button><div class="car" id="car">${cards}</div><button class="carA r" data-act="carR" aria-label="Próximo">▶</button></div>`);
   state.showSmall = true;
@@ -3248,7 +3249,7 @@ QUIZ.push(
   { id: 'q11', obj: 'ceres', q: 'Qual é a maior pedra do cinturão de asteroides?', a: 'ceres', exp: 'Ceres é a maior pedra do cinturão. Ela é tão grande que virou planeta anão!', opts: [IMG('ceres', 'Ceres', 'ceres'), IMG('bennu', 'Bennu', 'bennu'), IMG('apofis', 'Apófis', 'apofis')] },
   { id: 'q12', obj: 'dimorfo', q: 'Uma nave deu um empurrão em qual asteroide?', a: 'dimorfo', exp: 'A nave DART deu um empurrão em Dimorfo, de treino, para a gente aprender a proteger a Terra.', opts: [IMG('dimorfo', 'Dimorfo', 'dimorfo'), IMG('psique', 'Psiquê', 'psique'), IMG('apofis', 'Apófis', 'apofis')] },
   { id: 'q13', obj: 'meteoro', q: 'Estrela cadente é uma estrela de verdade?', a: 'nao', exp: 'Estrela cadente não é uma estrela. É uma pedrinha do espaço brilhando no ar da Terra.', opts: [EM('sim', 'Sim, é uma estrela', '⭐'), EM('nao', 'Não, é uma pedrinha do espaço brilhando', '☄️')] },
-  { id: 'q14', obj: 'b612', q: 'O B612 existe de verdade ou é de uma história?', a: 'hist', exp: 'O B612 é de uma história! Mas as lições dele são de verdade.', opts: [EM('real', 'Existe de verdade', '🔬'), EM('hist', 'É de uma história', '📖')] },
+  { id: 'q14', obj: 'b612', q: 'De quem é a casinha B612?', a: 'pp', exp: 'O B612 é a casinha do Pequeno Príncipe. Hoje existe até um asteroide de verdade com esse nome!', opts: [EM('pp', 'Do Pequeno Príncipe', '🌹'), EM('astro', 'De um astronauta', '🧑‍🚀'), EM('dino', 'De um dinossauro', '🦕')] },
   { id: 'q15', obj: 'b612', q: 'O que o Pequeno Príncipe arrancava todo dia?', a: 'baobas', exp: 'Ele arrancava os brotos de baobá, para eles não crescerem demais.', opts: [EM('baobas', 'Os brotos de baobá', '🌱'), EM('rosas', 'As rosas', '🌹'), EM('cenouras', 'As cenouras', '🥕')] },
   { id: 'q16', obj: 'exp:seasons', q: 'O que faz existir o verão: a Terra chegar perto do Sol ou a Terra ser inclinada?', a: 'incl', exp: 'É a Terra ser inclinada! O verão não acontece porque a Terra chega mais perto do Sol.', opts: [EM('perto', 'A Terra chegar perto do Sol', '☀️'), EM('incl', 'A Terra ser inclinada', '🌍')] },
   { id: 'q17', obj: 'exp:moon', q: 'As fases da Lua são a sombra da Terra?', a: 'nao', exp: 'Não! A sombra da Terra só aparece na Lua quando tem eclipse. As fases vêm da metade da Lua que o Sol ilumina.', opts: [EM('sim', 'Sim', '🌑'), EM('nao', 'Não', '🌙')] },
