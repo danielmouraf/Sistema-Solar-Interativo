@@ -347,6 +347,30 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 .tourEmo{display:flex;gap:4px;justify-content:center;flex-wrap:wrap;flex-basis:100%;font-size:18px}
 .tourEmo .te{opacity:.4;transition:transform .3s,opacity .3s}.tourEmo .te.done{opacity:.85}.tourEmo .te.on{opacity:1;transform:scale(1.5)}
 .panel.story .fact b{color:#8a5a14}.panel.story .fact{background:rgba(120,80,20,.08)}
+
+/* ===== UX claro e sem sobreposição ===== */
+html,body{background:#0b1430}
+.dock .narr,.dock .narr *{color:#e8efff}
+@media (max-width:760px){
+  .dock{flex-direction:column;gap:4px}
+  .dock .narr{flex:none;max-height:58px}
+  .dctl{width:100%;justify-content:space-between;flex-wrap:nowrap}
+  .dctl .rng,.dctl input[type=range]{flex:1;min-width:60px}
+  #toolbar{width:calc(100vw - 16px);overflow:visible;justify-content:space-between}
+  #toolbar .btn{flex:1;min-width:0;min-height:56px;padding:4px 2px;font-size:11px;line-height:1.1}
+}
+.lbl{background:rgba(12,24,52,.78);border-color:rgba(255,255,255,.35)}
+.avatar{transition:opacity .25s}
+@media (max-width:760px){body.panel-open .avatar,body.panel-open .bubble{opacity:0;pointer-events:none}}
+.dock{background:rgba(14,24,52,.78);border-color:rgba(255,255,255,.16)}
+.panel{background:rgba(14,24,52,.94)}
+#intro .lbl,#intro ~ #labels .lbl{opacity:.25}
+@media (max-width:760px){
+  .dock{max-height:none}
+  .dock .narr{max-height:44px;font-size:14px}
+  #bottom{gap:4px}
+  .dctl{flex-wrap:wrap}
+}
 </style>
 </head>
 <body>
@@ -839,10 +863,11 @@ let PR = Math.min(window.devicePixelRatio || 1, 2);
 let VW = innerWidth, VH = innerHeight, lastBox = '';
 renderer.setPixelRatio(PR);
 renderer.setSize(innerWidth, innerHeight, false);
-renderer.setClearColor(0x03060d, 1);
+renderer.setClearColor(0x0b1430, 1);
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(32, innerWidth / innerHeight, 0.1, 4000);
-scene.add(new THREE.AmbientLight(0x3a4a70, 0.35));
+scene.add(new THREE.AmbientLight(0x7d92c8, 0.85));
+scene.add(new THREE.HemisphereLight(0xbcd0ff, 0x2a2f55, 0.55));
 scene.add(new THREE.PointLight(0xfff0d8, 2.2, 0, 0)); /* luz do Sol na origem, sem perda por distância */
 
 const DOT = glowTex('rgba(255,255,255,1)', 'rgba(255,255,255,0.35)');
@@ -1493,8 +1518,10 @@ function showPanel(html, opt = {}) {
   const pn = $('panel');
   pn.classList.toggle('story', !!opt.story);
   pn.hidden = false;
+  document.body.classList.add('panel-open');
 }
 function closePanel() {
+  document.body.classList.remove('panel-open');
   state.showSmall = false;
   if (!tour.on) Narr.stop();
   clearTimeout(state.prevTimer); state.prev = null;
@@ -2185,8 +2212,8 @@ function updateLabels() {
     b.focusObj.getWorldPosition(_w);
     _w.y += (b.rad * 1.5 + 0.6) * ((b.tilt && b.key !== 'sol') ? PS : 1);
     const p = toScreen(_w);
-    if (!p.ok || p.x < -60 || p.x > VW + 60 || p.y < -60 || p.y > VH + 60) { b.label.style.display = 'none'; continue; }
-    const lw = b.name.length * 8.5 + 24, rc = { x0: p.x - lw / 2, x1: p.x + lw / 2, y0: p.y - 32, y1: p.y - 4 };
+    if (!p.ok || p.x < 30 || p.x > VW - 30 || p.y < 40 || p.y > VH - 20) { b.label.style.display = 'none'; continue; }
+    const lw = b.name.length * 9.5 + 34, rc = { x0: p.x - lw / 2 - 4, x1: p.x + lw / 2 + 4, y0: p.y - 40, y1: p.y + 2 };
     if (pri(b) !== 0 && placed.some(q => rc.x0 < q.x1 && rc.x1 > q.x0 && rc.y0 < q.y1 && rc.y1 > q.y0)) { b.label.style.display = 'none'; continue; }
     placed.push(rc);
     b.label.style.display = '';
