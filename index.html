@@ -1713,6 +1713,8 @@ function renderMov() {
       <button class="btn" style="min-height:76px;font-size:16px" data-act="sizeOpen">📏 Tamanho de verdade</button></div>`);
 }
 /* MODO PAPAI: abre só com toque longo de 2 segundos na engrenagem */
+const APP_VERSION = '2.3.0';
+const APP_BUILD = '25/11/2026 às 08:44 (Brasília)';
 function renderPapai() {
   state.infoOpen = false; state.panel = 'papai';
   const t = (c, a, arg, label) => `<button class="btn sm ${c ? 'on' : ''}" data-act="${a}"${arg !== undefined ? ` data-arg="${arg}"` : ''}>${label}</button>`;
@@ -1756,6 +1758,8 @@ function renderPapai() {
     ${reset}
     <div class="cat">Sobre</div>
     <p style="font-size:14px">Tamanhos e distâncias foram ajustados na cena principal para facilitar a visualização. Não confunda escala visual com escala física real.</p>
+    <div class="cat">Versão</div>
+    <p style="font-size:14px">Versão <b>${APP_VERSION}</b><br>Última atualização: <b>${APP_BUILD}</b></p>
     <p class="copyline">© 2026 Daniel Moura Ferreira. Todos os direitos reservados. Criado com Three.js e Web Speech API.</p>
     </div>`);
 }
