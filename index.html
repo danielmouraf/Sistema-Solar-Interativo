@@ -364,7 +364,14 @@ html,body{background:#0b1430}
 @media (max-width:760px){body.panel-open .avatar,body.panel-open .bubble{opacity:0;pointer-events:none}}
 .dock{background:rgba(14,24,52,.78);border-color:rgba(255,255,255,.16)}
 .panel{background:rgba(14,24,52,.94)}
-#intro .lbl,#intro ~ #labels .lbl{opacity:.25}
+body:has(#intro:not([hidden])) #labels{display:none}
+#intro{background:radial-gradient(ellipse at center,rgba(14,24,58,.82),rgba(8,14,34,.97))}
+#intro .about{margin-top:6px;max-width:420px;background:none;border:0}
+#intro .about summary{font-size:12px;font-weight:600;opacity:.6;text-align:center}
+#intro h1{font-size:clamp(28px,6vw,44px)}
+#intro .hero{width:clamp(120px,30vw,180px)}
+#intro .avTitle{display:none}
+#intro .who{margin:8px 0 4px}
 @media (max-width:760px){
   .dock{max-height:none}
   .dock .narr{max-height:44px;font-size:14px}
@@ -458,7 +465,6 @@ html,body{background:#0b1430}
       <h3>Para que idade é indicado?</h3><p>Foi pensado para 5 a 6 anos, mas serve também para crianças maiores.</p>
       <h3>Quem criou?</h3><p>O projeto foi criado por Daniel Moura Ferreira.</p>
     </details>
-    <p class="small">Toque nos planetas para conhecê-los de pertinho. Funciona melhor em notebook ou tablet, no Chrome ou no Edge.</p>
   </div>
 </section>
 
@@ -490,7 +496,7 @@ const mkCanvas = (w, h) => { const c = document.createElement('canvas'); c.width
 const SAVE_KEY = 'sistemaSolar.v2', SAVE_KEY_V1 = 'planetario-sistema-solar-v1';
 const SAVE_DEFAULT = () => ({
   v: 2, name: 'Maya', avatar: 'maya', idade: 5, rate: 1.1,
-  voiceOn: true, captions: true, narrLevel: 'completo', preview: true, dino: true, breakMin: 20,
+  voiceOn: true, captions: false, narrLevel: 'completo', preview: true, dino: true, breakMin: 20,
   orbits: true, labels: true, speed: 'normal', mode: 'edu',
   stars: 0, done: {}, visited: {}, seals: {}, words: {}, wrong: {}, drawings: [], curiSeen: {}, onboarded: false
 });
